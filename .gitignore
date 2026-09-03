@@ -30,3 +30,4 @@
 .kittify/workspaces/
 .kittify/legacy-warning-shown-*
 .kittify/encoding-provenance/
+.worktrees/
