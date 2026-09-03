@@ -17,8 +17,8 @@ subtasks:
 - T050
 phase: Phase 4 - Polish
 assignee: ''
-agent: claude
-shell_pid: '25348'
+agent: "claude:sonnet-5:frontend-freddy:implementer"
+shell_pid: "25348"
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -171,3 +171,4 @@ On completion:
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP10 --to <status>` to change WP status.
+- 2026-09-03T19:10:18Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=25348 – Assigned agent via action command
