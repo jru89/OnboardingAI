@@ -38,10 +38,10 @@ split into one file per module under `js/data/modules/` (plus an
 | T023 | Implement match-lab.js generic engine | WP05 | | [D] |
 | T024 | Verify match-lab.js's data shape fits all 4 use cases; adjust/split if not | WP05 | | [D] |
 | T025 | Wire checklist/match completion state into progress.js | WP05 | | [D] |
-| T026 | Implement spot-mistake-lab.js (graded, retriable) | WP06 | [P] |
-| T027 | Implement quiz-lab.js (graded, retriable) | WP06 | [P] |
-| T028 | Implement download-lab.js | WP06 | [P] |
-| T029 | Wire graded-lab score/attempt state into progress.js | WP06 | |
+| T026 | Implement spot-mistake-lab.js (graded, retriable) | WP06 | [D] |
+| T027 | Implement quiz-lab.js (graded, retriable) | WP06 | [D] |
+| T028 | Implement download-lab.js | WP06 | [D] |
+| T029 | Wire graded-lab score/attempt state into progress.js | WP06 | | [D] |
 | T030 | Author Module 1 content + checklist config | WP07 | [P] |
 | T031 | Author Module 2 content + match config | WP07 | [P] |
 | T032 | Author Module 3 content + spot-mistake config | WP07 | [P] |
