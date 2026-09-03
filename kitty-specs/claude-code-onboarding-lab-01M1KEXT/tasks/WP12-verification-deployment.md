@@ -28,6 +28,7 @@ subtasks:
 phase: Phase 4 - Polish
 assignee: ''
 agent: claude
+shell_pid: '36152'
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -170,3 +171,4 @@ deployment readiness. On completion:
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP12 --to <status>` to change WP status.
+- 2026-09-03T20:04:08Z – user – shell_pid=36152 – Moved to planned
