@@ -10,6 +10,9 @@ requirement_refs:
 - FR-021
 - FR-022
 tracker_refs: []
+planning_base_branch: feat/claude-code-onboarding-lab
+merge_target_branch: feat/claude-code-onboarding-lab
+branch_strategy: Planning artifacts for this mission were generated on feat/claude-code-onboarding-lab. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feat/claude-code-onboarding-lab unless the human explicitly redirects the landing branch.
 subtasks:
 - T007
 - T008
