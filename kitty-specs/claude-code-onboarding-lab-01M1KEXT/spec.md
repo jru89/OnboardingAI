@@ -106,21 +106,20 @@ artifacts to take into her own real Claude Code session.
 
 | ID | Requirement | Status |
 |---|---|---|
-| NFR-001 | The app SHALL require no backend server, database, or external API calls (including no calls to any LLM/AI API) — all functionality runs client-side. | Draft |
-| NFR-002 | The landing view SHALL be interactive within 2 seconds on a typical broadband connection on a mid-range laptop or tablet. | Draft |
-| NFR-003 | The app SHALL remain usable (no broken layout, no clipped/unreadable content) at viewport widths from 360px up through desktop widths. | Draft |
-| NFR-004 | Every technical term introduced in course content (e.g., "repo," "MCP," "clone," "commit") SHALL be defined inline or via an accessible glossary reference on first use, so a reader with no prior software-development vocabulary can follow along. | Draft |
-| NFR-005 | The app SHALL require no user account, login, or collection of personal data. | Draft |
-| NFR-006 | The app SHALL be deployable as a static site with no build step, to GitHub Pages or an equivalent free static host. | Draft |
+| NFR-001 | The landing view SHALL be interactive within 2 seconds on a typical broadband connection on a mid-range laptop or tablet. | Draft |
+| NFR-002 | The app SHALL remain usable (no broken layout, no clipped/unreadable content) at viewport widths from 360px up through desktop widths. | Draft |
+| NFR-003 | Every technical term introduced in course content (e.g., "repo," "MCP," "clone," "commit") SHALL be defined inline or via an accessible glossary reference on first use, so a reader with no prior software-development vocabulary can follow along. | Draft |
+| NFR-004 | The app SHALL require no user account, login, or collection of personal data. | Draft |
 
 ### Constraints
 
 | ID | Constraint | Status |
 |---|---|---|
-| C-001 | No backend, server-side code, or third-party/API calls — including no calls to any LLM API — are part of the v1 implementation; the prompt builder assembles text locally without generating or evaluating it via an AI model. | Draft |
+| C-001 | No backend, server-side code, database, or third-party/API calls — including no calls to any LLM API — are part of the v1 implementation; the prompt builder assembles text locally without generating or evaluating it via an AI model. | Draft |
 | C-002 | The capstone module must not attempt to replicate, simulate, or execute spec-kitty, Claude Code, or any AI agent workflow inside the app itself; it hands off to the learner's own real environment. | Draft |
 | C-003 | Course content is authored in English only for v1. | Draft |
 | C-004 | Single-learner, single-device usage model — no multi-user accounts, sync, or sharing features in v1. | Draft |
+| C-005 | The app SHALL be deployable as a static site with no build step, to GitHub Pages or an equivalent free static host. | Draft |
 
 ## Key Entities
 
