@@ -15,6 +15,7 @@ export function mount(container: HTMLElement, lab: Lab, moduleId: string): { unm
 - `lab` — the static `Lab` record from `js/data/modules.js` (id, type, graded, config).
 - `moduleId` — the parent module's id, needed by builder-type labs to key their draft (see `contracts/progress-store.md`, `setBuilderDraft`).
 - Returns an object with `unmount()`, called by the router before rendering the next view — every lab engine must clean up its own event listeners here (this is what makes FR-024's "no dead-end screens" and clean navigation actually hold under repeated visits, not just on first render).
+- **Optional `onComplete(callback)`**: added during WP03. `module-view.js` derives module-completion status from the persisted progress record itself (`getProgress()`), not from anything a lab claims — so this is a pure convenience, never a requirement. If a mounted lab's returned object also includes an `onComplete(callback)` subscribe function, `module-view.js` calls it once so it can re-check completion sooner than the next debounced progress write, rather than waiting on it. No engine is required to implement this; omitting it only means completion re-checks happen on the normal debounced write cadence instead of immediately.
 
 ## Behavioral requirements every engine must meet
 
