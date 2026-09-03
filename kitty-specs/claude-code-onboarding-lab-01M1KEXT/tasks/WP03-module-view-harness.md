@@ -20,6 +20,7 @@ subtasks:
 phase: Phase 1 - Foundation
 assignee: ''
 agent: claude
+shell_pid: '26172'
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -212,3 +213,4 @@ generic harness. On completion:
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP03 --to <status>` to change WP status.
+- 2026-09-03T15:28:17Z – user – shell_pid=26172 – Moved to planned
