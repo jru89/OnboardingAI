@@ -20,8 +20,8 @@ subtasks:
 - T021
 phase: Phase 2 - Shared Components
 assignee: ''
-agent: claude
-shell_pid: '6056'
+agent: "claude:sonnet-5:frontend-freddy:implementer"
+shell_pid: "6056"
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -218,3 +218,4 @@ The single recurring interactive component used across four modules
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP04 --to <status>` to change WP status.
+- 2026-09-03T15:28:43Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=6056 – Assigned agent via action command
