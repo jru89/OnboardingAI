@@ -13,12 +13,12 @@ split into one file per module under `js/data/modules/` (plus an
 
 | ID | Description | WP | Parallel |
 |---|---|---|---|
-| T001 | Create index.html app shell + PWA meta/link tags | WP01 | |
-| T002 | Implement hash-based router in js/app.js | WP01 | |
-| T003 | Implement persistent header/nav chrome | WP01 | [P] |
-| T004 | Implement base css/style.css (responsive 360px+) | WP01 | [P] |
-| T005 | Implement scroll-to-top utility | WP01 | [P] |
-| T006 | Keyboard/mouse-only navigability pass | WP01 | |
+| T001 | Create index.html app shell + PWA meta/link tags | WP01 | | [D] |
+| T002 | Implement hash-based router in js/app.js | WP01 | | [D] |
+| T003 | Implement persistent header/nav chrome | WP01 | [D] |
+| T004 | Implement base css/style.css (responsive 360px+) | WP01 | [D] |
+| T005 | Implement scroll-to-top utility | WP01 | [D] |
+| T006 | Keyboard/mouse-only navigability pass | WP01 | | [D] |
 | T007 | Implement js/lib/progress.js core (default record, corrupt-data fallback) | WP02 | |
 | T008 | Implement debounced write + onSaved subscription | WP02 | |
 | T009 | Implement setModuleStatus/setLabState/setBuilderDraft/resetProgress | WP02 | |
