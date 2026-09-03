@@ -7,6 +7,10 @@ reviewed_at: '2026-09-03T16:01:29Z'
 reviewer_agent: unknown
 verdict: rejected
 wp_id: WP03
+review_artifact_override_at: "2026-09-03T16:09:40Z"
+review_artifact_override_actor: "operator"
+review_artifact_override_wp_id: "WP03"
+review_artifact_override_reason: "Review passed (cycle 2/5): re-verified independently. Confirmed onComplete convention now correctly documented in contracts/lab-engine-contract.md (Optional onComplete(callback) section, real content in primary checkout), module-view.js comment (lines 141-146) accurately reflects it with no false claims, code implementation matches. Supersedes review-cycle-4.md rejection which flagged exactly this issue -- fix commits 4fecece (contract) and 19207cf (comment) resolve it. Spot-check clean: static server, module route renders, no console errors, back-link works."
 ---
 
 # WP03 Review — Cycle 3
