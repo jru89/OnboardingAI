@@ -1,7 +1,7 @@
 {
-  "event_count": 73,
-  "last_event_id": "01M1MBKWH5HYF6GWNKSNXNPP57",
-  "materialized_at": "2026-09-03T19:23:31.749598+00:00",
+  "event_count": 74,
+  "last_event_id": "01M1MCM6X9TMWRCA3JBJGFW9P6",
+  "materialized_at": "2026-09-03T19:41:10.953806+00:00",
   "mission_number": "",
   "mission_slug": "claude-code-onboarding-lab-01M1KEXT",
   "mission_type": "software-dev",
@@ -11,8 +11,8 @@
     "canceled": 0,
     "claimed": 0,
     "done": 0,
-    "for_review": 0,
-    "in_progress": 1,
+    "for_review": 1,
+    "in_progress": 0,
     "in_review": 0,
     "planned": 2
   },
@@ -83,9 +83,9 @@
     "WP10": {
       "actor": "claude:sonnet-5:frontend-freddy:implementer",
       "force_count": 0,
-      "lane": "in_progress",
-      "last_event_id": "01M1MAVJCKJ4CJG5BCXBXARPBZ",
-      "last_transition_at": "2026-09-03T19:10:14.929363+00:00"
+      "lane": "for_review",
+      "last_event_id": "01M1MCM6X9TMWRCA3JBJGFW9P6",
+      "last_transition_at": "2026-09-03T19:41:10.953806+00:00"
     },
     "WP11": {
       "actor": "finalize-tasks",
