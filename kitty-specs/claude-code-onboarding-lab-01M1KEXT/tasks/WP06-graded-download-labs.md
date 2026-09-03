@@ -21,8 +21,8 @@ subtasks:
 - T029
 phase: Phase 2 - Shared Components
 assignee: ''
-agent: "claude:sonnet-5:frontend-freddy:implementer"
-shell_pid: "17152"
+agent: "claude:sonnet-5:frontend-freddy:reviewer"
+shell_pid: "348"
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -178,3 +178,4 @@ engine. On completion:
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP06 --to <status>` to change WP status.
 - 2026-09-03T16:10:29Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=17152 – Assigned agent via action command
 - 2026-09-03T16:20:13Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=17152 – Ready for review
+- 2026-09-03T16:21:02Z – claude:sonnet-5:frontend-freddy:reviewer – shell_pid=348 – Started review via action command
