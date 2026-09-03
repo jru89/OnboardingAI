@@ -22,6 +22,7 @@ subtasks:
 phase: Phase 1 - Foundation
 assignee: ''
 agent: claude
+shell_pid: '30868'
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
