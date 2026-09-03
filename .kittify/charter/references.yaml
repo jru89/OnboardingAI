@@ -1,0 +1,224 @@
+schema_version: 1.0.0
+generated_at: '2026-09-03T15:03:26Z'
+mission: software-dev
+template_set: software-dev-default
+references:
+- id: USER:PROJECT_PROFILE
+  kind: user_profile
+  title: User Project Profile
+  summary: Project-specific interview answers captured for charter compilation.
+  source_path: .kittify/charter/interview/answers.yaml
+  local_path: _LIBRARY/user-project-profile.md
+- id: DIRECTIVE:DIRECTIVE_001
+  kind: directive
+  title: Architectural Integrity Standard
+  summary: "System designs must maintain clear separation of concerns and well-defined
+    component boundaries so that each part of the system is independently understandable,
+    testable, and replaceable without cascading changes.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-001.md
+- id: DIRECTIVE:DIRECTIVE_003
+  kind: directive
+  title: Decision Documentation Requirement
+  summary: "Material technical and governance decisions must be captured with enough
+    context that future contributors can understand why a path was chosen and what
+    constraints must remain true.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-003.md
+- id: DIRECTIVE:DIRECTIVE_010
+  kind: directive
+  title: Specification Fidelity Requirement
+  summary: "Implemented behavior and produced artifacts must remain faithful to approved
+    specifications, with any necessary deviations explicitly documented and reviewed
+    before acceptance.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-010.md
+- id: DIRECTIVE:DIRECTIVE_024
+  kind: directive
+  title: Locality of Change
+  summary: "Changes should stay close to the problem being solved to reduce blast
+    radius, simplify review, and lower regression risk.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-024.md
+- id: DIRECTIVE:DIRECTIVE_025
+  kind: directive
+  title: Boy Scout Rule
+  summary: "Leave touched areas in a better state by default. When an area already
+    modified for the current task carries a failing test, lint, or type issue, fixing
+    it is the default stance — not an optional nicety. Establishing whether a failure
+    is pre-existing routinely costs more effort than simply fixing it, and litigating
+    blame leaves the campground dirtier; so the default is to fix, and to defer only
+    with an explicit rationale.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-025.md
+- id: DIRECTIVE:DIRECTIVE_028
+  kind: directive
+  title: Efficient Local Tooling
+  summary: "Local work should prefer efficient, low-noise tooling so investigation,
+    editing, validation, and repository operations stay fast and reproducible across
+    development environments.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-028.md
+- id: DIRECTIVE:DIRECTIVE_031
+  kind: directive
+  title: Context-Aware Design
+  summary: "Every design decision must be made with explicit awareness of the bounded
+    context it belongs to. Code, terminology, and abstractions must align with the
+    context's ubiquitous language. Crossing a context boundary requires an explicit
+    translation layer; implicit coupling across boundaries is prohibited.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-031.md
+- id: DIRECTIVE:DIRECTIVE_032
+  kind: directive
+  title: Conceptual Alignment
+  summary: "Agents must never assume that shared vocabulary implies shared meaning.
+    Before acting on any task that contains domain-specific, ambiguous, or overloaded
+    terminology, the agent must explicitly state its interpretation of each key term
+    and confirm that interpretation with the requester. Misaligned understanding discovered
+    after implementation is far more costly than a brief clarification exchange before
+    it begins.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-032.md
+- id: DIRECTIVE:DIRECTIVE_033
+  kind: directive
+  title: Targeted Staging Policy
+  summary: "Agent-authored commits must stage only the expected deliverables for the
+    current work package. Blanket staging commands that could inadvertently include
+    unrelated changes, secrets, or build artefacts are prohibited.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-033.md
+- id: DIRECTIVE:DIRECTIVE_037
+  kind: directive
+  title: Living Documentation Sync
+  summary: "Behavior-describing artifacts must evolve together. When observable behavior
+    changes, the canonical examples, acceptance checks, narrative specifications,
+    user documentation, glossary terms, code-level documentation, and architecture
+    records must be updated in the same change so no reader is left with a stale picture
+    of the system.\n"
+  source_path: ''
+  local_path: _LIBRARY/directive-directive-037.md
+- id: TACTIC:acceptance-test-first
+  kind: tactic
+  title: Acceptance Test Driven Development (ATDD)
+  summary: Anchor implementation work in externally observable behavior before 
+    internal coding begins.
+  source_path: ''
+  local_path: _LIBRARY/tactic-acceptance-test-first.md
+- id: TACTIC:anti-corruption-layer
+  kind: tactic
+  title: Anti-Corruption Layer
+  summary: "Isolate your domain model from external or legacy systems by placing a
+    translation layer at the boundary. The ACL translates between the foreign system's
+    semantics and your own ubiquitous language, preventing external models from leaking
+    into and corrupting your domain design. Originally described by Eric Evans in
+    Domain-Driven Design; also known as Gateway when the emphasis is on translation
+    rather than defense.\n"
+  source_path: ''
+  local_path: _LIBRARY/tactic-anti-corruption-layer.md
+- id: TACTIC:bounded-context-identification
+  kind: tactic
+  title: Bounded Context Identification
+  summary: "Identify and draw boundaries around regions of a system where a single
+    consistent domain model and ubiquitous language apply. Instead of forcing one
+    unified model across an entire organization, accept that different contexts need
+    different models and define explicit integration points between them. Based on
+    Eric Evans's DDD strategic design and Martin Fowler's Bounded Context pattern.\n"
+  source_path: ''
+  local_path: _LIBRARY/tactic-bounded-context-identification.md
+- id: TACTIC:domain-event-capture
+  kind: tactic
+  title: Domain Event Capture
+  summary: "Funnel significant state changes through immutable Domain Event objects
+    that are persisted before processing. Separates input recording from business
+    reaction, enabling auditability, replay, and decoupled system evolution. Based
+    on Martin Fowler's Domain Event pattern and Eric Evans's DDD events.\n"
+  source_path: ''
+  local_path: _LIBRARY/tactic-domain-event-capture.md
+- id: TACTIC:glossary-curation-interview
+  kind: tactic
+  title: Glossary Curation Interview
+  summary: Systematically expand a living glossary through structured HiC-led 
+    curation rounds, ensuring all new terms are clear, well-grouped, and 
+    approved before inclusion.
+  source_path: ''
+  local_path: _LIBRARY/tactic-glossary-curation-interview.md
+- id: TACTIC:language-driven-design
+  kind: tactic
+  title: Language-Driven Design
+  summary: "Treat language drift as an architectural signal. When terminology becomes
+    inconsistent or ambiguous across code, docs, and conversation, it predicts deeper
+    structural problems. Reviewers use linguistic checks to catch architectural issues
+    before they manifest as bugs or coupling.\n"
+  source_path: ''
+  local_path: _LIBRARY/tactic-language-driven-design.md
+- id: TACTIC:paula-patterns-architecture-scout-review
+  kind: tactic
+  title: Paula Patterns Architecture Scout Review
+  summary: "Review recurring boundary leaks, whack-a-field fixes, ownership confusion,
+    and compatibility regressions by dispatching five architecture scouts with different
+    lenses, then synthesizing one pragmatic matrix that separates the smallest release-safe
+    fix from deferred architecture repair.\n"
+  source_path: ''
+  local_path: _LIBRARY/tactic-paula-patterns-architecture-scout-review.md
+- id: TACTIC:refactoring-strangler-fig
+  kind: tactic
+  title: Refactoring Strangler Fig
+  summary: Replace existing functionality incrementally by running a new 
+    implementation alongside the old and rerouting behavior step by step.
+  source_path: ''
+  local_path: _LIBRARY/tactic-refactoring-strangler-fig.md
+- id: TACTIC:review-intent-and-risk-first
+  kind: tactic
+  title: Review Intent and Risk First
+  summary: Review work by first understanding intent and surfacing risks before 
+    suggesting changes or solutions.
+  source_path: ''
+  local_path: _LIBRARY/tactic-review-intent-and-risk-first.md
+- id: TACTIC:tdd-red-green-refactor
+  kind: tactic
+  title: Test Driven Development (TDD)
+  summary: Enforce short, verifiable coding loops that improve design while 
+    keeping behavior safe.
+  source_path: ''
+  local_path: _LIBRARY/tactic-tdd-red-green-refactor.md
+- id: TACTIC:traceable-decisions
+  kind: tactic
+  title: Traceable Decisions
+  summary: "Ensure that material architectural and governance decisions are captured
+    with enough context that future contributors can understand why a path was chosen
+    and what constraints must remain true. Apply when: establishing a new pattern,
+    choosing between alternative implementations with meaningful trade-offs, making
+    a trade-off that accepts known costs or risks, or beginning any task with architectural
+    implications.\n"
+  source_path: ''
+  local_path: _LIBRARY/tactic-traceable-decisions.md
+- id: TACTIC:usage-examples-sync
+  kind: tactic
+  title: Usage Examples Sync
+  summary: "Keep canonical usage examples, acceptance checks, and the narrative artifacts
+    that quote or reference them in step with behavior changes so no downstream reader
+    is left with stale examples.\n"
+  source_path: ''
+  local_path: _LIBRARY/tactic-usage-examples-sync.md
+- id: STYLEGUIDE:kitty-glossary-writing
+  kind: styleguide
+  title: Kitty Glossary Writing Styleguide
+  summary: 'Clear, not clever: definitions exist to help the reader understand, not
+    to demonstrate expertise.'
+  source_path: ''
+  local_path: _LIBRARY/styleguide-kitty-glossary-writing.md
+- id: TOOLGUIDE:efficient-local-tooling
+  kind: toolguide
+  title: Efficient Local Tooling
+  summary: Operation-oriented guidance for using efficient local tools during 
+    repository work.
+  source_path: ''
+  local_path: _LIBRARY/toolguide-efficient-local-tooling.md
+- id: TEMPLATE_SET:software-dev-default
+  kind: template_set
+  title: software-dev-default
+  summary: Build high-quality software with structured workflows and test-driven
+    development
+  source_path: 
+    C:\Users\jrutt\pipx\venvs\spec-kitty-cli\Lib\site-packages\doctrine\missions\software-dev\mission.yaml
+  local_path: _LIBRARY/template-set-software-dev-default.md

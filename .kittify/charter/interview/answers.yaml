@@ -1,0 +1,49 @@
+schema_version: "1.0.0"
+mission: "software-dev"
+profile: "minimal"
+answers:
+  project_intent: >-
+    A hosted, static e-learning app that teaches AI fundamentals and Claude
+    Code prompting skills through 12 interactive modules, culminating in a
+    real graduation project run entirely in the learner's own Claude Code
+    session. Single non-technical learner, single device, no accounts.
+  languages_frameworks: >-
+    Vanilla JavaScript (ES2022, native ES modules), HTML5, CSS3. No
+    framework, no build step, no runtime dependency beyond the browser.
+    Mirrors the sibling rijbewijs-study-app project's stack exactly.
+  testing_requirements: >-
+    No automated test framework and no TDD requirement -- there is no build
+    step to run a test runner through (matches the sibling project). Every
+    work package instead verifies its own subtasks manually via the browser
+    preview tools, and WP12 runs a full end-to-end pass against
+    quickstart.md's 9-step manual verification checklist before merge.
+  quality_gates: >-
+    spec-kitty's own implement-review loop is the quality gate per work
+    package (one independent reviewer pass per WP, per the standard
+    implement -> for_review -> approved flow). No external linter is
+    configured (plain JS, no build tooling) so no diff-scoped lint sweep
+    applies. The Boy Scout Rule and Targeted Staging Policy directives
+    apply to every WP.
+  review_policy: >-
+    One independent review per work package via spec-kitty's review action.
+    No external pull-request approval process -- this is a solo-developer
+    project with the stakeholder reviewing the finished app directly.
+  performance_targets: >-
+    Landing view interactive within 2 seconds on a typical broadband
+    connection on mid-range hardware (NFR-001). No other performance
+    targets -- single local user, zero network calls in the app itself.
+  deployment_constraints: >-
+    Static site only: no backend, no server-side code, no database, no
+    build step. Deployable to GitHub Pages or an equivalent free static
+    host with zero build tooling (C-001, C-005).
+selected_paradigms: []
+selected_directives:
+  - "DIRECTIVE_003"
+  - "DIRECTIVE_010"
+  - "DIRECTIVE_024"
+  - "DIRECTIVE_025"
+  - "DIRECTIVE_028"
+  - "DIRECTIVE_033"
+available_tools:
+  - "spec-kitty"
+  - "git"
