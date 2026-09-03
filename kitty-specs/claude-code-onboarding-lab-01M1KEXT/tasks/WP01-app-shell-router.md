@@ -20,8 +20,8 @@ subtasks:
 - T006
 phase: Phase 1 - Foundation
 assignee: ''
-agent: "claude:sonnet-5:frontend-freddy:implementer"
-shell_pid: "28012"
+agent: "claude:sonnet-5:frontend-freddy:reviewer"
+shell_pid: "4172"
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -299,3 +299,4 @@ without it. On completion:
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP01 --to <status>` to change WP status.
 - 2026-09-03T15:05:56Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=28012 – Assigned agent via action command
 - 2026-09-03T15:13:56Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=28012 – Ready for review
+- 2026-09-03T15:14:26Z – claude:sonnet-5:frontend-freddy:reviewer – shell_pid=4172 – Started review via action command
