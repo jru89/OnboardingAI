@@ -187,6 +187,38 @@ and a generic match/sort/scenario-Q&A engine reused by four modules
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP05 --to <status>` to change WP status.
 - 2026-09-03T16:10:17Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=22192 – Assigned agent via action command
 - 2026-09-03T16:20:02Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=22192 – Ready for review
+- 2026-09-03T16:31:33Z – claude (frontend-freddy) – T024 four-shape
+  verification result: mounted four hand-written stub configs through
+  `match-lab.js`, one per real target use case — Module 2's "any chatbot
+  vs. Claude Code specifically" sort-into-buckets, Module 4's folder-tree
+  matching, Module 5's MCP scenario Q&A, and Module 9's tool-choice quiz —
+  each against the `{prompt, options, correctOption, visual?, id?}` shape.
+  Three of four (Module 2, Module 5, Module 9) fit the base `{prompt,
+  options, correctOption}` shape with zero changes. Module 4's folder-tree
+  case was the one exception: a bare prompt string undersold the
+  folder-tree illustration the exercise needs, so the shape was extended
+  additively with an optional `visual` field (rendered above the options in
+  a `<pre>` block when present); all three other use cases simply omit it.
+  An optional `id` field was also added for stable per-item storage keys,
+  since data-model.md's base config shape doesn't carry one and falling
+  back to array index alone would be fragile if item order ever changes.
+  Decision: kept one engine and extended it additively rather than
+  splitting into two engines — none of the four shapes were genuinely
+  incompatible, only Module 4 needed one additive optional field. This
+  resolves the `plan.md` IC-04 risk for WP05; no further shape changes are
+  expected before WP07/WP08 author real content.
+- 2026-09-03T16:31:33Z – claude (frontend-freddy) – Dual-shape config
+  acceptance note (raised in review cycle 1 as a non-blocking follow-up):
+  both `checklist-lab.js` and `match-lab.js` accept `lab.config` as either
+  a bare array (the shape literally documented in data-model.md) or an
+  `{ items: [...] }` wrapper, via an identical small `getItems()` helper in
+  each file. This is not speculative defensive coding — WP03's
+  already-approved `module-view.js` ships Module 1's live stub content
+  today in the `{ items: [...] }` shape, so accepting only the bare-array
+  shape would make Module 1's checklist silently render zero items. Since
+  WP05 does not own `module-view.js`, reconciling the two documented
+  shapes (picking one canonically) is left as a follow-up for whoever owns
+  that file or data-model.md, not fixed here.
 - 2026-09-03T16:20:31Z – claude:sonnet-5:frontend-freddy:reviewer – shell_pid=27720 – Started review via action command
 - 2026-09-03T16:30:06Z – user – shell_pid=27720 – Moved to planned
 - 2026-09-03T16:30:49Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=11252 – Started implementation via action command
