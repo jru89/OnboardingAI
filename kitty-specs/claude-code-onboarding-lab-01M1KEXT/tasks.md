@@ -55,10 +55,10 @@ split into one file per module under `js/data/modules/` (plus an
 | T040 | Author Module 11 content + prompt-builder config | WP08 | [P] |
 | T041 | Author Module 12 content + download config (graduation) | WP08 | [P] |
 | T042 | Create js/data/modules/index.js aggregator | WP08 | |
-| T043 | Author mock use-case #1 (.md) | WP09 | [P] |
-| T044 | Author mock use-case #2 (.md) | WP09 | [P] |
-| T045 | Author mock use-case #3 (.md) | WP09 | [P] |
-| T046 | Author mock use-case #4, optional stretch (.md) | WP09 | [P] |
+| T043 | Author mock use-case #1 (.md) | WP09 | [D] |
+| T044 | Author mock use-case #2 (.md) | WP09 | [D] |
+| T045 | Author mock use-case #3 (.md) | WP09 | [D] |
+| T046 | Author mock use-case #4, optional stretch (.md) | WP09 | [D] |
 | T047 | Author Module 1 interface SVG diagram | WP10 | [P] |
 | T048 | Author Module 4 folder-tree SVG diagram | WP10 | [P] |
 | T049 | Author any needed comparison-table graphics (optional) | WP10 | [P] |
