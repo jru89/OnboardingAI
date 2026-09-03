@@ -20,6 +20,7 @@ subtasks:
 phase: Phase 4 - Polish
 assignee: ''
 agent: claude
+shell_pid: '13884'
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -183,3 +184,4 @@ proven pattern. Deliberately sequenced last among the build WPs (per
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP11 --to <status>` to change WP status.
+- 2026-09-03T19:49:46Z – user – shell_pid=13884 – Moved to planned
