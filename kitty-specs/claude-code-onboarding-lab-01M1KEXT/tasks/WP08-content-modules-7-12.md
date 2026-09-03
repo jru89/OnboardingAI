@@ -30,6 +30,7 @@ subtasks:
 phase: Phase 3 - Content
 assignee: ''
 agent: claude
+shell_pid: '1724'
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
