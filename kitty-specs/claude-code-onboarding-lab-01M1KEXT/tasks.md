@@ -67,10 +67,10 @@ split into one file per module under `js/data/modules/` (plus an
 | T052 | Create PWA icon set | WP11 | [D] |
 | T053 | Create service-worker.js (precache, offline-first) | WP11 | | [D] |
 | T054 | Register service worker + verify install prompt | WP11 | | [D] |
-| T055 | Run quickstart.md manual verification checklist end-to-end | WP12 | |
-| T056 | Cross-browser/responsive check at 360px | WP12 | [P] |
-| T057 | Offline verification pass | WP12 | [P] |
-| T058 | README deployment section + GitHub Pages readiness check | WP12 | [P] |
+| T055 | Run quickstart.md manual verification checklist end-to-end | WP12 | | [D] |
+| T056 | Cross-browser/responsive check at 360px | WP12 | [D] |
+| T057 | Offline verification pass | WP12 | [D] |
+| T058 | README deployment section + GitHub Pages readiness check | WP12 | [D] |
 
 ## Work Packages
 
