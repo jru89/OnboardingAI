@@ -24,11 +24,11 @@ split into one file per module under `js/data/modules/` (plus an
 | T009 | Implement setModuleStatus/setLabState/setBuilderDraft/resetProgress | WP02 | | [D] |
 | T010 | Build landing-view.js (module list, statuses, overall progress) | WP02 | | [D] |
 | T011 | Add reset-progress control with confirmation gate | WP02 | | [D] |
-| T012 | Implement module-view.js (content sections + lab mount) | WP03 | |
-| T013 | Implement shared exit-lab/back-to-module affordance | WP03 | |
-| T014 | Implement glossary-term inline rendering support | WP03 | [P] |
-| T015 | Implement SVG diagram embedding support | WP03 | [P] |
-| T016 | Implement per-module "mark done" completion rule | WP03 | |
+| T012 | Implement module-view.js (content sections + lab mount) | WP03 | | [D] |
+| T013 | Implement shared exit-lab/back-to-module affordance | WP03 | | [D] |
+| T014 | Implement glossary-term inline rendering support | WP03 | [D] |
+| T015 | Implement SVG diagram embedding support | WP03 | [D] |
+| T016 | Implement per-module "mark done" completion rule | WP03 | | [D] |
 | T017 | Implement js/lib/prompt-builder.js (assemblePrompt, validateFields) | WP04 | | [D] |
 | T018 | Implement js/lib/clipboard.js (copy + manual-select fallback) | WP04 | [D] |
 | T019 | Implement prompt-builder-lab.js (form UI) | WP04 | | [D] |
