@@ -59,10 +59,10 @@ split into one file per module under `js/data/modules/` (plus an
 | T044 | Author mock use-case #2 (.md) | WP09 | [D] |
 | T045 | Author mock use-case #3 (.md) | WP09 | [D] |
 | T046 | Author mock use-case #4, optional stretch (.md) | WP09 | [D] |
-| T047 | Author Module 1 interface SVG diagram | WP10 | [P] |
-| T048 | Author Module 4 folder-tree SVG diagram | WP10 | [P] |
-| T049 | Author any needed comparison-table graphics (optional) | WP10 | [P] |
-| T050 | Wire diagram references into module content | WP10 | |
+| T047 | Author Module 1 interface SVG diagram | WP10 | [D] |
+| T048 | Author Module 4 folder-tree SVG diagram | WP10 | [D] |
+| T049 | Author any needed comparison-table graphics (optional) | WP10 | [D] |
+| T050 | Wire diagram references into module content | WP10 | | [D] |
 | T051 | Create manifest.json | WP11 | [P] |
 | T052 | Create PWA icon set | WP11 | [P] |
 | T053 | Create service-worker.js (precache, offline-first) | WP11 | |
