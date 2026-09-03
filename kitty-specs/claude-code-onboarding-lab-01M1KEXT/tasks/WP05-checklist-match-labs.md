@@ -188,3 +188,4 @@ Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-ta
 - 2026-09-03T16:10:17Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=22192 – Assigned agent via action command
 - 2026-09-03T16:20:02Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=22192 – Ready for review
 - 2026-09-03T16:20:31Z – claude:sonnet-5:frontend-freddy:reviewer – shell_pid=27720 – Started review via action command
+- 2026-09-03T16:30:06Z – user – shell_pid=27720 – Moved to planned
