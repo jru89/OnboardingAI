@@ -4,7 +4,7 @@ artifact_type: spec-kitty.analysis-report
 command: /spec-kitty.analyze
 mission_slug: claude-code-onboarding-lab-01M1KEXT
 mission_id: 01M1KEXTXY2WAYREARVNMMZ0EB
-generated_at: '2026-09-03T16:30:40.776751+00:00'
+generated_at: '2026-09-03T16:35:13.897342+00:00'
 analyzer_agent: unknown
 input_artifacts:
   spec.md:
@@ -21,10 +21,10 @@ input_artifacts:
     sha256: 3473c45f743f6cd7857a5ed714d899a0b5079b23b46de38aa2060603023c31ab
 verdict: ready
 issue_counts:
-  high: 0
-  medium: 3
   low: 1
   critical: 0
+  high: 0
+  medium: 3
   info: 0
 findings:
 - id: F1
