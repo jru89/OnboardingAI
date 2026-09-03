@@ -1,0 +1,430 @@
+/* ==================================================================== */
+/* Claude Code Onboarding Lab -- base stylesheet                        */
+/* Mobile-first: base rules target 360px width; min-width media queries */
+/* progressively enhance for tablet/desktop. Plain CSS, no framework.   */
+/* Later work packages append view/lab-specific rules below the        */
+/* existing sections -- keep new rules in their own commented section.  */
+/* ==================================================================== */
+
+/* --- tokens --- */
+:root {
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-primary: #2563eb;
+  --color-primary-contrast: #ffffff;
+  --color-border: #e2e8f0;
+  --color-focus: #2563eb;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-size-base: 16px;
+
+  --max-content-width: 720px;
+}
+
+/* --- reset / base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* Guard against any accidental overflow breaking the 360px layout. */
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0 0 var(--space-4) 0;
+}
+
+button {
+  font: inherit;
+}
+
+/* --- focus visibility --- */
+/* Never remove the native outline without an equally visible replacement.
+   :focus-visible layers an extra, higher-contrast ring on top for
+   keyboard users without adding a ring on mouse clicks. */
+a:focus,
+button:focus,
+[tabindex]:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* --- header --- */
+#app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+}
+
+.course-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.home-link {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.home-link:hover {
+  text-decoration: underline;
+}
+
+.crumb-sep {
+  color: var(--color-border);
+}
+
+#current-view-label {
+  color: var(--color-text);
+}
+
+.overall-progress {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  min-height: 1em;
+}
+
+.saved-indicator {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.saved-indicator[hidden] {
+  display: none;
+}
+
+/* --- main --- */
+#app-main {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-6);
+  min-height: 60vh;
+}
+
+/* --- scroll-to-top --- */
+.scroll-to-top {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 20;
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top[hidden] {
+  display: none;
+}
+
+/* --- responsive: tablet+ --- */
+@media (min-width: 600px) {
+  .header-inner {
+    padding: var(--space-3) var(--space-5);
+  }
+
+  #app-main {
+    padding: var(--space-6) var(--space-5);
+  }
+}
+
+/* --- responsive: desktop+ --- */
+@media (min-width: 900px) {
+  :root {
+    --max-content-width: 840px;
+  }
+}
+
+/* --- landing view (WP02) --- */
+.module-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.module-card {
+  display: block;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+}
+
+.module-card:hover {
+  border-color: var(--color-primary);
+}
+
+.module-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.module-card-title {
+  font-weight: 600;
+}
+
+.module-card-summary {
+  margin: var(--space-2) 0 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.status-badge {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px var(--space-2);
+  border-radius: 999px;
+  white-space: nowrap;
+  background: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.status-badge--in_progress {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge--done {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.reset-section {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+
+.reset-progress-btn {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+}
+
+.reset-progress-btn:hover {
+  border-color: var(--color-primary);
+}
+
+@media (min-width: 600px) {
+  .module-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- module content: pre-formatted worked examples (WP12 fix, T056) --- */
+/* Modules 6/8/10 render <pre> blocks for "worked example" prompt templates.
+   <pre> defaults to `white-space: pre`, which does not wrap -- at 360px
+   this pushed the block to ~1300px wide and body's overflow-x: hidden
+   silently clipped the right side of every line instead of showing it.
+   Wrapping (rather than a horizontal scrollbar) keeps these readable on
+   narrow screens without hiding content behind a scroll gesture. */
+.module-content-body pre {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+/* --- prompt builder lab (WP12 fix, T056) --- */
+/* .pb-* had no rules at all anywhere in this file, so every field
+   rendered at the browser's intrinsic ~20-column textarea width
+   (~160px) regardless of viewport -- broken at 360px and at desktop
+   alike, with the label overlapping the tiny box. Give fields real
+   block-level sizing and stack form/preview by default, matching this
+   file's mobile-first pattern. */
+.prompt-builder-lab {
+  margin-top: var(--space-5);
+}
+
+.pb-back-link {
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+
+.pb-intro {
+  color: var(--color-text-muted);
+}
+
+.pb-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+.pb-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pb-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.pb-field-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.pb-field-badge {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.pb-field-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.pb-preview-pane {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.pb-missing-hint {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.pb-preview {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 0.9rem;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.pb-copy-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.pb-copy-button {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+}
+
+.pb-copy-button:hover {
+  opacity: 0.9;
+}
+
+.pb-copy-status {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .pb-layout {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}

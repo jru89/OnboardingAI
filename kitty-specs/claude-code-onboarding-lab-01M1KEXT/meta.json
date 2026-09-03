@@ -3,7 +3,7 @@
   "flattened": true,
   "friendly_name": "Claude Code Onboarding Lab",
   "mission_id": "01M1KEXTXY2WAYREARVNMMZ0EB",
-  "mission_number": null,
+  "mission_number": 1,
   "mission_slug": "claude-code-onboarding-lab-01M1KEXT",
   "mission_type": "software-dev",
   "pr_bound": true,
