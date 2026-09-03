@@ -29,11 +29,11 @@ split into one file per module under `js/data/modules/` (plus an
 | T014 | Implement glossary-term inline rendering support | WP03 | [P] |
 | T015 | Implement SVG diagram embedding support | WP03 | [P] |
 | T016 | Implement per-module "mark done" completion rule | WP03 | |
-| T017 | Implement js/lib/prompt-builder.js (assemblePrompt, validateFields) | WP04 | |
-| T018 | Implement js/lib/clipboard.js (copy + manual-select fallback) | WP04 | [P] |
-| T019 | Implement prompt-builder-lab.js (form UI) | WP04 | |
-| T020 | Implement per-purpose-key draft isolation | WP04 | |
-| T021 | Live preview + required-field hinting polish | WP04 | |
+| T017 | Implement js/lib/prompt-builder.js (assemblePrompt, validateFields) | WP04 | | [D] |
+| T018 | Implement js/lib/clipboard.js (copy + manual-select fallback) | WP04 | [D] |
+| T019 | Implement prompt-builder-lab.js (form UI) | WP04 | | [D] |
+| T020 | Implement per-purpose-key draft isolation | WP04 | | [D] |
+| T021 | Live preview + required-field hinting polish | WP04 | | [D] |
 | T022 | Implement checklist-lab.js | WP05 | [P] |
 | T023 | Implement match-lab.js generic engine | WP05 | |
 | T024 | Verify match-lab.js's data shape fits all 4 use cases; adjust/split if not | WP05 | |
