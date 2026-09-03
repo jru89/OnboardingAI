@@ -11,5 +11,7 @@
   "purpose_tldr": "A hosted, static e-learning app that teaches AI fundamentals and Claude Code prompting skills through 11 interactive modules, culminating in a real capstone run in her own Claude Code session.",
   "slug": "claude-code-onboarding-lab-01M1KEXT",
   "target_branch": "feat/claude-code-onboarding-lab",
-  "topology": "flattened"
+  "topology": "flattened",
+  "vcs": "git",
+  "vcs_locked_at": "2026-09-03T15:05:52.207077+00:00"
 }
