@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-09-03T11:02:09.088573+00:00",
+  "flattened": true,
+  "friendly_name": "Claude Code Onboarding Lab",
+  "mission_id": "01M1KEXTXY2WAYREARVNMMZ0EB",
+  "mission_number": null,
+  "mission_slug": "claude-code-onboarding-lab-01M1KEXT",
+  "mission_type": "software-dev",
+  "pr_bound": true,
+  "purpose_context": "Onboards a non-technical family member to safe, effective use of Claude Code and AI-assisted work. Packages existing AI-adoption training material into a self-paced, no-backend web app modeled on the sibling rijbewijs-study-app project (static HTML/CSS/JS, PWA-installable, GitHub Pages hosting). Walks through AI/Claude Code fundamentals, data-safety habits, repo and MCP literacy, and prompting technique (101 and 201), each reinforced by a hands-on lab with copyable prompt output and downloadable .md scenario files. Culminates in a capstone that hands off to a real Claude Code session: the learner acts as a well-prepared client, providing context (including an existing best-practices reference document already in this repo) and a clear ask, then iterates with Claude as the implementing expert -- exercising the prompting and context-handling skills taught earlier in the course.",
+  "purpose_tldr": "A hosted, static e-learning app that teaches AI fundamentals and Claude Code prompting skills through 11 interactive modules, culminating in a real capstone run in her own Claude Code session.",
+  "slug": "claude-code-onboarding-lab-01M1KEXT",
+  "target_branch": "feat/claude-code-onboarding-lab",
+  "topology": "flattened"
+}

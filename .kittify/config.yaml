@@ -1,0 +1,12 @@
+project:
+  uuid: 5b48f8c4-3503-493a-9469-5fb53f441d9e
+  slug: claude-code-onboarding-lab
+  node_id: b051768c250c
+  build_id: 3e582a9e-88a3-47e5-a5cb-32c7ecf894e6
+vcs:
+  type: git
+agents:
+  available:
+  - claude
+  auto_commit: true
+  lint_on_edit: false
