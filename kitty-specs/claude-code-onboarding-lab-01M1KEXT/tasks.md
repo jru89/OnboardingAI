@@ -42,12 +42,12 @@ split into one file per module under `js/data/modules/` (plus an
 | T027 | Implement quiz-lab.js (graded, retriable) | WP06 | [D] |
 | T028 | Implement download-lab.js | WP06 | [D] |
 | T029 | Wire graded-lab score/attempt state into progress.js | WP06 | | [D] |
-| T030 | Author Module 1 content + checklist config | WP07 | [P] |
-| T031 | Author Module 2 content + match config | WP07 | [P] |
-| T032 | Author Module 3 content + spot-mistake config | WP07 | [P] |
-| T033 | Author Module 4 content + match config | WP07 | [P] |
-| T034 | Author Module 5 content + match config | WP07 | [P] |
-| T035 | Author Module 6 content + prompt-builder config | WP07 | [P] |
+| T030 | Author Module 1 content + checklist config | WP07 | [D] |
+| T031 | Author Module 2 content + match config | WP07 | [D] |
+| T032 | Author Module 3 content + spot-mistake config | WP07 | [D] |
+| T033 | Author Module 4 content + match config | WP07 | [D] |
+| T034 | Author Module 5 content + match config | WP07 | [D] |
+| T035 | Author Module 6 content + prompt-builder config | WP07 | [D] |
 | T036 | Author Module 7 content + download config | WP08 | [P] |
 | T037 | Author Module 8 content + quiz + rewrite-builder config | WP08 | [P] |
 | T038 | Author Module 9 content + match config | WP08 | [P] |
