@@ -42,6 +42,11 @@
   buried as unexamined "how."
 - Resolved a duplication issue during self-review: "no backend" originally
   appeared as both an NFR and a Constraint; consolidated into C-001 since it
-  is a hard boundary, not a graded quality attribute. NFRs were renumbered
-  accordingly (now NFR-001..NFR-004) and Constraints extended to C-001..C-005.
+  is a hard boundary, not a graded quality attribute.
+- Revised after stakeholder feedback (2026-09-03): added a 12th module
+  (Get Oriented), explicit nav-chrome and autosave requirements, light labs
+  for previously lab-less modules, and re-scoped the graduation module to a
+  fixed task (build a Gemini "minutes maker" bot) with exactly two reference
+  downloads and no worksheet/checklist/scripted prompts — a deliberate
+  reduction in hand-holding, captured in C-007 and the Assumptions section.
 - All items pass; no spec updates required before `/spec-kitty.plan`.
