@@ -48,13 +48,13 @@ split into one file per module under `js/data/modules/` (plus an
 | T033 | Author Module 4 content + match config | WP07 | [D] |
 | T034 | Author Module 5 content + match config | WP07 | [D] |
 | T035 | Author Module 6 content + prompt-builder config | WP07 | [D] |
-| T036 | Author Module 7 content + download config | WP08 | [P] |
-| T037 | Author Module 8 content + quiz + rewrite-builder config | WP08 | [P] |
-| T038 | Author Module 9 content + match config | WP08 | [P] |
-| T039 | Author Module 10 content + prompt-builder config | WP08 | [P] |
-| T040 | Author Module 11 content + prompt-builder config | WP08 | [P] |
-| T041 | Author Module 12 content + download config (graduation) | WP08 | [P] |
-| T042 | Create js/data/modules/index.js aggregator | WP08 | |
+| T036 | Author Module 7 content + download config | WP08 | [D] |
+| T037 | Author Module 8 content + quiz + rewrite-builder config | WP08 | [D] |
+| T038 | Author Module 9 content + match config | WP08 | [D] |
+| T039 | Author Module 10 content + prompt-builder config | WP08 | [D] |
+| T040 | Author Module 11 content + prompt-builder config | WP08 | [D] |
+| T041 | Author Module 12 content + download config (graduation) | WP08 | [D] |
+| T042 | Create js/data/modules/index.js aggregator | WP08 | | [D] |
 | T043 | Author mock use-case #1 (.md) | WP09 | [D] |
 | T044 | Author mock use-case #2 (.md) | WP09 | [D] |
 | T045 | Author mock use-case #3 (.md) | WP09 | [D] |
