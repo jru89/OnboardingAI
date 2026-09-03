@@ -1,16 +1,16 @@
 {
-  "event_count": 100,
-  "last_event_id": "01M1MG9DGJKE3WN7SHWPV6S4TX",
-  "materialized_at": "2026-09-03T20:45:11.570919+00:00",
+  "event_count": 101,
+  "last_event_id": "01M1MG9FM6SW61A0X4PJE2CMVB",
+  "materialized_at": "2026-09-03T20:45:13.734309+00:00",
   "mission_number": "1",
   "mission_slug": "claude-code-onboarding-lab-01M1KEXT",
   "mission_type": "software-dev",
   "summary": {
-    "approved": 2,
+    "approved": 1,
     "blocked": 0,
     "canceled": 0,
     "claimed": 0,
-    "done": 10,
+    "done": 11,
     "for_review": 0,
     "in_progress": 0,
     "in_review": 0,
@@ -88,11 +88,11 @@
       "last_transition_at": "2026-09-03T20:45:11.570919+00:00"
     },
     "WP11": {
-      "actor": "user",
+      "actor": "merge",
       "force_count": 1,
-      "lane": "approved",
-      "last_event_id": "01M1MDTWY5JGDVQ7AZ75VSQSNT",
-      "last_transition_at": "2026-09-03T20:02:18.693163+00:00"
+      "lane": "done",
+      "last_event_id": "01M1MG9FM6SW61A0X4PJE2CMVB",
+      "last_transition_at": "2026-09-03T20:45:13.734309+00:00"
     },
     "WP12": {
       "actor": "user",
