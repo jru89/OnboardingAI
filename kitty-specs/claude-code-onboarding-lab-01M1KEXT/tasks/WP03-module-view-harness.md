@@ -19,8 +19,8 @@ subtasks:
 - T016
 phase: Phase 1 - Foundation
 assignee: ''
-agent: claude
-shell_pid: '26172'
+agent: "claude:sonnet-5:frontend-freddy:implementer"
+shell_pid: "4512"
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -214,3 +214,4 @@ generic harness. On completion:
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP03 --to <status>` to change WP status.
 - 2026-09-03T15:28:17Z – user – shell_pid=26172 – Moved to planned
+- 2026-09-03T15:28:27Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=4512 – Started implementation via action command
