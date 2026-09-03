@@ -19,11 +19,11 @@ split into one file per module under `js/data/modules/` (plus an
 | T004 | Implement base css/style.css (responsive 360px+) | WP01 | [D] |
 | T005 | Implement scroll-to-top utility | WP01 | [D] |
 | T006 | Keyboard/mouse-only navigability pass | WP01 | | [D] |
-| T007 | Implement js/lib/progress.js core (default record, corrupt-data fallback) | WP02 | |
-| T008 | Implement debounced write + onSaved subscription | WP02 | |
-| T009 | Implement setModuleStatus/setLabState/setBuilderDraft/resetProgress | WP02 | |
-| T010 | Build landing-view.js (module list, statuses, overall progress) | WP02 | |
-| T011 | Add reset-progress control with confirmation gate | WP02 | |
+| T007 | Implement js/lib/progress.js core (default record, corrupt-data fallback) | WP02 | | [D] |
+| T008 | Implement debounced write + onSaved subscription | WP02 | | [D] |
+| T009 | Implement setModuleStatus/setLabState/setBuilderDraft/resetProgress | WP02 | | [D] |
+| T010 | Build landing-view.js (module list, statuses, overall progress) | WP02 | | [D] |
+| T011 | Add reset-progress control with confirmation gate | WP02 | | [D] |
 | T012 | Implement module-view.js (content sections + lab mount) | WP03 | |
 | T013 | Implement shared exit-lab/back-to-module affordance | WP03 | |
 | T014 | Implement glossary-term inline rendering support | WP03 | [P] |
