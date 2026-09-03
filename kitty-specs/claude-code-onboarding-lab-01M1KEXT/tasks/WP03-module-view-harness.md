@@ -19,8 +19,8 @@ subtasks:
 - T016
 phase: Phase 1 - Foundation
 assignee: ''
-agent: "claude:sonnet-5:frontend-freddy:implementer"
-shell_pid: "14844"
+agent: "claude:sonnet-5:frontend-freddy:reviewer"
+shell_pid: "30868"
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -221,3 +221,4 @@ Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-ta
 - 2026-09-03T16:01:31Z – user – shell_pid=34172 – Moved to planned
 - 2026-09-03T16:02:52Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=14844 – Started implementation via action command
 - 2026-09-03T16:06:59Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=14844 – Fixed: onComplete convention now correctly documented in contracts/lab-engine-contract.md (orchestrator-side edit); comment wording confirmed accurate
+- 2026-09-03T16:07:18Z – claude:sonnet-5:frontend-freddy:reviewer – shell_pid=30868 – Started review via action command
