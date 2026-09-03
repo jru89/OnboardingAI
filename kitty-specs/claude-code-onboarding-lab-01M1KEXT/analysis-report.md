@@ -4,7 +4,7 @@ artifact_type: spec-kitty.analysis-report
 command: /spec-kitty.analyze
 mission_slug: claude-code-onboarding-lab-01M1KEXT
 mission_id: 01M1KEXTXY2WAYREARVNMMZ0EB
-generated_at: '2026-09-03T15:19:18.194770+00:00'
+generated_at: '2026-09-03T15:26:28.900279+00:00'
 analyzer_agent: unknown
 input_artifacts:
   spec.md:
@@ -15,15 +15,15 @@ input_artifacts:
     sha256: b35809ab9afea30f3ef8e16822a7f9736bbac445260dd6e97d6fcdac0510db1e
   tasks.md:
     path: A:\_code\claude-code-onboarding-lab\kitty-specs\claude-code-onboarding-lab-01M1KEXT\tasks.md
-    sha256: 0c5539ee43bf4ec622569d650fcebf93525cfc4501129bcc87c5fa40a7839ff7
+    sha256: 6964c2c2e9a128a86c165340ace960ae32f4450f872dae0b67a7bd311d42b2c8
   charter:
     path: A:\_code\claude-code-onboarding-lab\.kittify\charter\charter.md
     sha256: 3473c45f743f6cd7857a5ed714d899a0b5079b23b46de38aa2060603023c31ab
 verdict: ready
 issue_counts:
+  high: 0
   low: 1
   critical: 0
-  high: 0
   medium: 3
   info: 0
 findings:
