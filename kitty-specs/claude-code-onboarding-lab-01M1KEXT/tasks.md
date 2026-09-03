@@ -34,10 +34,10 @@ split into one file per module under `js/data/modules/` (plus an
 | T019 | Implement prompt-builder-lab.js (form UI) | WP04 | | [D] |
 | T020 | Implement per-purpose-key draft isolation | WP04 | | [D] |
 | T021 | Live preview + required-field hinting polish | WP04 | | [D] |
-| T022 | Implement checklist-lab.js | WP05 | [P] |
-| T023 | Implement match-lab.js generic engine | WP05 | |
-| T024 | Verify match-lab.js's data shape fits all 4 use cases; adjust/split if not | WP05 | |
-| T025 | Wire checklist/match completion state into progress.js | WP05 | |
+| T022 | Implement checklist-lab.js | WP05 | [D] |
+| T023 | Implement match-lab.js generic engine | WP05 | | [D] |
+| T024 | Verify match-lab.js's data shape fits all 4 use cases; adjust/split if not | WP05 | | [D] |
+| T025 | Wire checklist/match completion state into progress.js | WP05 | | [D] |
 | T026 | Implement spot-mistake-lab.js (graded, retriable) | WP06 | [P] |
 | T027 | Implement quiz-lab.js (graded, retriable) | WP06 | [P] |
 | T028 | Implement download-lab.js | WP06 | [P] |
