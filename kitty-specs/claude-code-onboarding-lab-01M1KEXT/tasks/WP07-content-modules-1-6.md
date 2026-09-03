@@ -27,8 +27,8 @@ subtasks:
 - T035
 phase: Phase 3 - Content
 assignee: ''
-agent: claude
-shell_pid: '24508'
+agent: "claude:sonnet-5:frontend-freddy:implementer"
+shell_pid: "24508"
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -233,3 +233,4 @@ sketch, made specifically so this WP and WP08 can own disjoint files — see
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP07 --to <status>` to change WP status.
+- 2026-09-03T16:35:26Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=24508 – Assigned agent via action command
