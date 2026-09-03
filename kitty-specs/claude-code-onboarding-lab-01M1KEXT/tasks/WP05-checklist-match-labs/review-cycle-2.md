@@ -7,6 +7,10 @@ reviewed_at: '2026-09-03T16:30:04Z'
 reviewer_agent: unknown
 verdict: rejected
 wp_id: WP05
+review_artifact_override_at: "2026-09-03T16:34:40Z"
+review_artifact_override_actor: "operator"
+review_artifact_override_wp_id: "WP05"
+review_artifact_override_reason: "Review passed (cycle 2): T024 decision and dual-shape rationale now documented in Activity Log (verified present and accurate, resolving cycle-1's sole blocking issue); code unchanged from cycle 1's already-verified-sound implementation (git log confirms single commit 1434c2d touching js/views/labs/*.js, dated before this doc fix; match-lab.js's Activity Log pointer comment now resolves to real content)"
 ---
 
 **Issue 1**: T024's four-shape verification is not recorded in the WP's Activity Log, even though the WP prompt requires it explicitly and twice ("Record the decision and rationale in this WP's Activity Log" in T024 Step 2, and again in Review Guidance: "Confirm T024's four stub verifications actually ran (not just asserted in prose) — check the Activity Log for what was tested"). The Activity Log in `kitty-specs/claude-code-onboarding-lab-01M1KEXT/tasks/WP05-checklist-match-labs.md` currently contains only the auto-generated status-transition lines (Assigned/Ready for review/Started review) — there is no narrative entry describing which four stub configs were tried, what (if anything) didn't fit the base `{prompt, options, correctOption}` shape, or the rationale for extending it with the optional `visual`/`id` fields.
