@@ -22,6 +22,7 @@ subtasks:
 phase: Phase 2 - Shared Components
 assignee: ''
 agent: claude
+shell_pid: '17152'
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
