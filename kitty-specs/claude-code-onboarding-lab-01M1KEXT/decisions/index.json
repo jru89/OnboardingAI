@@ -1,0 +1,30 @@
+{
+  "entries": [
+    {
+      "created_at": "2026-09-03T13:58:30.482388Z",
+      "decision_id": "01M1KS0RAJ9MAJBYZCYFANXTRD",
+      "final_answer": "JS data modules (js/data/*.js objects, no runtime parsing) -- matches rijbewijs-study-app pattern",
+      "input_key": "content_authoring_format",
+      "mission_id": "01M1KEXTXY2WAYREARVNMMZ0EB",
+      "mission_slug": "claude-code-onboarding-lab-01M1KEXT",
+      "opened_by": "cli",
+      "options": [
+        "JS data modules (like rijbewijs-study-app: js/data/*.js objects, no runtime parsing)",
+        "Separate .md files per module, fetched and rendered client-side with a small markdown renderer",
+        "Other"
+      ],
+      "origin_flow": "plan",
+      "other_answer": false,
+      "question": "How should the 12 modules' lesson content be authored?",
+      "rationale": null,
+      "resolved_at": "2026-09-03T13:58:52.854900Z",
+      "resolved_by": null,
+      "slot_key": "plan.content.authoring-format",
+      "status": "resolved",
+      "step_id": null,
+      "summary_json": null
+    }
+  ],
+  "mission_id": "01M1KEXTXY2WAYREARVNMMZ0EB",
+  "version": 1
+}
