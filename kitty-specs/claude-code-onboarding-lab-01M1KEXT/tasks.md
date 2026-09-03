@@ -63,10 +63,10 @@ split into one file per module under `js/data/modules/` (plus an
 | T048 | Author Module 4 folder-tree SVG diagram | WP10 | [D] |
 | T049 | Author any needed comparison-table graphics (optional) | WP10 | [D] |
 | T050 | Wire diagram references into module content | WP10 | | [D] |
-| T051 | Create manifest.json | WP11 | [P] |
-| T052 | Create PWA icon set | WP11 | [P] |
-| T053 | Create service-worker.js (precache, offline-first) | WP11 | |
-| T054 | Register service worker + verify install prompt | WP11 | |
+| T051 | Create manifest.json | WP11 | [D] |
+| T052 | Create PWA icon set | WP11 | [D] |
+| T053 | Create service-worker.js (precache, offline-first) | WP11 | | [D] |
+| T054 | Register service worker + verify install prompt | WP11 | | [D] |
 | T055 | Run quickstart.md manual verification checklist end-to-end | WP12 | |
 | T056 | Cross-browser/responsive check at 360px | WP12 | [P] |
 | T057 | Offline verification pass | WP12 | [P] |
