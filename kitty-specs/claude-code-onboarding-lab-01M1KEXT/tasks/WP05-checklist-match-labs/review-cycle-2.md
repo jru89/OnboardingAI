@@ -1,0 +1,28 @@
+---
+affected_files: []
+cycle_number: 2
+mission_slug: claude-code-onboarding-lab-01M1KEXT
+reproduction_command:
+reviewed_at: '2026-09-03T16:30:04Z'
+reviewer_agent: unknown
+verdict: rejected
+wp_id: WP05
+---
+
+**Issue 1**: T024's four-shape verification is not recorded in the WP's Activity Log, even though the WP prompt requires it explicitly and twice ("Record the decision and rationale in this WP's Activity Log" in T024 Step 2, and again in Review Guidance: "Confirm T024's four stub verifications actually ran (not just asserted in prose) — check the Activity Log for what was tested"). The Activity Log in `kitty-specs/claude-code-onboarding-lab-01M1KEXT/tasks/WP05-checklist-match-labs.md` currently contains only the auto-generated status-transition lines (Assigned/Ready for review/Started review) — there is no narrative entry describing which four stub configs were tried, what (if anything) didn't fit the base `{prompt, options, correctOption}` shape, or the rationale for extending it with the optional `visual`/`id` fields.
+
+Worse, `match-lab.js`'s own header comment (lines 4-7) tells future readers to go check that Activity Log for "the four-shape verification this file's shape was checked against" — but that document has nothing there. A WP07/WP08 content author following that pointer while writing real Module 2/4/5/9 content will find it empty.
+
+I independently re-ran the T024 verification (mounted all four use-case stub shapes — Module 2 sort, Module 4 folder-tree matching with `visual`, Module 5 MCP scenario Q&A via the `{items:[...]}` shape, Module 9 tool-choice quiz — through `match-lab.js` in a throwaway browser harness) and confirmed the shape genuinely does fit all four: no console errors, correct rendering including the optional `visual` block, working immediate feedback, unlimited re-selection, and correct state persistence/restore across reload. So the underlying engineering is sound — this is a documentation/process gap, not a functional one.
+
+**Fix**: Add a dated entry to the WP05 Activity Log documenting the T024 verification: which four stub configs were mounted, that the base shape fit three of the four directly, and that Module 4's folder-tree case motivated the optional `visual` field (with the `id` field added to give stable storage keys since the base data-model.md shape doesn't carry one). This should take a few minutes and requires no code changes — the code itself is fine.
+
+**Not blocking, but worth a follow-up note in the Activity Log or a comment**: `checklist-lab.js` and `match-lab.js` both accept `lab.config` as either a bare array (per data-model.md's documented shape) or `{items: [...]}` (because that's the shape WP03's already-approved `module-view.js` actually ships for Module 1's live stub content today). I reviewed this dual-shape acceptance specifically since it was flagged as a potential smell, and judged it acceptable: it's a small (~4 line), identically-implemented, well-commented `getItems()` helper in both files, not duplicated messy logic, and WP05 does not own `module-view.js` so it cannot "fix the caller" without violating file ownership boundaries on an already-approved WP. I confirmed in the running app that Module 1's checklist (which uses the `{items:[...]}` shape today) would silently render zero items if only the bare-array shape were accepted — so this shim is load-bearing, not speculative. Consider filing a small follow-up to reconcile data-model.md's documented shape with module-view.js's actual stub shape (pick one canonically) before WP07/WP08 author real content, so the shim can eventually be dropped — but this does not block WP05.
+
+**Verified in this review (all pass)**:
+- Diff scope: WP05's commit (1434c2d) touches only `js/views/labs/checklist-lab.js` and `js/views/labs/match-lab.js` (both new); `module-view.js` untouched.
+- Checklist engine: checkbox render/toggle, persistence across reload, "all checked" completion signal correctly propagates through `progress.js` -> `module-view.js` -> landing page ("Get Oriented" showed "Done" after checking both items).
+- Match engine: all four real use-case shapes (including the `visual` field and the `{items:[...]}` object shape) mount and render correctly; immediate correct/incorrect feedback; unlimited re-selection (no lock after a wrong pick); selections persist and restore correctly across reload.
+- Neither file touches `localStorage` directly (grep confirms only `js/lib/progress.js` does).
+- No grading/score/pass-fail UI in either engine (self-marked only, per contract).
+- No console errors attributable to either engine during manual testing (the one console 404 seen was for `assets/svg/get-oriented-overview.svg`, an out-of-scope content asset owned by a different WP).
