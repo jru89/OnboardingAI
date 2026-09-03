@@ -29,8 +29,8 @@ subtasks:
 - T042
 phase: Phase 3 - Content
 assignee: ''
-agent: claude
-shell_pid: '1724'
+agent: "claude:sonnet-5:frontend-freddy:implementer"
+shell_pid: "1724"
 history:
 - at: '2026-09-03T14:08:39Z'
   actor: system
@@ -255,3 +255,4 @@ that finally wires all 12 modules into the app. On completion:
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP08 --to <status>` to change WP status.
+- 2026-09-03T19:10:05Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=1724 – Assigned agent via action command
