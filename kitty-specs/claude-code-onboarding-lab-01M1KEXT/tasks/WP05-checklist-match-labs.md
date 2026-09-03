@@ -222,3 +222,4 @@ Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-ta
 - 2026-09-03T16:20:31Z – claude:sonnet-5:frontend-freddy:reviewer – shell_pid=27720 – Started review via action command
 - 2026-09-03T16:30:06Z – user – shell_pid=27720 – Moved to planned
 - 2026-09-03T16:30:49Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=11252 – Started implementation via action command
+- 2026-09-03T16:33:24Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=11252 – Activity Log updated with T024 decision and dual-shape rationale on the planning branch; lane-e's stray kitty-specs commit removed
