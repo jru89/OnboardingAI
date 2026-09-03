@@ -1,7 +1,7 @@
 {
-  "event_count": 8,
-  "last_event_id": "01M1KT164B8RZS8DEDAQK30P93",
-  "materialized_at": "2026-09-03T14:16:13.195429+00:00",
+  "event_count": 9,
+  "last_event_id": "01M1KT1727JDY5KB2875FQ09AJ",
+  "materialized_at": "2026-09-03T14:16:14.151701+00:00",
   "mission_number": "",
   "mission_slug": "claude-code-onboarding-lab-01M1KEXT",
   "mission_type": "software-dev",
@@ -14,7 +14,7 @@
     "for_review": 0,
     "in_progress": 0,
     "in_review": 0,
-    "planned": 8
+    "planned": 9
   },
   "work_packages": {
     "WP01": {
@@ -72,6 +72,13 @@
       "lane": "planned",
       "last_event_id": "01M1KT164B8RZS8DEDAQK30P93",
       "last_transition_at": "2026-09-03T14:16:13.195429+00:00"
+    },
+    "WP09": {
+      "actor": "finalize-tasks",
+      "force_count": 0,
+      "lane": "planned",
+      "last_event_id": "01M1KT1727JDY5KB2875FQ09AJ",
+      "last_transition_at": "2026-09-03T14:16:14.151701+00:00"
     }
   }
 }
