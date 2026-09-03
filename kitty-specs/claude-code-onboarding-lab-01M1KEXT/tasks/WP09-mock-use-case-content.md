@@ -155,3 +155,4 @@ immediately. On completion:
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP09 --to <status>` to change WP status.
 - 2026-09-03T15:06:10Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=19024 – Assigned agent via action command
+- 2026-09-03T15:09:21Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=19024 – Ready for review
