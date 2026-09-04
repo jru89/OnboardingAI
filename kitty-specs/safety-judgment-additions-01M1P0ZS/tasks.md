@@ -40,9 +40,9 @@ medium):
 | T008 | Author Module 3's two new categories + "when in doubt" rule + safe-example contrast | WP03 | [P] |
 | T009 | Author Module 3's closing "don't use AI at all" section | WP03 | [P] |
 | T010 | Manual browser verification of Module 3's new content | WP03 | |
-| T011 | Author Module 4's "How do I know what changed?" section | WP04 | [P] |
-| T012 | Author Module 6's "A good prompt doesn't guarantee a good answer" section | WP04 | [P] |
-| T013 | Manual browser verification of both new sections (Modules 4 and 6) | WP04 | |
+| T011 | Author Module 4's "How do I know what changed?" section | WP04 | [D] |
+| T012 | Author Module 6's "A good prompt doesn't guarantee a good answer" section | WP04 | [D] |
+| T013 | Manual browser verification of both new sections (Modules 4 and 6) | WP04 | | [D] |
 | T014 | Author Module 8's "Verification checklist" section + lab source-facts intro | WP05 | [P] |
 | T015 | Author `module-8-verification` quiz lab config (3 items) | WP05 | |
 | T016 | Manual browser verification of Module 8's new section and lab | WP05 | |
