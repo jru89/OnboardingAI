@@ -33,10 +33,10 @@ medium):
 | T002 | Verify Module 8's existing quiz lab renders/behaves identically before and after the change | WP01 | | [D] |
 | T003 | Manual browser verification of the new field with a temporary test config | WP01 | | [D] |
 | T023 | Fix `evaluateModuleStatus` to re-evaluate past "done" (analyze finding C1) | WP01 | | [D] |
-| T004 | Author "Claude can do more than answer you" content section (Module 1) | WP02 | [P] |
-| T005 | Author `module-1-permission-check` quiz lab config (5 items) | WP02 | |
-| T006 | Wire the new lab into Module 1's `labs` array | WP02 | |
-| T007 | Manual browser verification of Module 1's new section and lab | WP02 | |
+| T004 | Author "Claude can do more than answer you" content section (Module 1) | WP02 | [D] |
+| T005 | Author `module-1-permission-check` quiz lab config (5 items) | WP02 | | [D] |
+| T006 | Wire the new lab into Module 1's `labs` array | WP02 | | [D] |
+| T007 | Manual browser verification of Module 1's new section and lab | WP02 | | [D] |
 | T008 | Author Module 3's two new categories + "when in doubt" rule + safe-example contrast | WP03 | [D] |
 | T009 | Author Module 3's closing "don't use AI at all" section | WP03 | [D] |
 | T010 | Manual browser verification of Module 3's new content | WP03 | | [D] |
