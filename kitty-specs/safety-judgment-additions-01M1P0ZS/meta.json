@@ -1,0 +1,15 @@
+{
+  "coordination_branch": "kitty/mission-safety-judgment-additions-01M1P0ZS",
+  "created_at": "2026-09-04T10:56:16.349559+00:00",
+  "flattened": false,
+  "friendly_name": "Safety & Judgment Curriculum Additions",
+  "mission_id": "01M1P0ZSEVNYPHCCQPS2MFVXNH",
+  "mission_number": null,
+  "mission_slug": "safety-judgment-additions-01M1P0ZS",
+  "mission_type": "software-dev",
+  "purpose_context": "The 12-module course currently teaches how to ask Claude Code well, but not how to work with it when reality is messier than the prompt: reviewing what changed, catching wrong or invented output, recovering from a mistake, and knowing when not to use AI at all. Two independent reviews of the finished course, run separately, converged on this same gap. This mission closes it by adding reading content and two new graded labs to 7 of the existing 12 modules -- no new modules, no reordering, no change to any module's id/order/purposeKey, since real learner progress already keys off those values. Everything reuses the existing lab engines and matches the existing content/design style exactly.",
+  "purpose_tldr": "Adds safety, verification, and recovery content across 7 existing modules so the course teaches working safely with AI, not just prompting it well.",
+  "slug": "safety-judgment-additions-01M1P0ZS",
+  "target_branch": "feat/safety-judgment-additions",
+  "topology": "coord"
+}
