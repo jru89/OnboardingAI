@@ -434,6 +434,108 @@ button:focus-visible,
   font-size: 0.9rem;
 }
 
+/* --- module content: sections, lists, glossary, tables (flow/spacing pass) --- */
+/* The design-system port above covered labs, nav, and badges, but never
+   reached the actual reading content: <ul>/<li> and <details>/<summary>
+   (glossary terms) fell back to bare browser defaults -- near-zero gap
+   between list items, and a glossary term sitting almost flush against
+   whatever followed it -- and nothing separated one content section from
+   the next section or from the lab mounted after it. That's what read as
+   "scrunched": a bullet list crowding straight into the next heading, a
+   collapsed glossary disclosure crowding straight into the lab's own
+   "Exit to all modules" link below it. */
+.module-content-section {
+  margin-bottom: var(--space-6);
+}
+
+.module-content-body ul,
+.module-content-body ol {
+  margin: 0 0 var(--space-4) 0;
+  padding-left: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.module-content-body li {
+  line-height: 1.5;
+}
+
+.module-content-body code {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-family: "Quicksand", monospace;
+  font-size: 0.9em;
+}
+
+.content-diagram {
+  margin: var(--space-4) 0;
+  border-radius: var(--radius-md);
+}
+
+.content-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 var(--space-4) 0;
+  font-size: 0.9rem;
+}
+
+.content-table th,
+.content-table td {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+}
+
+.content-table thead th {
+  background: var(--color-surface-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-primary-2);
+}
+
+.content-table tbody th {
+  background: var(--color-surface);
+  font-weight: 600;
+}
+
+.glossary-terms {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.glossary-term {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+}
+
+.glossary-term summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-primary-2);
+}
+
+.glossary-term[open] summary {
+  margin-bottom: var(--space-2);
+}
+
+.glossary-term p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.module-labs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
 /* --- shared "choice button" pattern --- */
 /* The look every graded/self-marked option across checklist, match, quiz,
    and spot-mistake shares: a full-width, stacked, generously-padded row
