@@ -49,9 +49,9 @@ medium):
 | T017 | Author Module 11's "What to do when Claude gets it wrong" section | WP06 | [P] |
 | T018 | Author `module-11-recovery` quiz lab config (1 item, 4 options) | WP06 | |
 | T019 | Manual browser verification of Module 11's new section and lab | WP06 | |
-| T020 | Author Module 12's "Before you start" readiness self-check (plain content) | WP07 | [P] |
-| T021 | Verify the self-check has no lab-engine, no persisted/graded state, no gating of the existing downloads | WP07 | |
-| T022 | Manual browser verification of Module 12's new content and both existing downloads | WP07 | |
+| T020 | Author Module 12's "Before you start" readiness self-check (plain content) | WP07 | [D] |
+| T021 | Verify the self-check has no lab-engine, no persisted/graded state, no gating of the existing downloads | WP07 | | [D] |
+| T022 | Manual browser verification of Module 12's new content and both existing downloads | WP07 | | [D] |
 
 ## Work Packages
 
