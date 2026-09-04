@@ -43,9 +43,9 @@ medium):
 | T011 | Author Module 4's "How do I know what changed?" section | WP04 | [D] |
 | T012 | Author Module 6's "A good prompt doesn't guarantee a good answer" section | WP04 | [D] |
 | T013 | Manual browser verification of both new sections (Modules 4 and 6) | WP04 | | [D] |
-| T014 | Author Module 8's "Verification checklist" section + lab source-facts intro | WP05 | [P] |
-| T015 | Author `module-8-verification` quiz lab config (3 items) | WP05 | |
-| T016 | Manual browser verification of Module 8's new section and lab | WP05 | |
+| T014 | Author Module 8's "Verification checklist" section + lab source-facts intro | WP05 | [D] |
+| T015 | Author `module-8-verification` quiz lab config (3 items) | WP05 | | [D] |
+| T016 | Manual browser verification of Module 8's new section and lab | WP05 | | [D] |
 | T017 | Author Module 11's "What to do when Claude gets it wrong" section | WP06 | [P] |
 | T018 | Author `module-11-recovery` quiz lab config (1 item, 4 options) | WP06 | |
 | T019 | Manual browser verification of Module 11's new section and lab | WP06 | |
