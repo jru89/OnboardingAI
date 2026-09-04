@@ -3,12 +3,27 @@
 **Input**: [plan.md](plan.md), [spec.md](spec.md), [data-model.md](data-model.md), [contracts/](contracts/), [research.md](research.md), [quickstart.md](quickstart.md)
 **Prerequisites**: plan.md complete (Implementation Concern Map IC-01..IC-08)
 
-22 subtasks (T001-T022) rolled into 7 work packages. WP01 (the `quiz-lab.js`
-explanation-field enhancement) is the one shared dependency: WP02, WP05, and
-WP06 each add a new lab that relies on it. WP03, WP04, and WP07 are
-pure content additions to files nothing else in this mission touches, so
-they have no dependencies and can run fully in parallel with WP01 and each
-other.
+23 subtasks (T001-T023) rolled into 7 work packages. WP01 (the `quiz-lab.js`
+explanation-field enhancement, plus a `module-view.js` fix added below) is
+the one shared dependency: WP02, WP05, and WP06 each add a new lab that
+relies on it. WP03, WP04, and WP07 are pure content additions to files
+nothing else in this mission touches, so they have no dependencies and can
+run fully in parallel with WP01 and each other.
+
+**Remediation applied after `/spec-kitty.analyze`** (report:
+[analysis-report.md](analysis-report.md), verdict `blocked` — 1 high, 2
+medium):
+
+- **C1 (high)**: added T023 to WP01 — `evaluateModuleStatus()` in
+  `js/views/module-view.js` early-exits once a module is `"done"` and
+  never re-checks, so Modules 1/8/11 would show a permanently stale
+  "done" badge for a learner who completed them before this mission
+  shipped. WP01 now also owns `js/views/module-view.js`.
+- **C2 (medium)**: added an explicit 360px-width check to the final
+  verification subtask of WP02, WP03, WP05, WP06, and WP07 (WP04 already
+  had one).
+- **C3 (medium)**: added an explicit "no undefined jargon" check to the
+  final verification subtask of every content-authoring WP (WP02–WP07).
 
 ## Subtask Index
 
@@ -17,6 +32,7 @@ other.
 | T001 | Add optional `explanation` field to quiz-lab.js's config item shape + render it in submit feedback | WP01 | |
 | T002 | Verify Module 8's existing quiz lab renders/behaves identically before and after the change | WP01 | |
 | T003 | Manual browser verification of the new field with a temporary test config | WP01 | |
+| T023 | Fix `evaluateModuleStatus` to re-evaluate past "done" (analyze finding C1) | WP01 | |
 | T004 | Author "Claude can do more than answer you" content section (Module 1) | WP02 | [P] |
 | T005 | Author `module-1-permission-check` quiz lab config (5 items) | WP02 | |
 | T006 | Wire the new lab into Module 1's `labs` array | WP02 | |
@@ -39,14 +55,14 @@ other.
 
 ## Work Packages
 
-### WP01 — Quiz Lab Engine: Explanation Field
+### WP01 — Quiz Lab Engine: Explanation Field + Module-Status Fix
 
-- **Summary**: Add an optional per-question `explanation` field to `quiz-lab.js`'s config shape, rendered after submit alongside the existing correct/incorrect text. The one shared foundation WP02/WP05/WP06 depend on.
+- **Summary**: Add an optional per-question `explanation` field to `quiz-lab.js`'s config shape, rendered after submit alongside the existing correct/incorrect text; plus (added post-analyze, T023) fix `evaluateModuleStatus()` in `module-view.js` so Modules 1/8/11 don't show a stale "done" badge for a learner who completed them before this mission's new labs shipped. The one shared foundation WP02/WP05/WP06 depend on.
 - **Priority**: P0 (blocks WP02, WP05, WP06)
-- **Independent test**: A quiz item with an `explanation` field shows that text after submit, for both a correct and an incorrect answer; Module 8's existing quiz (no `explanation` fields) renders identically to before this change.
-- **Estimated size**: 3 subtasks, ~200 lines
+- **Independent test**: A quiz item with an `explanation` field shows that text after submit, for both a correct and an incorrect answer; Module 8's existing quiz (no `explanation` fields) renders identically to before this change; a module manually put into a "done" state with an incomplete lab set re-evaluates to "in_progress" on next save/reload.
+- **Estimated size**: 4 subtasks, ~280 lines
 - **Dependencies**: none
-- **Subtasks**: T001, T002, T003
+- **Subtasks**: T001, T002, T003, T023
 - **Prompt file**: [tasks/WP01-quiz-lab-explanation-field.md](tasks/WP01-quiz-lab-explanation-field.md)
 
 ### WP02 — Module 1: Permission Judgment

@@ -183,7 +183,13 @@ an explicit prior design decision this WP must not violate. On completion:
   3. Confirm Module 12's status on the landing view is unaffected by this
      WP -- it should still transition to "done" purely based on the
      existing download lab's own completion rule, exactly as before.
-  4. Check the browser console for errors.
+  4. Resize to 360px width and confirm the new section renders without
+     layout breakage (NFR-002 -- added after `/spec-kitty.analyze`
+     finding C2, which flagged this check as missing from this WP).
+  5. Re-read the new content and confirm no term is used without a
+     plain-language explanation or glossary entry (NFR-001 -- added after
+     `/spec-kitty.analyze` finding C3).
+  6. Check the browser console for errors.
 - **Files**: none changed -- verification only.
 - **Parallel?**: No -- final step, depends on T020 and T021.
 

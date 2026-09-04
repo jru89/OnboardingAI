@@ -187,7 +187,14 @@ hands-on practice catching fabricated/altered AI output. On completion:
   6. Confirm Module 8's status on the landing view now requires **both**
      `module-8-quiz` and `module-8-verification` (plus the existing
      prompt-builder lab) to be attempted before showing "done."
-  7. Check the browser console for errors.
+  7. Resize to 360px width and confirm the new section, source facts, and
+     lab render without layout breakage (NFR-002 -- added after
+     `/spec-kitty.analyze` finding C2, which flagged this check as
+     missing from this WP).
+  8. Re-read the new content and confirm no term is used without a
+     plain-language explanation or glossary entry (NFR-001 -- added after
+     `/spec-kitty.analyze` finding C3).
+  9. Check the browser console for errors.
 - **Files**: none changed -- verification only.
 - **Parallel?**: No -- final step, depends on T014 and T015.
 

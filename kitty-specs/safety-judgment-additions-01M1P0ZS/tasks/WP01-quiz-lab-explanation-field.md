@@ -14,6 +14,7 @@ subtasks:
 - T001
 - T002
 - T003
+- T023
 phase: Phase 1 - Shared Engine Change
 assignee: ''
 agent: ''
@@ -28,12 +29,13 @@ execution_mode: code_change
 model: ''
 owned_files:
 - js/views/labs/quiz-lab.js
+- js/views/module-view.js
 role: implementer
 tags: []
 task_type: implement
 ---
 
-# Work Package Prompt: WP01 – Quiz Lab Engine: Explanation Field
+# Work Package Prompt: WP01 – Quiz Lab Engine: Explanation Field + Module-Status Fix
 
 ## ⚡ Do This First: Load Agent Profile
 
@@ -73,6 +75,19 @@ existing `quiz-lab.js` engine doesn't support today (it only shows generic
   field). This is the hard backward-compatibility requirement: nothing
   about this change may alter existing, already-shipped learner-facing
   behavior.
+- **Added after `/spec-kitty.analyze` (finding C1, HIGH, blocked verdict)**:
+  `js/views/module-view.js`'s `evaluateModuleStatus()` re-evaluates module
+  completion on every progress save, but its very first line is `if
+  (currentStatus === "done") return;` -- once a module is marked "done" it
+  is never re-checked again, even if its `labs` array later grows (exactly
+  what WP02, WP05, and WP06 do to Modules 1, 8, and 11). A learner who
+  already completed one of those three modules before this mission ships
+  would see it stuck showing "done" forever, having never seen or
+  attempted the new lab. T023 below fixes this. It's grouped into WP01
+  (not its own WP) because it's the same kind of small, shared,
+  foundational fix WP01 already is -- and because WP02/WP05/WP06 all
+  indirectly rely on it holding true for their own "done" transition to
+  behave correctly for a returning learner.
 
 ## Context & Constraints
 
@@ -96,6 +111,13 @@ existing `quiz-lab.js` engine doesn't support today (it only shows generic
 - Do **not** change `labState[lab.id]`'s persisted shape
   (`{lastScore, attempts, completed}`) -- `explanation` is rendered from
   already-static config, never written to `progress.js`.
+- For T023: read `js/views/module-view.js`'s `evaluateModuleStatus()` and
+  `allLabsComplete()` (they sit together, just above the `mountLab`
+  section) before changing anything. This function is called from two
+  places -- once on mount, and once via the `onSaved` subscription every
+  time progress is saved -- so a fix here affects every module in the
+  app, not just the three this mission touches; keep the change narrowly
+  scoped to the status-transition logic itself.
 - No new CSS class is required -- the existing `.quiz-feedback` /
   `.quiz-feedback.is-correct` / `.quiz-feedback.is-incorrect` styling
   already applies to the whole feedback `<p>`; appending more text inside
@@ -187,6 +209,72 @@ existing `quiz-lab.js` engine doesn't support today (it only shows generic
   reverted before completion.
 - **Parallel?**: No -- final verification pass after T001/T002.
 
+### Subtask T023 – Fix `evaluateModuleStatus` to re-evaluate past "done"
+
+- **Purpose**: Prevent Modules 1, 8, and 11 from showing a permanently
+  stale "done" badge for a learner who completed them before this
+  mission's new labs shipped (analyze finding C1).
+- **Steps**:
+  1. In `js/views/module-view.js`, locate:
+     ```js
+     function evaluateModuleStatus(moduleId, labs) {
+       const { moduleStatus } = getProgress();
+       const currentStatus = moduleStatus[moduleId] || "not_started";
+       if (currentStatus === "done") return; // already settled, nothing to do
+
+       if (labs.length === 0 || allLabsComplete(labs, moduleId)) {
+         setModuleStatus(moduleId, "done");
+       } else if (currentStatus === "not_started") {
+         setModuleStatus(moduleId, "in_progress");
+       }
+     }
+     ```
+  2. Replace the blanket early-return with logic that still avoids
+     redundant writes (don't call `setModuleStatus` every single save if
+     nothing actually changed) but **does** re-open a "done" module back
+     to "in_progress" if its current lab set is no longer fully complete
+     -- the only way that can happen today is a content update adding a
+     lab, exactly this mission's situation. One correct shape (adapt as
+     needed, but preserve this behavior exactly):
+     ```js
+     function evaluateModuleStatus(moduleId, labs) {
+       const { moduleStatus } = getProgress();
+       const currentStatus = moduleStatus[moduleId] || "not_started";
+       const complete = labs.length === 0 || allLabsComplete(labs, moduleId);
+
+       if (complete) {
+         if (currentStatus !== "done") setModuleStatus(moduleId, "done");
+       } else if (currentStatus !== "in_progress") {
+         // Covers "not_started -> in_progress" (first interaction) AND
+         // "done -> in_progress" (a lab was added since this module was
+         // last marked done -- re-open it rather than leaving a stale
+         // badge the learner can never earn back without a full reset).
+         setModuleStatus(moduleId, "in_progress");
+       }
+     }
+     ```
+  3. This must not change behavior for the common case: a module that is
+     "done" and stays fully complete (nothing added) must not flicker or
+     re-write on every save -- `complete` stays `true` and `currentStatus`
+     is already `"done"`, so the `if (currentStatus !== "done")` guard
+     keeps this a no-op, same as before.
+  4. Manually verify the actual regression this fixes, not just the
+     happy path: in the browser, use `javascript_tool` (or the console)
+     to call this app's `setModuleStatus`/progress helpers directly to
+     put Module 8 into a `"done"` state with only its *old* lab set
+     considered complete (i.e. simulate "a learner who finished Module 8
+     before this update"), then reload and confirm the module now shows
+     `"in_progress"` (not stuck on `"done"`) until the new
+     `module-8-verification` lab (added in WP05) is also attempted. If
+     WP05 hasn't landed on your branch yet, you can simulate this with
+     any lab config that has more than one entry, temporarily, and revert
+     the temporary simulation afterward -- the same rule as T003's
+     temporary-config approach.
+- **Files**: `js/views/module-view.js`
+- **Parallel?**: No -- independent of T001/T002/T003 in terms of code
+  (different file), but do it in the same WP pass since both are
+  foundational fixes WP02/WP05/WP06 depend on landing correctly.
+
 ## Risks & Mitigations
 
 - **Risk**: A subtle regression in Module 8's existing quiz (e.g. an extra
@@ -199,16 +287,38 @@ existing `quiz-lab.js` engine doesn't support today (it only shows generic
   requires reverting the temporary change; confirm `git status` /
   `git diff` shows only `quiz-lab.js` changed before finishing, nothing in
   `js/data/modules/`.
+- **Risk**: The T023 fix is easy to half-apply -- removing the early
+  `return` without adding the new `else if (currentStatus !==
+  "in_progress")` downgrade branch would leave "done" modules stuck (no
+  branch matches "was done, no longer complete", so nothing happens,
+  same bug as before just with dead code removed). **Mitigation**: use
+  the exact replacement shape given in T023, and actually exercise the
+  "previously done, lab added" scenario in the browser (T023 step 4),
+  not just the fresh-learner path.
+- **Risk**: T023 touches a function every module in the app calls, not
+  just the three this mission adds labs to -- a careless change here has
+  a wide blast radius. **Mitigation**: keep the diff to exactly the
+  status-transition logic shown; do not refactor `evaluateModuleStatus`
+  or `allLabsComplete` beyond what T023 specifies, and spot-check one
+  *unaffected* module (e.g. Module 2) still behaves identically after
+  the change.
 
 ## Review Guidance
 
-- Confirm the diff touches only `js/views/labs/quiz-lab.js` (and, only if
-  genuinely needed per T001's guidance, a small addition to
-  `css/style.css` -- flag if so and confirm the rationale).
+- Confirm the diff touches only `js/views/labs/quiz-lab.js` and
+  `js/views/module-view.js` (and, only if genuinely needed per T001's
+  guidance, a small addition to `css/style.css` -- flag if so and confirm
+  the rationale).
 - Load Module 8 and confirm its existing quiz renders identically to
   before this change (no `explanation` text appears anywhere).
 - Confirm `git diff` shows no leftover temporary/test config in
   `js/data/modules/*.js`.
+- For T023: confirm the fix includes both the "not_started -> in_progress"
+  path (unchanged) AND the new "done -> in_progress" downgrade path when a
+  module's lab set is no longer fully complete -- read the diff, don't
+  just trust that "it compiles." Confirm an unrelated, unaffected module
+  (e.g. Module 2) still transitions and stays "done" normally, with no
+  flicker on repeated saves.
 
 ## Activity Log
 

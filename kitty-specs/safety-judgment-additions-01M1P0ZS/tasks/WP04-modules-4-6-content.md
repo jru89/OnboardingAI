@@ -175,8 +175,13 @@ Neither touches any lab config.
   2. Open Module 6, confirm the new section renders in the right place
      and the cross-reference to Module 8 reads sensibly.
   3. Resize to 360px width and re-check both sections for layout
-     breakage.
-  4. Check the browser console for errors on both modules.
+     breakage (NFR-002).
+  4. Re-read both new sections and confirm no term is used without a
+     plain-language explanation or glossary entry (NFR-001 -- added after
+     `/spec-kitty.analyze` finding C3; this WP's T013 already covers
+     NFR-002/finding C2, since it was the one WP that already included a
+     360px check).
+  5. Check the browser console for errors on both modules.
 - **Files**: none changed -- verification only.
 - **Parallel?**: No -- final step, depends on T011 and T012.
 

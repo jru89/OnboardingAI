@@ -169,7 +169,13 @@ what to do when an AI assistant gets something wrong. On completion:
   5. Confirm Module 11's status on the landing view now requires **both**
      `module-11-recovery` and `module-11-prompt-builder` to be attempted
      before showing "done."
-  6. Check the browser console for errors.
+  6. Resize to 360px width and confirm the new section and lab render
+     without layout breakage (NFR-002 -- added after `/spec-kitty.analyze`
+     finding C2, which flagged this check as missing from this WP).
+  7. Re-read the new content and confirm no term is used without a
+     plain-language explanation or glossary entry (NFR-001 -- added after
+     `/spec-kitty.analyze` finding C3).
+  8. Check the browser console for errors.
 - **Files**: none changed -- verification only.
 - **Parallel?**: No -- final step, depends on T017 and T018.
 

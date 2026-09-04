@@ -11,11 +11,13 @@
         "WP01"
       ],
       "write_scope": [
-        "js/views/labs/quiz-lab.js"
+        "js/views/labs/quiz-lab.js",
+        "js/views/module-view.js"
       ],
       "predicted_surfaces": [
         "api",
-        "artifact-rendering"
+        "artifact-rendering",
+        "legacy-cleanup"
       ],
       "depends_on_lanes": [],
       "parallel_group": 0
@@ -30,6 +32,7 @@
       ],
       "predicted_surfaces": [
         "api",
+        "app-shell",
         "artifact-rendering"
       ],
       "depends_on_lanes": [],
@@ -62,6 +65,7 @@
       ],
       "predicted_surfaces": [
         "api",
+        "app-shell",
         "artifact-rendering"
       ],
       "depends_on_lanes": [],
@@ -77,6 +81,7 @@
       ],
       "predicted_surfaces": [
         "api",
+        "app-shell",
         "artifact-rendering"
       ],
       "depends_on_lanes": [
@@ -94,6 +99,7 @@
       ],
       "predicted_surfaces": [
         "api",
+        "app-shell",
         "artifact-rendering"
       ],
       "depends_on_lanes": [
@@ -111,6 +117,7 @@
       ],
       "predicted_surfaces": [
         "api",
+        "app-shell",
         "artifact-rendering",
         "legacy-cleanup"
       ],
@@ -120,7 +127,7 @@
       "parallel_group": 1
     }
   ],
-  "computed_at": "2026-09-04T11:15:06.628049+00:00",
+  "computed_at": "2026-09-04T11:41:03.667184+00:00",
   "computed_from": "dependency_graph+ownership",
   "planning_artifact_wps": []
 }

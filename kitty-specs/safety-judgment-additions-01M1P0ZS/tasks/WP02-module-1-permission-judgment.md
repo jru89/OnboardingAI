@@ -182,7 +182,13 @@ make. On completion:
      correctly now that it has 2 labs (`not_started` -> `in_progress`
      after either lab is touched -> `done` only once **both** the
      checklist and this new lab have been attempted).
-  5. Check the browser console for errors.
+  5. Resize to 360px width and confirm the new section and lab render
+     without layout breakage (NFR-002 -- added after `/spec-kitty.analyze`
+     finding C2, which flagged this check as missing from this WP).
+  6. Re-read the new content and confirm no term is used without a
+     plain-language explanation or glossary entry (NFR-001 -- added after
+     `/spec-kitty.analyze` finding C3).
+  7. Check the browser console for errors.
 - **Files**: none changed -- verification only.
 - **Parallel?**: No -- final step, depends on T004-T006.
 
