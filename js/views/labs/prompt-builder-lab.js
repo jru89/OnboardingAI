@@ -152,6 +152,23 @@ export function mount(container, lab, moduleId) {
     "the golden rules teach.";
   root.appendChild(intro);
 
+  // lab.config.task is this instance's actual mission (module-specific --
+  // e.g. Module 8's "rewrite this exact weak prompt" vs. Module 6's "pick
+  // your own real task"). Without it, the only place that mission lived
+  // was inside the Context field's placeholder -- ghost text that
+  // disappears the moment you start typing and doesn't read as an
+  // instruction. Rendered as its own callout so it can't be missed.
+  const taskText = lab && lab.config && lab.config.task;
+  if (taskText) {
+    const missionEl = document.createElement("p");
+    missionEl.className = "pb-mission";
+    const missionLabel = document.createElement("strong");
+    missionLabel.textContent = "Your task: ";
+    missionEl.appendChild(missionLabel);
+    missionEl.appendChild(document.createTextNode(taskText));
+    root.appendChild(missionEl);
+  }
+
   const layout = document.createElement("div");
   layout.className = "pb-layout";
   root.appendChild(layout);
@@ -307,6 +324,45 @@ export function mount(container, lab, moduleId) {
     },
     { signal },
   );
+
+  // "graded: false" on every prompt-builder lab means there is no
+  // right/wrong check here -- this is free text, and there's no backend
+  // or AI call in this app to grade it against. The only way to actually
+  // know a prompt is good is to put it in front of the AI it's meant
+  // for, so this callout says so explicitly rather than leaving her to
+  // assume "fields are full" means "prompt is good."
+  const reviewCallout = document.createElement("div");
+  reviewCallout.className = "pb-review-callout";
+
+  const reviewHeading = document.createElement("h3");
+  reviewHeading.textContent = "How do you know it's good?";
+  reviewCallout.appendChild(reviewHeading);
+
+  const reviewSelfCheck = document.createElement("p");
+  reviewSelfCheck.textContent =
+    "Quick self-check first: is it specific, does it say what a good " +
+    "result looks like, is it one clear goal, and does it state the " +
+    "format?";
+  reviewCallout.appendChild(reviewSelfCheck);
+
+  const reviewAskAi = document.createElement("p");
+  reviewAskAi.className = "pb-review-required";
+  const reviewAskAiLabel = document.createElement("strong");
+  reviewAskAiLabel.textContent = "Then ask your AI -- this step isn't optional: ";
+  reviewAskAi.appendChild(reviewAskAiLabel);
+  reviewAskAi.appendChild(
+    document.createTextNode(
+      "copy this prompt into your real Claude Code session and ask it " +
+        "directly, “Review this prompt before I use it -- is anything " +
+        "unclear or missing?” Your own read of a prompt and the " +
+        "assistant's read of it are often different, and its answer is " +
+        "usually what catches what you missed. Update the fields above " +
+        "based on what it says.",
+    ),
+  );
+  reviewCallout.appendChild(reviewAskAi);
+
+  root.appendChild(reviewCallout);
 
   renderPreviewAndHint();
   container.appendChild(root);

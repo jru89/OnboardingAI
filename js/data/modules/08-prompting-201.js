@@ -177,6 +177,10 @@ export default {
       graded: false,
       config: {
         purposeKey: "prompting-201-rewrite",
+        task:
+          "Rewrite this weak prompt using front-loaded context: \"Fix my " +
+          "spreadsheet, it's a mess.\" Fill in the fields below so " +
+          "nothing is left to guesswork.",
         placeholders: {
           role: "e.g. You're an assistant helping tidy up a shared file.",
           context:

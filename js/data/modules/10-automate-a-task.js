@@ -77,6 +77,11 @@ export default {
       graded: false,
       config: {
         purposeKey: "automate-a-task",
+        task:
+          "Pick one repetitive task you actually deal with (renaming " +
+          "files, reformatting a list, converting notes into a table -- " +
+          "anything with a repeatable pattern) and draft a prompt for it " +
+          "below.",
         placeholders: {
           role: "e.g. You're an assistant helping automate a repeated chore.",
           context:

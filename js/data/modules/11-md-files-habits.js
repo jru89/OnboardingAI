@@ -100,6 +100,10 @@ export default {
       graded: false,
       config: {
         purposeKey: "readme-exercise",
+        task:
+          "Write a README for the budgeting spreadsheet project " +
+          "described below, using the fields to build a complete prompt " +
+          "for Claude Code to draft it.",
         placeholders: {
           role: "e.g. You're an assistant helping write a clear README.",
           context:

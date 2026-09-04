@@ -100,6 +100,11 @@ export default {
       graded: false,
       config: {
         purposeKey: "prompting-101",
+        task:
+          "Pick one small, real task you'd actually want help with (an " +
+          "email, a summary, tidying a list -- anything). Fill in the " +
+          "fields below to build a complete prompt for it, using the " +
+          "role → context → task → format structure from above.",
         placeholders: {
           role:
             "e.g. You're an editor helping tighten a cover letter.",

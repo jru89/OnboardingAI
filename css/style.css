@@ -852,6 +852,19 @@ button:focus-visible,
   color: var(--color-text-muted);
 }
 
+/* The module-specific mission (lab.config.task) -- previously the only
+   place this lived was inside the Context field's placeholder text,
+   which disappears the moment you start typing. Styled distinctly from
+   .pb-intro (which only explains the tool's mechanics) so the actual
+   task can't be mistaken for another line of generic instructions. */
+.pb-mission {
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  margin: 0 0 var(--space-4) 0;
+}
+
 .pb-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -954,6 +967,42 @@ button:focus-visible,
   font-size: 0.875rem;
   color: var(--color-text-muted);
   margin: 0;
+}
+
+/* "graded: false" means nothing in this app checks whether the built
+   prompt is actually good -- there's no backend/AI call here to grade
+   free text against. This callout is the answer to "how do I know I
+   did a good job": a quick self-check, then an explicit, hard-to-miss
+   instruction to get a real second opinion from the AI the prompt is
+   actually for. */
+.pb-review-callout {
+  margin-top: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.pb-review-callout h3 {
+  margin: 0 0 var(--space-3) 0;
+  color: var(--color-gold);
+}
+
+.pb-review-callout p {
+  margin: 0 0 var(--space-3) 0;
+  color: var(--color-text-muted);
+}
+
+.pb-review-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.pb-review-required {
+  color: var(--color-text);
+}
+
+.pb-review-required strong {
+  color: var(--color-gold);
 }
 
 @media (min-width: 900px) {
