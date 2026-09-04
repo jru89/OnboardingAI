@@ -37,9 +37,9 @@ medium):
 | T005 | Author `module-1-permission-check` quiz lab config (5 items) | WP02 | |
 | T006 | Wire the new lab into Module 1's `labs` array | WP02 | |
 | T007 | Manual browser verification of Module 1's new section and lab | WP02 | |
-| T008 | Author Module 3's two new categories + "when in doubt" rule + safe-example contrast | WP03 | [P] |
-| T009 | Author Module 3's closing "don't use AI at all" section | WP03 | [P] |
-| T010 | Manual browser verification of Module 3's new content | WP03 | |
+| T008 | Author Module 3's two new categories + "when in doubt" rule + safe-example contrast | WP03 | [D] |
+| T009 | Author Module 3's closing "don't use AI at all" section | WP03 | [D] |
+| T010 | Manual browser verification of Module 3's new content | WP03 | | [D] |
 | T011 | Author Module 4's "How do I know what changed?" section | WP04 | [D] |
 | T012 | Author Module 6's "A good prompt doesn't guarantee a good answer" section | WP04 | [D] |
 | T013 | Manual browser verification of both new sections (Modules 4 and 6) | WP04 | | [D] |
