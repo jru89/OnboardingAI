@@ -16,7 +16,8 @@ subtasks:
 - T016
 phase: Phase 2 - Module Content
 assignee: ''
-agent: ''
+agent: "claude:sonnet-5:reviewer-renata:reviewer"
+shell_pid: "7876"
 history:
 - at: '2026-09-04T11:10:00Z'
   actor: system
@@ -230,3 +231,7 @@ hands-on practice catching fabricated/altered AI output. On completion:
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP05 --to <status>` to change WP status.
+- 2026-09-04T13:45:58Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=23176 – Assigned agent via action command
+- 2026-09-04T13:58:57Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=23176 – Ready for review
+- 2026-09-04T13:59:56Z – claude:sonnet-5:reviewer-renata:reviewer – shell_pid=7876 – Started review via action command
+- 2026-09-04T14:05:03Z – user – shell_pid=7876 – Review passed: Verification checklist (6 questions, names Module 6) and module-8-verification lab (3 items, exact data-model.md match, explanations render live for correct/incorrect) both confirmed in browser; module-8-quiz byte-identical/untouched and unaffected; 360px layout clean; only WP01-dependency files (quiz-lab.js, module-view.js) besides 08-prompting-201.js appear in the full diff, none from WP05's own commit.
