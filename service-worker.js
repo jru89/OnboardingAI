@@ -1,13 +1,22 @@
 // Offline-first app shell caching for the Claude Code Onboarding Lab.
 //
 // Pattern adapted from rijbewijs-study-app/service-worker.js (same
-// static-site, no-backend context). Unlike that sibling project, this
-// service worker uses a cache-first strategy for ALL same-origin requests
-// (per this mission's research.md "Offline strategy" decision), since this
-// app has no build step and content only changes when this WP's precache
-// list is intentionally updated and CACHE_NAME is bumped.
-
-const CACHE_NAME = "claude-code-onboarding-lab-v1";
+// static-site, no-backend context), with one deliberate change from the
+// original cache-first design: fetch() below uses stale-while-revalidate,
+// not pure cache-first.
+//
+// Why: pure cache-first meant a returning learner would NEVER see an
+// updated file after their first visit -- the cache only ever refreshed
+// if a human remembered to bump CACHE_NAME by hand on every single content
+// or style change, which is exactly the bug a real user hit (a CSS fix
+// "disappeared" on refresh because their browser was still serving the
+// precache snapshot from their first visit, unaware anything had changed).
+// Stale-while-revalidate still answers instantly from cache (so it's just
+// as fast, and still fully usable offline), but every online load also
+// kicks off a background fetch that updates the cache for *next* time --
+// so a change is visible within one extra reload instead of never, with no
+// manual version bump required for routine edits.
+const CACHE_NAME = "claude-code-onboarding-lab-v3";
 
 const PRECACHE_URLS = [
   "./",
@@ -71,7 +80,21 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
-      .then((cache) => cache.addAll(PRECACHE_URLS))
+      .then((cache) =>
+        // cache.addAll(urls) would let each fetch honor the browser's own
+        // HTTP cache -- on a returning visit that can silently repopulate
+        // a brand-new precache with the SAME stale response this whole
+        // update mechanism exists to replace. { cache: "reload" } forces
+        // each precache fetch to bypass HTTP cache and hit the network.
+        Promise.all(
+          PRECACHE_URLS.map((url) =>
+            fetch(url, { cache: "reload" }).then((response) => {
+              if (response.ok) return cache.put(url, response);
+              return undefined;
+            })
+          )
+        )
+      )
       .then(() => self.skipWaiting())
   );
 });
@@ -99,17 +122,36 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Same-origin: cache-first. The precache list above is the source of
-  // truth for the app shell and content; anything not found there is
-  // fetched from the network and cached for next time.
+  // Same-origin: stale-while-revalidate. Answer from cache immediately
+  // when available (this is what keeps the app fast and fully usable
+  // offline -- see the file-level comment above for why this isn't plain
+  // cache-first). In parallel, always attempt a network fetch and, on
+  // success, overwrite the cache entry so the *next* load reflects
+  // whatever is currently on the server. Offline: the network fetch
+  // simply rejects and is swallowed -- the cached response already
+  // answered the request, so there is nothing further to do.
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(event.request).then((response) => {
-        const copy = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-        return response;
-      });
-    })
+    caches.open(CACHE_NAME).then((cache) =>
+      cache.match(event.request).then((cached) => {
+        // { cache: "no-cache" } forces a real conditional request to the
+        // server on every revalidation instead of potentially being
+        // satisfied by the browser's own (heuristic, non-SW) HTTP cache --
+        // otherwise "revalidate" could silently re-confirm the same stale
+        // response this strategy exists to move past.
+        const revalidateRequest = new Request(event.request, {
+          cache: "no-cache",
+        });
+        const revalidate = fetch(revalidateRequest)
+          .then((response) => {
+            if (response && response.ok) {
+              cache.put(event.request, response.clone());
+            }
+            return response;
+          })
+          .catch(() => null);
+
+        return cached || revalidate;
+      })
+    )
   );
 });
