@@ -2,20 +2,52 @@
 /* Claude Code Onboarding Lab -- base stylesheet                        */
 /* Mobile-first: base rules target 360px width; min-width media queries */
 /* progressively enhance for tablet/desktop. Plain CSS, no framework.   */
-/* Later work packages append view/lab-specific rules below the        */
-/* existing sections -- keep new rules in their own commented section.  */
+/*                                                                      */
+/* Visual design ported from the "Visual Novel" design system           */
+/* (https://raw.githubusercontent.com/GGPrompts/ggprompts/main/styles/  */
+/* visual-novel.html): colors, typography, spacing scale, and component */
+/* styles (cards, buttons/choices, badges, inputs). Deliberately NOT    */
+/* ported: the animated bokeh/petal background and the dating-sim       */
+/* content (affection meters, character cards, Japanese type) -- those  */
+/* are decorative/thematic, not part of "colors, typography, spacing,   */
+/* component styles", and would be tonally off for a training app.      */
 /* ==================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap");
 
 /* --- tokens --- */
 :root {
-  --color-bg: #f8fafc;
-  --color-surface: #ffffff;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-primary: #2563eb;
-  --color-primary-contrast: #ffffff;
-  --color-border: #e2e8f0;
-  --color-focus: #2563eb;
+  /* Palette (ported from the reference system's CSS variables of the
+     same intent -- kept these exact names so the rest of this file, and
+     every view/lab file that touches inline style via CSS classes only,
+     needed zero markup changes). */
+  --color-bg: #1a1a2e; /* midnight */
+  --color-bg-mid: #221b3a;
+  --color-bg-deep: #2d1b4e;
+  --color-surface: #23264a; /* a lighter-than-bg panel tone -- stands in for the
+                                reference's blurred glass panels; blur alone does
+                                nothing useful over a flat background, so this
+                                app uses solid, slightly-lighter surfaces instead. */
+  --color-surface-hover: #2b2f5c;
+  --color-surface-2: #16213e; /* dusk -- header / dialog-style panels */
+  --color-text: #f5f0e6; /* cream / moonlight */
+  --color-text-muted: rgba(245, 240, 230, 0.64);
+  --color-primary: #ff6b9d; /* rose -- primary interactive accent */
+  --color-primary-2: #ffb7c5; /* sakura -- secondary accent, used in gradients */
+  --color-primary-contrast: #1a1a2e;
+  --color-lavender: #c8a2c8;
+  --color-sky: #87ceeb;
+  --color-gold: #d4af37;
+  --color-success: #7fd8a0;
+  --color-danger: #e94560; /* crimson */
+  --color-border: rgba(255, 183, 197, 0.28);
+  --color-border-strong: rgba(255, 183, 197, 0.55);
+  --color-focus: #ff6b9d;
+
+  --glow-primary: 0 0 18px rgba(255, 107, 157, 0.4);
+  --glow-primary-soft: 0 0 14px rgba(255, 183, 197, 0.28);
+  --gradient-accent: linear-gradient(135deg, var(--color-primary-2) 0%, var(--color-lavender) 100%);
+  --gradient-accent-strong: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-2) 100%);
 
   --space-1: 4px;
   --space-2: 8px;
@@ -23,12 +55,15 @@
   --space-4: 16px;
   --space-5: 24px;
   --space-6: 32px;
+  --space-7: 48px;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  --font-sans: "Quicksand", system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-display: "Cinzel", Georgia, "Times New Roman", serif;
   --font-size-base: 16px;
 
   --max-content-width: 720px;
@@ -55,7 +90,13 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.5;
   color: var(--color-text);
-  background: var(--color-bg);
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    var(--color-bg-mid) 55%,
+    var(--color-bg-deep) 100%
+  );
+  background-attachment: fixed;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -66,7 +107,15 @@ svg {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-primary-2);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  color: var(--color-text);
 }
 
 h1,
@@ -103,7 +152,7 @@ button:focus-visible,
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--color-surface);
+  background: rgba(22, 33, 62, 0.92);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -118,9 +167,13 @@ button:focus-visible,
 }
 
 .course-title {
+  font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
   white-space: nowrap;
+  color: var(--color-primary-2);
+  text-shadow: 0 0 12px rgba(255, 183, 197, 0.35);
 }
 
 .header-nav {
@@ -132,7 +185,8 @@ button:focus-visible,
 }
 
 .home-link {
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--color-primary-2);
   text-decoration: none;
 }
 
@@ -141,7 +195,7 @@ button:focus-visible,
 }
 
 .crumb-sep {
-  color: var(--color-border);
+  color: var(--color-border-strong);
 }
 
 #current-view-label {
@@ -157,8 +211,9 @@ button:focus-visible,
 
 .saved-indicator {
   font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--color-primary);
+  font-weight: 600;
+  color: var(--color-primary-2);
+  letter-spacing: 0.03em;
 }
 
 .saved-indicator[hidden] {
@@ -179,14 +234,15 @@ button:focus-visible,
   right: var(--space-4);
   bottom: var(--space-4);
   z-index: 20;
-  background: var(--color-primary);
+  background: var(--gradient-accent-strong);
   color: var(--color-primary-contrast);
   border: none;
   border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-3);
   font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .scroll-to-top[hidden] {
@@ -221,16 +277,32 @@ button:focus-visible,
 
 .module-card {
   display: block;
+  position: relative;
   padding: var(--space-4);
+  padding-top: calc(var(--space-4) + 3px);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   text-decoration: none;
   color: inherit;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.module-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
 }
 
 .module-card:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-border-strong);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-primary-soft), 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 .module-card-title-row {
@@ -241,7 +313,9 @@ button:focus-visible,
 }
 
 .module-card-title {
+  font-family: var(--font-display);
   font-weight: 600;
+  font-size: 1.05rem;
 }
 
 .module-card-summary {
@@ -252,23 +326,28 @@ button:focus-visible,
 
 .status-badge {
   flex-shrink: 0;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 2px var(--space-2);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px var(--space-3);
   border-radius: 999px;
   white-space: nowrap;
-  background: var(--color-border);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--color-text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .status-badge--in_progress {
-  background: #fef3c7;
-  color: #92400e;
+  background: rgba(135, 206, 235, 0.16);
+  color: var(--color-sky);
+  border-color: rgba(135, 206, 235, 0.35);
 }
 
 .status-badge--done {
-  background: #dcfce7;
-  color: #166534;
+  background: var(--gradient-accent-strong);
+  color: var(--color-primary-contrast);
+  border-color: transparent;
 }
 
 .reset-section {
@@ -277,16 +356,18 @@ button:focus-visible,
 }
 
 .reset-progress-btn {
-  background: var(--color-surface);
-  color: var(--color-text);
+  background: transparent;
+  color: var(--color-text-muted);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-3);
   cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .reset-progress-btn:hover {
   border-color: var(--color-primary);
+  color: var(--color-primary-2);
 }
 
 @media (min-width: 600px) {
@@ -306,28 +387,301 @@ button:focus-visible,
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-break: break-word;
-  background: var(--color-bg);
+  background: var(--color-surface-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: var(--space-3);
-  font-family: inherit;
+  font-family: "Quicksand", monospace;
   font-size: 0.9rem;
 }
 
-/* --- prompt builder lab (WP12 fix, T056) --- */
-/* .pb-* had no rules at all anywhere in this file, so every field
-   rendered at the browser's intrinsic ~20-column textarea width
-   (~160px) regardless of viewport -- broken at 360px and at desktop
-   alike, with the label overlapping the tiny box. Give fields real
-   block-level sizing and stack form/preview by default, matching this
-   file's mobile-first pattern. */
-.prompt-builder-lab {
-  margin-top: var(--space-5);
-}
-
+/* --- generic "back to module / exit lab" link (every lab engine) --- */
+.lab-exit-link,
 .pb-back-link {
   display: inline-block;
   margin-bottom: var(--space-3);
+  color: var(--color-primary-2);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lab-exit-link:hover,
+.pb-back-link:hover {
+  text-decoration: underline;
+}
+
+/* --- shared "choice button" pattern --- */
+/* The look every graded/self-marked option across checklist, match, quiz,
+   and spot-mistake shares: a full-width, stacked, generously-padded row
+   with a left accent bar and a glow on hover -- ported from the reference
+   design system's .choice-btn. This is also the fix for "quizzes are too
+   cluttered": before this rule set, quiz/spot-mistake options were raw
+   unstyled <label><input type=radio></label> pairs with no spacing, and
+   match/checklist had no visual separation between items either. */
+.lab-score-banner {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* -- checklist -- */
+.checklist-lab-list {
+  list-style: none;
+  margin: 0 0 var(--space-4) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.checklist-lab-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.checklist-lab-item label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+}
+
+.checklist-lab-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+}
+
+.checklist-lab-complete-note {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+/* -- quiz & spot-mistake (fieldset-based radio groups) -- */
+.quiz-form,
+.spot-mistake-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.quiz-item,
+.spot-mistake-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: var(--space-4);
+  margin: 0;
+}
+
+.quiz-item legend,
+.spot-mistake-item legend {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0 0 var(--space-3) 0;
+  color: var(--color-text);
+}
+
+.spot-mistake-item legend {
+  /* Chat-snippet text reads better in the body font, not the display
+     serif -- only the quiz question benefits from the heading treatment. */
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.quiz-option,
+.spot-mistake-choice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  background: var(--color-surface-2);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.quiz-option:last-of-type,
+.spot-mistake-choice:last-of-type {
+  margin-bottom: 0;
+}
+
+.quiz-option:hover,
+.spot-mistake-choice:hover {
+  border-color: var(--color-border-strong);
+  transform: translateX(4px);
+  box-shadow: var(--glow-primary-soft);
+}
+
+.quiz-option:has(input:checked),
+.spot-mistake-choice:has(input:checked) {
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-primary);
+}
+
+.quiz-option input[type="radio"],
+.spot-mistake-choice input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+}
+
+.quiz-feedback,
+.spot-mistake-feedback,
+.match-lab-feedback {
+  margin: var(--space-3) 0 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+}
+
+.quiz-feedback.is-correct,
+.spot-mistake-feedback.is-correct,
+.match-lab-feedback--correct {
+  color: var(--color-success);
+  background: rgba(127, 216, 160, 0.12);
+}
+
+.quiz-feedback.is-incorrect,
+.spot-mistake-feedback.is-incorrect,
+.match-lab-feedback--incorrect {
+  color: var(--color-danger);
+  background: rgba(233, 69, 96, 0.14);
+}
+
+.quiz-summary,
+.spot-mistake-summary {
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--color-primary-2);
+}
+
+.quiz-form button[type="submit"],
+.spot-mistake-form button[type="submit"],
+.quiz-retry,
+.spot-mistake-retry {
+  align-self: flex-start;
+  background: var(--gradient-accent-strong);
+  color: var(--color-primary-contrast);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+  font-weight: 700;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.quiz-form button[type="submit"]:hover,
+.spot-mistake-form button[type="submit"]:hover,
+.quiz-retry:hover,
+.spot-mistake-retry:hover {
+  box-shadow: var(--glow-primary);
+  transform: translateY(-1px);
+}
+
+/* -- match lab (button-based options) -- */
+.match-lab-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.match-lab-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: var(--space-4);
+}
+
+.match-lab-prompt {
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.match-lab-visual {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.match-lab-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.match-lab-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.match-lab-option:hover {
+  border-color: var(--color-border-strong);
+  transform: translateX(4px);
+  box-shadow: var(--glow-primary-soft);
+}
+
+.match-lab-option.selected {
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-primary);
+}
+
+/* -- download lab -- */
+.download-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.download-list a {
+  display: block;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.download-lab-list a:hover {
+  border-color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+/* --- prompt builder lab (WP12 fix, T056; restyled) --- */
+.prompt-builder-lab {
+  margin-top: var(--space-5);
 }
 
 .pb-intro {
@@ -354,12 +708,17 @@ button:focus-visible,
 
 .pb-field-label {
   display: block;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary-2);
 }
 
 .pb-field-badge {
-  font-weight: 400;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
   color: var(--color-text-muted);
 }
 
@@ -367,18 +726,26 @@ button:focus-visible,
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  background: var(--color-surface-2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
   font: inherit;
   font-size: 0.95rem;
   resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pb-field-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-primary-soft);
 }
 
 .pb-preview-pane {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--space-4);
 }
 
@@ -391,7 +758,7 @@ button:focus-visible,
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-break: break-word;
-  font-family: inherit;
+  font-family: "Quicksand", monospace;
   font-size: 0.9rem;
   margin: 0 0 var(--space-3) 0;
 }
@@ -404,16 +771,19 @@ button:focus-visible,
 }
 
 .pb-copy-button {
-  background: var(--color-primary);
+  background: var(--gradient-accent-strong);
   color: var(--color-primary-contrast);
   border: none;
   border-radius: var(--radius-md);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  font-weight: 700;
   cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
 }
 
 .pb-copy-button:hover {
-  opacity: 0.9;
+  box-shadow: var(--glow-primary);
+  transform: translateY(-1px);
 }
 
 .pb-copy-status {
