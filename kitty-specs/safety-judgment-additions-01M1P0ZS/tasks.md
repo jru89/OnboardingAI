@@ -29,10 +29,10 @@ medium):
 
 | ID | Description | WP | Parallel |
 |---|---|---|---|
-| T001 | Add optional `explanation` field to quiz-lab.js's config item shape + render it in submit feedback | WP01 | |
-| T002 | Verify Module 8's existing quiz lab renders/behaves identically before and after the change | WP01 | |
-| T003 | Manual browser verification of the new field with a temporary test config | WP01 | |
-| T023 | Fix `evaluateModuleStatus` to re-evaluate past "done" (analyze finding C1) | WP01 | |
+| T001 | Add optional `explanation` field to quiz-lab.js's config item shape + render it in submit feedback | WP01 | | [D] |
+| T002 | Verify Module 8's existing quiz lab renders/behaves identically before and after the change | WP01 | | [D] |
+| T003 | Manual browser verification of the new field with a temporary test config | WP01 | | [D] |
+| T023 | Fix `evaluateModuleStatus` to re-evaluate past "done" (analyze finding C1) | WP01 | | [D] |
 | T004 | Author "Claude can do more than answer you" content section (Module 1) | WP02 | [P] |
 | T005 | Author `module-1-permission-check` quiz lab config (5 items) | WP02 | |
 | T006 | Wire the new lab into Module 1's `labs` array | WP02 | |
