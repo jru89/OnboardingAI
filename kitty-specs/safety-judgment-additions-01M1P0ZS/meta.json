@@ -12,5 +12,7 @@
   "purpose_tldr": "Adds safety, verification, and recovery content across 7 existing modules so the course teaches working safely with AI, not just prompting it well.",
   "slug": "safety-judgment-additions-01M1P0ZS",
   "target_branch": "feat/safety-judgment-additions",
-  "topology": "coord"
+  "topology": "coord",
+  "vcs": "git",
+  "vcs_locked_at": "2026-09-04T11:49:17.288451+00:00"
 }

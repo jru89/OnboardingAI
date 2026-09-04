@@ -10,6 +10,9 @@ tracker_refs: []
 planning_base_branch: feat/safety-judgment-additions
 merge_target_branch: feat/safety-judgment-additions
 branch_strategy: Planning artifacts for this mission were generated on feat/safety-judgment-additions. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feat/safety-judgment-additions unless the human explicitly redirects the landing branch.
+base_branch: kitty/mission-safety-judgment-additions-01M1P0ZS
+base_commit: 5a9d924590dd5b78fcac0750e0460c89841b5cfb
+created_at: '2026-09-04T11:49:17.731116+00:00'
 subtasks:
 - T001
 - T002
@@ -18,6 +21,7 @@ subtasks:
 phase: Phase 1 - Shared Engine Change
 assignee: ''
 agent: ''
+shell_pid: '14320'
 history:
 - at: '2026-09-04T11:10:00Z'
   actor: system
