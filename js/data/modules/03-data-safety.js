@@ -1,8 +1,12 @@
 // Module 3: Data Safety (FR-005, FR-006).
 //
 // What must never be pasted into an AI chat -- client/customer data,
-// personal access tokens, SSH private keys, passwords/secrets -- and why
-// each one is dangerous, not just a bare list.
+// personal access tokens, SSH private keys, passwords/secrets, proprietary
+// company information, and broader personal data (employee, financial,
+// health) -- and why each one is dangerous, not just a bare list. Also
+// covers a "when in doubt" placeholder rule, a contrasting safe-to-paste
+// example, and a closing section on recognizing when not to use AI at all
+// (FR-003, FR-004).
 //
 // Lab type "spot-mistake" -- see js/views/labs/spot-mistake-lab.js:
 // lab.config is a bare array of {id, snippet, isUnsafe, explanation}
@@ -28,8 +32,9 @@ export default {
         "anything you paste into a chat should be treated as something " +
         "you're handing to a third party. Some kinds of information should " +
         "never be pasted in, because of how much damage it can cause if " +
-        "it's misused or ever leaks. This module covers four categories " +
-        "worth knowing cold.</p>",
+        "it's misused or ever leaks. This module covers the categories " +
+        "worth knowing cold, plus how to recognize when the right call " +
+        "is to not use AI at all.</p>",
     },
     {
       heading: "Customer or client data",
@@ -110,6 +115,83 @@ export default {
             "passwords, tokens, and keys are all secrets.",
         },
       ],
+    },
+    {
+      heading: "Proprietary or internal company information",
+      body:
+        "<p>The same logic extends to your own company's internal " +
+        "information -- unreleased product plans, competitive strategy, " +
+        "financial forecasts, internal memos, and other documents that " +
+        "aren't meant for the public. Pasting these into an AI chat can " +
+        "cause real competitive harm if they ever surface elsewhere, and " +
+        "can break confidentiality promises you or your company made to " +
+        "partners, investors, or employees. Just like customer data, once " +
+        "it's pasted in, you've lost control of where it goes.</p>",
+    },
+    {
+      heading: "Employee, financial, and health information",
+      body:
+        "<p>Personal data worth protecting goes well beyond customer " +
+        "records. Employee information (salaries, performance reviews, " +
+        "home addresses), financial account numbers (bank accounts, card " +
+        "numbers), and health-related information about real people all " +
+        "carry the same risk -- once it's pasted into a chat, it's out of " +
+        "your hands, and real people could be harmed if it leaks or is " +
+        "misused. Treat this category exactly like customer data: it " +
+        "never belongs in a chat.</p>",
+    },
+    {
+      heading: "When in doubt, don't paste",
+      body:
+        "<p>If you're ever unsure whether something is safe to paste, the " +
+        "safe default is: don't. Replace the sensitive part with a " +
+        "placeholder instead -- for example, swap a real name for " +
+        "<strong>[name]</strong> or a real dollar figure for " +
+        "<strong>[amount]</strong> -- so you can still ask your question " +
+        "without handing over the actual data.</p>",
+    },
+    {
+      heading: "What's safe to paste",
+      body:
+        "<p>Not everything is off-limits. Information that's already " +
+        "public, or already anonymized, is fine to paste -- a paragraph " +
+        "from a public blog post, a published press release, or a " +
+        "spreadsheet with names and identifying details already stripped " +
+        "out. The rule isn't \"never paste anything\"; it's \"never paste " +
+        "anything private, real, and identifiable.\"</p>",
+    },
+    {
+      heading: "Sometimes the right answer is: don't use AI at all",
+      body:
+        "<p>Everything above is about what's unsafe to type in. But part " +
+        "of building good judgment is recognizing situations where the " +
+        "better call is to not use an AI assistant at all, even for " +
+        "something otherwise harmless. A few signs it's time to step " +
+        "back:</p>" +
+        "<ul>" +
+        "<li><strong>You don't understand the ask.</strong> If you can't " +
+        "tell whether an answer is right, you're not in a position to " +
+        "check its work.</li>" +
+        "<li><strong>The information involved is extremely " +
+        "sensitive.</strong> Some situations are too sensitive to risk, " +
+        "even with careful handling.</li>" +
+        "<li><strong>The cost of a mistake would be high.</strong> If " +
+        "getting it wrong would be expensive, dangerous, or hard to " +
+        "undo, the time AI saves isn't worth the risk.</li>" +
+        "<li><strong>You need guaranteed accuracy.</strong> AI tools can " +
+        "be confidently wrong. If \"probably right\" isn't good enough, " +
+        "verify independently or skip it.</li>" +
+        "<li><strong>You're already faster yourself.</strong> If you " +
+        "already know exactly how to do something quickly, explaining it " +
+        "to an assistant can cost more time than it saves.</li>" +
+        "<li><strong>The decision should stay yours.</strong> For calls " +
+        "that carry real weight -- personal, financial, or otherwise -- " +
+        "make the decision yourself, and use AI at most to inform it, " +
+        "not make it.</li>" +
+        "</ul>" +
+        "<p>None of this is a strict rule to memorize -- it's a habit of " +
+        "pausing to ask whether the tool is actually the right fit " +
+        "before you reach for it.</p>",
     },
   ],
   labs: [

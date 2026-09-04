@@ -92,8 +92,72 @@ export default {
         "writing a README for a small project, using the same prompt " +
         "builder from Module 6.</p>",
     },
+    {
+      heading: "What to do when Claude gets it wrong",
+      body:
+        "<p>Sooner or later, Claude Code will make a change that isn't " +
+        "what you wanted -- it misreads what you meant, or does something " +
+        "reasonable-looking that still isn't right. What you do in the " +
+        "next minute matters more than the mistake itself:</p>" +
+        "<ol>" +
+        "<li><strong>Stop.</strong> Don't immediately ask it to \"try " +
+        "again\" or \"fix it\" -- that risks stacking a second guess on " +
+        "top of the first one.</li>" +
+        "<li><strong>Say what you expected instead.</strong> Be specific " +
+        "about the outcome you actually wanted.</li>" +
+        "<li><strong>Show it the actual wrong output.</strong> Paste or " +
+        "point to exactly what happened, not just your memory of it.</li>" +
+        "<li><strong>Ask it to diagnose before changing anything else.</strong> " +
+        "Have it explain what went wrong first, so the next change is " +
+        "aimed at the real cause.</li>" +
+        "<li><strong>Ask for a plan.</strong> Have it describe the fix " +
+        "before making it.</li>" +
+        "<li><strong>Review the plan.</strong> Read it before agreeing -- " +
+        "this is the same habit from Module 8's process commands.</li>" +
+        "<li><strong>Confirm the fix actually worked.</strong> Check the " +
+        "result yourself rather than assuming a confident-sounding reply " +
+        "means it's fixed.</li>" +
+        "</ol>" +
+        "<p>Things can go wrong, and that's okay -- it's a normal part of " +
+        "working with an AI assistant, not a sign you did something " +
+        "wrong. One habit makes it low-stakes: before a significant " +
+        "change, make sure there's a way to get back to where things " +
+        "were. Version history, backups, and undo are all plain examples " +
+        "of this idea -- the point isn't which one you use, just that " +
+        "you know a way back exists before you need it.</p>",
+    },
   ],
   labs: [
+    {
+      id: "module-11-recovery",
+      type: "quiz",
+      graded: true,
+      config: [
+        {
+          id: "removed-rows",
+          question:
+            "You asked Claude Code to clean up a list. It removed " +
+            "several rows you didn't expect to lose. What do you say " +
+            "next?",
+          options: [
+            "Try again.",
+            "Fix everything.",
+            "I expected the original rows to remain. Before making " +
+              "another change, explain why you removed them and propose " +
+              "a safe way to restore the missing information.",
+            "Why are you so bad at this?",
+          ],
+          correctIndex: 2,
+          explanation:
+            "Vague retries (\"try again,\" \"fix everything\") don't tell " +
+            "it what went wrong, and they risk more unwanted changes " +
+            "stacking on top of the first mistake. Naming the specific " +
+            "problem and asking it to explain before changing anything " +
+            "else is what keeps a small mistake from becoming a bigger " +
+            "one.",
+        },
+      ],
+    },
     {
       id: "module-11-prompt-builder",
       type: "prompt-builder",

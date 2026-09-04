@@ -32,6 +32,25 @@ export default {
         "in your own real Claude Code session from here. This app's job " +
         "ends at the download link; the rest is yours.</p>",
     },
+    {
+      heading: "Before you start",
+      body:
+        "<p>Before you dive in, do a quick gut-check. You should be able " +
+        "to:</p>" +
+        "<ul>" +
+        "<li>Describe what you want to build, in plain language.</li>" +
+        "<li>Recognize sensitive information and keep it out of what " +
+        "you share.</li>" +
+        "<li>Ask Claude for a plan before it makes a big change.</li>" +
+        "<li>Review what Claude actually changed, rather than just " +
+        "trusting it worked.</li>" +
+        "<li>Check whether the output is correct.</li>" +
+        "<li>Explain what went wrong if something breaks.</li>" +
+        "<li>Stop and ask for help when you're not sure.</li>" +
+        "</ul>" +
+        "<p>If you can do those things, you're ready. Go build " +
+        "something useful.</p>",
+    },
   ],
   labs: [
     {

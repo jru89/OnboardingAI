@@ -67,6 +67,26 @@ export default {
         "</ul>",
     },
     {
+      heading: "A good prompt doesn't guarantee a good answer",
+      body:
+        "<p>Following every rule above will get you a much better answer " +
+        "-- but it still won't guarantee a <em>correct</em> one. Claude " +
+        "Code can misunderstand what you meant, fill in gaps with its " +
+        "own assumptions, or -- especially when it's missing information " +
+        "-- simply invent something that sounds right but isn't. A " +
+        "detailed, confident-looking answer isn't automatically an " +
+        "accurate one; the two are independent.</p>" +
+        "<p>That's why the rule underneath all the golden rules is this: " +
+        "<strong>AI output is a draft until you've checked it.</strong> A " +
+        "great prompt makes that draft better, but checking it is still " +
+        "on you, especially for anything that matters -- a fact, a " +
+        "number, a name, a decision someone else will rely on.</p>" +
+        "<p>You'll practice this directly in Module 8, which builds on " +
+        "the \"treat the first reply as a draft\" idea from the golden " +
+        "rules above and gives you a concrete way to check an answer " +
+        "before you trust it.</p>",
+    },
+    {
       heading: "A worked example",
       body:
         "<p>Compare these two prompts:</p>" +

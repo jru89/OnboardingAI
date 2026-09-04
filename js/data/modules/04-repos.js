@@ -97,6 +97,41 @@ export default {
         },
       ],
     },
+    {
+      heading: "How do I know what changed?",
+      body:
+        "<p>Once Claude Code has done some work in your repo, you'll want " +
+        "a quick way to check what it actually did. The mental model is " +
+        "simple: <strong>Before</strong> -- this is what the project " +
+        "looked like. <strong>After</strong> -- these are the things " +
+        "Claude changed. <strong>Review</strong> -- do those changes make " +
+        "sense, given what you asked for?</p>" +
+        "<p>Here's a small example. Say you asked Claude Code to add a " +
+        "contact page to a simple website. Before, the project's files " +
+        "looked like this:</p>" +
+        "<pre>my-site/\n" +
+        "  index.html\n" +
+        "  about.html\n" +
+        "  styles.css</pre>" +
+        "<p>After, they look like this:</p>" +
+        "<pre>my-site/\n" +
+        "  index.html\n" +
+        "  about.html\n" +
+        "  contact.html\n" +
+        "  styles.css</pre>" +
+        "<p>Which things changed? Comparing the two listings, one new " +
+        "file appeared -- <strong>contact.html</strong> -- and " +
+        "<strong>styles.css</strong> is there in both, but that alone " +
+        "doesn't tell you whether its contents changed too; the file " +
+        "list is only a starting point, not the whole picture.</p>" +
+        "<p>Which change would you want to look at more closely before " +
+        "accepting it? A brand-new file is usually worth opening and " +
+        "reading in full, since there's nothing to compare it to. A file " +
+        "that already existed is worth a closer look too, especially if " +
+        "you weren't expecting it to be touched at all -- an unexpected " +
+        "change is exactly the kind of thing this before/after habit is " +
+        "meant to catch.</p>",
+    },
   ],
   labs: [
     {

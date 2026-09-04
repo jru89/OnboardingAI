@@ -1,150 +1,119 @@
-{
-  "mission_slug": "safety-judgment-additions-01M1P0ZS",
-  "mission_number": "",
-  "mission_type": "software-dev",
-  "overall_verdict": "pass",
-  "criteria": [
-    {
-      "criterion_id": "FR-001",
-      "description": "Module 1 SHALL add a reading section, \"Claude can do more than answer you.\"",
-      "proof_type": "manual_qa",
-      "evidence": "WP02 review (cycle 1, approved): new content section present in js/data/modules/01-get-oriented.js, 4 short paragraphs matching the module's existing plain-language tone/length; live-verified rendering in browser before the new lab.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-002",
-      "description": "Module 1 SHALL add a new lab, \"Would you allow this?\", 5 permission requests judged Allow/Don't allow/Not sure, with explanations.",
-      "proof_type": "manual_qa",
-      "evidence": "WP01 review (engine explanation-field support) + WP02 review (both approved): module-1-permission-check quiz lab has exactly 5 items, 3 options each, correctIndex values verified byte-for-byte against data-model.md; live-verified explanations render for both correct and incorrect answers.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-003",
-      "description": "Module 3 SHALL broaden its four unsafe-data categories with two more, a \"when in doubt\" rule, and a safe-to-paste example.",
-      "proof_type": "manual_qa",
-      "evidence": "WP03 review (approved): two new categories, \"when in doubt, don't paste\" rule, and a contrasting safe example all present in js/data/modules/03-data-safety.js, matching the module's existing category shape; live-verified rendering and 360px layout.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-004",
-      "description": "Module 3 SHALL add a closing section, \"Sometimes the right answer is: don't use AI at all.\"",
-      "proof_type": "manual_qa",
-      "evidence": "WP03 review (approved): closing section present, covers all six situations named in the WP, framed as judgment-building; existing module-3-spot-mistake lab confirmed untouched.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-005",
-      "description": "Module 4 SHALL add a before/after change-review section, not a Git course.",
-      "proof_type": "manual_qa",
-      "evidence": "WP04 review (approved): new section grepped for \"diff\"/\"commit\"/\"commit history\" as taught concepts, found none; before/after example and embedded reflection questions present; live-verified at 360px.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-006",
-      "description": "Module 6 SHALL add \"A good prompt doesn't guarantee a good answer,\" cross-referencing Module 8.",
-      "proof_type": "manual_qa",
-      "evidence": "WP04 review (approved): section present with the \"AI output is a draft until you've checked it\" rule; cross-reference to Module 8's actual \"Treat the first reply as a draft\" wording verified accurate by reading that file directly.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-007",
-      "description": "Module 8 SHALL add a \"Verification checklist\" section (6 questions).",
-      "proof_type": "manual_qa",
-      "evidence": "WP05 review (approved): all 6 questions present, explicitly framed as a second rule set alongside Module 6's golden rules; source facts confirmed as visible reading content before the lab.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-008",
-      "description": "Module 8 SHALL add a graded \"Can you spot what's wrong?\" lab with 3 planted inaccuracies.",
-      "proof_type": "manual_qa",
-      "evidence": "WP01 review (engine explanation-field support) + WP05 review (both approved): module-8-verification has exactly 3 items (wrong date, invented task, wrong number), each independently identifiable against the source facts; existing module-8-quiz confirmed byte-identical/untouched.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-009",
-      "description": "Module 11 SHALL add a recovery-workflow section, not a Git course.",
-      "proof_type": "manual_qa",
-      "evidence": "WP06 review (approved): section clearly separated with its own heading; grepped for \"commit\"/\"branch\"/\"revert\" as taught concepts, found none; \"keep a way back\" rule confirmed as one plain sentence, not a tutorial.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-010",
-      "description": "Module 11 SHALL add a \"Something went wrong\" lab modeling diagnose-before-fixing.",
-      "proof_type": "manual_qa",
-      "evidence": "WP01 review (engine explanation-field support) + WP06 review (both approved): module-11-recovery is the first lab entry, 4 options, correctIndex 2, explanation verified byte-for-byte against data-model.md; existing module-11-prompt-builder confirmed untouched.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "criterion_id": "FR-011",
-      "description": "Module 12 SHALL add a non-blocking \"Before you start\" readiness self-check, not a checklist-lab.",
-      "proof_type": "manual_qa",
-      "evidence": "WP07 review (approved): confirmed the module-12-download lab's labs array is byte-for-byte unchanged (still exactly one download lab, two entries); zero interactive elements in the new HTML; live-verified both downloads remain reachable without interacting with the new section.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    }
-  ],
-  "negative_invariants": [
-    {
-      "invariant_id": "NI-001",
-      "description": "This mission SHALL NOT add a new module, or change any existing module's id/order/purposeKey (C-001).",
-      "proof_type": "manual_qa",
-      "evidence": "Every WP's owned_files scoping confined edits to existing module data files' content/labs arrays; no module file's id/order/purposeKey fields were touched in any of the 7 reviewed diffs.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "invariant_id": "NI-002",
-      "description": "This mission SHALL NOT introduce a new lab engine type (C-002).",
-      "proof_type": "manual_qa",
-      "evidence": "All three new labs (Modules 1, 8, 11) reuse type: \"quiz\" via the WP01-extended quiz-lab.js; no new js/views/labs/*.js file was created.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    },
-    {
-      "invariant_id": "NI-003",
-      "description": "Module 12's addition SHALL NOT reintroduce checklist-lab-style hand-holding (C-004).",
-      "proof_type": "manual_qa",
-      "evidence": "WP07 review explicitly confirmed no checklist lab engine reference and zero interactive elements in the new content.",
-      "pass_fail": "pass",
-      "verified_by": "reviewer-renata:reviewer",
-      "verified_at": "2026-09-04T15:00:00Z",
-      "notes": null
-    }
-  ]
-}
+{
+  "mission_slug": "safety-judgment-additions-01M1P0ZS",
+  "mission_number": "",
+  "mission_type": "software-dev",
+  "overall_verdict": "pending",
+  "criteria": [
+    {
+      "criterion_id": "FR-001",
+      "description": "Verify FR-001 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-002",
+      "description": "Verify FR-002 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-003",
+      "description": "Verify FR-003 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-004",
+      "description": "Verify FR-004 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-005",
+      "description": "Verify FR-005 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-006",
+      "description": "Verify FR-006 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-007",
+      "description": "Verify FR-007 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-008",
+      "description": "Verify FR-008 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-009",
+      "description": "Verify FR-009 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-010",
+      "description": "Verify FR-010 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    },
+    {
+      "criterion_id": "FR-011",
+      "description": "Verify FR-011 is satisfied",
+      "proof_type": "automated_test",
+      "evidence": null,
+      "pass_fail": "pending",
+      "verified_by": null,
+      "verified_at": null,
+      "notes": "TODO: replace with a real acceptance criterion"
+    }
+  ],
+  "negative_invariants": []
+}

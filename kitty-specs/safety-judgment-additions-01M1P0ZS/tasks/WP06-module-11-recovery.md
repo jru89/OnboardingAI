@@ -213,4 +213,3 @@ Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-ta
 - 2026-09-04T13:46:51Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=7568 – Assigned agent via action command
 - 2026-09-04T14:00:41Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=7568 – Ready for review
 - 2026-09-04T14:01:12Z – claude:sonnet-5:reviewer-renata:reviewer – shell_pid=9924 – Started review via action command
-- 2026-09-04T14:07:09Z – user – shell_pid=9924 – Review passed: recovery section/lab additively inserted, module-11-prompt-builder byte-identical, lab content matches data-model.md verbatim, live browser verification (4 options + explanations, 360px) all pass
