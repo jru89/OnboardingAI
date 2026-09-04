@@ -2,7 +2,7 @@
 // control. See kitty-specs/.../tasks/WP02-progress-persistence.md T010/T011.
 
 import { navigateTo } from "../app.js";
-import { getProgress, resetProgress, onSaved } from "../lib/progress.js";
+import { getProgress, confirmAndResetProgress, onSaved } from "../lib/progress.js";
 // WP08/T042: real module content now exists -- import the aggregated,
 // order-sorted module list from js/data/modules/index.js instead of the
 // WP02-era placeholder stub list it used to define locally here.
@@ -67,15 +67,10 @@ function buildModuleCard(module, status) {
 }
 
 function handleResetClick() {
-  const confirmed = window.confirm(
-    "Reset all progress? This clears every module status, lab result, and " +
-      "saved draft. This cannot be undone.",
-  );
-  if (!confirmed) return;
-  // resetProgress() notifies onSaved subscribers immediately, which
-  // includes the re-render subscription set up in render() below -- no
-  // need to re-render again here.
-  resetProgress();
+  // confirmAndResetProgress() notifies onSaved subscribers immediately when
+  // it does reset, which includes the re-render subscription set up in
+  // render() below -- no need to re-render again here.
+  confirmAndResetProgress();
 }
 
 function renderLanding(container) {

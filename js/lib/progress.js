@@ -145,6 +145,22 @@ export function resetProgress() {
 }
 
 /**
+ * Shared confirm-then-reset flow used by every "reset progress" control
+ * in the app (the landing page's own button, and the header's) so the
+ * confirmation copy stays in one place. Returns whether the reset
+ * actually happened, in case a caller wants to react to it.
+ */
+export function confirmAndResetProgress() {
+  const confirmed = window.confirm(
+    "Reset all progress? This clears every module status, lab result, and " +
+      "saved draft. This cannot be undone.",
+  );
+  if (!confirmed) return false;
+  resetProgress();
+  return true;
+}
+
+/**
  * Subscribes to "a write (debounced or immediate) just completed" --
  * drives the "saved" indicator. Returns an unsubscribe function.
  */

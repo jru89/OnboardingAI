@@ -259,6 +259,33 @@ button:focus-visible,
   display: none;
 }
 
+/* --- header reset control --- */
+/* The landing page has always had its own "Reset my progress" button, but
+   it sits below the full 12-module list -- easy to miss and only reachable
+   from "/". This mirrors it in the persistent header (built once in
+   app.js, so it's present on every route) using the same muted/ghost
+   treatment as .reset-progress-btn, just sized to sit inline with the
+   other header chrome. */
+.header-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px var(--space-3);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.header-reset-btn:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
 /* --- main --- */
 #app-main {
   max-width: var(--max-content-width);
@@ -608,10 +635,21 @@ button:focus-visible,
 
 .quiz-item legend,
 .spot-mistake-item legend {
+  /* A <legend> ignores its <fieldset>'s own padding on the block-start
+     edge only (horizontal/bottom padding apply normally) -- by default
+     it renders flush against the fieldset's top border so the border
+     can "notch" around it. Left unaddressed, multi-line question text
+     sits pressed right against the rounded top border with no
+     clearance, reading as the text bleeding into the box edge.
+     padding-top restores the same visual inset the fieldset already
+     gives every other edge. */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1rem;
-  padding: 0 0 var(--space-3) 0;
+  padding: var(--space-4) 0 var(--space-3) 0;
   color: var(--color-text);
 }
 

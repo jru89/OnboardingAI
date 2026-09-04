@@ -12,7 +12,7 @@
 
 import { render as renderLanding } from "./views/landing-view.js";
 import { render as renderModule } from "./views/module-view.js";
-import { onSaved } from "./lib/progress.js";
+import { onSaved, confirmAndResetProgress } from "./lib/progress.js";
 
 const headerEl = document.getElementById("app-header");
 const mainEl = document.getElementById("app-main");
@@ -109,6 +109,7 @@ function buildHeader() {
       </nav>
       <span id="overall-progress" class="overall-progress" aria-live="polite"></span>
       <span id="saved-indicator" class="saved-indicator" aria-live="polite" hidden>Saved</span>
+      <button type="button" id="header-reset-btn" class="header-reset-btn">Reset progress</button>
     </div>
   `;
   currentViewLabelEl = headerEl.querySelector("#current-view-label");
@@ -120,6 +121,16 @@ function buildHeader() {
   homeLink.addEventListener("click", (event) => {
     event.preventDefault();
     navigateTo("/");
+  });
+  const resetBtn = headerEl.querySelector("#header-reset-btn");
+  resetBtn.addEventListener("click", () => {
+    // Reachable from any module/lab page, but a lab already mounted on
+    // screen reads its checked/selected state once at mount time -- it
+    // won't un-check itself just because storage was cleared underneath
+    // it. Sending the learner back to "/" after a real reset avoids that
+    // stale-looking mismatch and doubles as a clear "you're starting over"
+    // confirmation.
+    if (confirmAndResetProgress()) navigateTo("/");
   });
   headerBuilt = true;
 }
