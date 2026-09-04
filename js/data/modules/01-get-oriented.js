@@ -98,6 +98,28 @@ export default {
         "<p>This link opens in a new tab and requires an internet " +
         "connection; everything else in this module works fully offline.</p>",
     },
+    {
+      heading: "Claude can do more than answer you",
+      body:
+        "<p>Claude Code isn't just a chat window. Once it's working in " +
+        "your project, it can <strong>read your files</strong> to " +
+        "understand them, <strong>create new files</strong>, " +
+        "<strong>modify files</strong> that already exist, and " +
+        "<strong>run commands</strong> on your computer -- the same kinds " +
+        "of actions you could take yourself, just done on your behalf.</p>" +
+        "<p>That's real power, so some of those actions require your " +
+        "permission first. That's what the permission prompt from the " +
+        "previous section is for: before Claude Code changes a file or " +
+        "runs a command, it stops and asks.</p>" +
+        "<p>When that prompt appears, treat it as a moment to stop and " +
+        "understand what's being asked -- not something to click through " +
+        "on autopilot. Read what it says it wants to do. If it's clear " +
+        "and matches what you asked for, approve it. If anything is " +
+        "unclear, it's fine to say no or ask a question first.</p>" +
+        "<p>You are the one responsible for approving each action. Claude " +
+        "Code will always ask -- but only you can decide whether the " +
+        "answer should be yes.</p>",
+    },
   ],
   labs: [
     {
@@ -120,6 +142,67 @@ export default {
         {
           id: "locate-file-context",
           label: "Locate where Claude Code shows which project/files it's using",
+        },
+      ],
+    },
+    {
+      id: "module-1-permission-check",
+      type: "quiz",
+      graded: true,
+      config: [
+        {
+          id: "read-readme",
+          question: "Claude Code asks: \"May I read README.md?\"",
+          options: ["Allow", "Don't allow", "Not sure -- inspect first"],
+          correctIndex: 0,
+          explanation:
+            "Reading a file to understand the project is low-risk and " +
+            "exactly the kind of thing Claude Code needs permission to " +
+            "do routinely.",
+        },
+        {
+          id: "edit-budget",
+          question: "Claude Code asks: \"May I edit budget.xlsx?\"",
+          options: ["Allow", "Don't allow", "Not sure -- inspect first"],
+          correctIndex: 2,
+          explanation:
+            "Editing a real spreadsheet with numbers you care about is " +
+            "worth a quick look first -- ask what it plans to change " +
+            "before saying yes.",
+        },
+        {
+          id: "delete-old-notes",
+          question: "Claude Code asks: \"May I delete old-notes.md?\"",
+          options: ["Allow", "Don't allow", "Not sure -- inspect first"],
+          correctIndex: 2,
+          explanation:
+            "Deleting is hard to undo. Ask what's in the file and why it " +
+            "should go before agreeing, even if the name sounds safe to " +
+            "remove.",
+        },
+        {
+          id: "run-command",
+          question:
+            "Claude Code asks: \"May I run this command?\" (and shows " +
+            "you the exact command)",
+          options: ["Allow", "Don't allow", "Not sure -- inspect first"],
+          correctIndex: 2,
+          explanation:
+            "You're shown the exact command -- read it before deciding. " +
+            "If you understand it and it matches what you asked for, " +
+            "allow it; if not, ask what it does first.",
+        },
+        {
+          id: "outside-folder",
+          question:
+            "Claude Code asks: \"May I access a folder outside this " +
+            "project?\"",
+          options: ["Allow", "Don't allow", "Not sure -- inspect first"],
+          correctIndex: 1,
+          explanation:
+            "Reaching outside the project folder is unusual for the " +
+            "tasks this course covers -- don't allow it without " +
+            "understanding specifically why it's needed.",
         },
       ],
     },

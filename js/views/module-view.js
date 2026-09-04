@@ -128,11 +128,15 @@ function allLabsComplete(labs, moduleId) {
 function evaluateModuleStatus(moduleId, labs) {
   const { moduleStatus } = getProgress();
   const currentStatus = moduleStatus[moduleId] || "not_started";
-  if (currentStatus === "done") return; // already settled, nothing to do
+  const complete = labs.length === 0 || allLabsComplete(labs, moduleId);
 
-  if (labs.length === 0 || allLabsComplete(labs, moduleId)) {
-    setModuleStatus(moduleId, "done");
-  } else if (currentStatus === "not_started") {
+  if (complete) {
+    if (currentStatus !== "done") setModuleStatus(moduleId, "done");
+  } else if (currentStatus !== "in_progress") {
+    // Covers "not_started -> in_progress" (first interaction) AND
+    // "done -> in_progress" (a lab was added since this module was last
+    // marked done -- re-open it rather than leaving a stale badge the
+    // learner can never earn back without a full reset).
     setModuleStatus(moduleId, "in_progress");
   }
 }

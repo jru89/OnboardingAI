@@ -112,9 +112,13 @@ export function mount(container, lab, moduleId) {
       const feedback = document.createElement("p");
       feedback.className =
         "quiz-feedback " + (result.correct ? "is-correct" : "is-incorrect");
-      feedback.textContent = result.correct
+      let feedbackText = result.correct
         ? "Correct."
         : `Incorrect. The correct answer is: ${item.options[item.correctIndex]}`;
+      if (item.explanation) {
+        feedbackText += ` ${item.explanation}`;
+      }
+      feedback.textContent = feedbackText;
       fieldset.appendChild(feedback);
     }
 

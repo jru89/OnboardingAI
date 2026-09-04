@@ -5,9 +5,18 @@
 // reply as a draft, giving explicit process commands, and fresh-thread /
 // memory hygiene once a conversation gets long.
 //
-// Two labs:
+// Also (FR-007, FR-008): a "Verification checklist" content section --
+// framed as a second set of course-wide rules alongside Module 6's golden
+// rules -- plus a short meeting-notes source-facts snippet the new
+// "module-8-verification" lab judges a fabricated AI summary against.
+//
+// Three labs:
 //   - "quiz" (graded) -- js/views/labs/quiz-lab.js: lab.config is a bare
-//     array of {id, question, options: string[], correctIndex}.
+//     array of {id, question, options: string[], correctIndex,
+//     explanation?}. `module-8-verification` is positioned right after
+//     `module-8-quiz` (both quizzes together) and before the interactive
+//     prompt-builder, since it's the more focused, "answer more
+//     questions" continuation of the same quiz format -- see WP05.
 //   - "prompt-builder" -- js/views/labs/prompt-builder-lab.js. Reuses the
 //     Module 6 engine but MUST use a distinct purposeKey so drafts don't
 //     collide (T020/T037): "prompting-201-rewrite", NOT "prompting-101".
@@ -102,6 +111,41 @@ export default {
         },
       ],
     },
+    {
+      heading: "Verification checklist",
+      body:
+        "<p>Module 6's golden rules are about writing a good prompt. This " +
+        "is a second set of course-wide rules -- for checking a good " +
+        "<em>reply</em> once you have one. Before treating any AI answer " +
+        "as final, run through these six questions:</p>" +
+        "<ul>" +
+        "<li><strong>Did it answer the actual question?</strong> Not a " +
+        "nearby question, or half of what you asked.</li>" +
+        "<li><strong>Did it use the information you gave it " +
+        "correctly?</strong> Check the reply against your source, not " +
+        "just against itself.</li>" +
+        "<li><strong>Did it invent anything?</strong> A detail that " +
+        "sounds plausible but was never actually in what you gave it.</li>" +
+        "<li><strong>Did it change any numbers, names, dates, or " +
+        "facts?</strong> These are the easiest kind of error to miss, " +
+        "because the reply still reads smoothly.</li>" +
+        "<li><strong>Does the result actually make sense?</strong> Read " +
+        "it with fresh eyes, as if someone else wrote it.</li>" +
+        "<li><strong>If it matters, how could you independently verify " +
+        "it?</strong> Knowing how you'd check is useful even when you " +
+        "don't check every time.</li>" +
+        "</ul>" +
+        "<p>The lab below puts this into practice. Here are the real " +
+        "source notes from a short team meeting:</p>" +
+        "<ul>" +
+        "<li>Sarah will send the invoice <strong>Friday</strong>.</li>" +
+        "<li>John will <strong>check</strong> the contract.</li>" +
+        "<li>Budget: <strong>€4,500</strong>.</li>" +
+        "</ul>" +
+        "<p>An AI summary of these notes below gets three small but real " +
+        "details wrong -- read the notes carefully before you judge each " +
+        "claim.</p>",
+    },
   ],
   labs: [
     {
@@ -168,6 +212,48 @@ export default {
             "Claude Code gave a short reply.",
           ],
           correctIndex: 2,
+        },
+      ],
+    },
+    {
+      id: "module-8-verification",
+      type: "quiz",
+      graded: true,
+      config: [
+        {
+          id: "wrong-date",
+          question:
+            "The summary says: \"Sarah will send the invoice Monday.\" " +
+            "The notes say Friday.",
+          options: ["Accurate", "Inaccurate"],
+          correctIndex: 1,
+          explanation:
+            "The source says Friday, not Monday -- a small-looking " +
+            "change that would send someone to the wrong day.",
+        },
+        {
+          id: "invented-task",
+          question:
+            "The summary says: \"John will approve the contract.\" The " +
+            "notes say John will check the contract.",
+          options: ["Accurate", "Inaccurate"],
+          correctIndex: 1,
+          explanation:
+            "\"Check\" and \"approve\" are different responsibilities -- " +
+            "the summary invented a stronger commitment than the source " +
+            "actually gave.",
+        },
+        {
+          id: "wrong-number",
+          question:
+            "The summary says: \"The budget is €5,400.\" The notes " +
+            "say €4,500.",
+          options: ["Accurate", "Inaccurate"],
+          correctIndex: 1,
+          explanation:
+            "The digits got transposed -- exactly the kind of change " +
+            "that's easy to miss if you don't check numbers against the " +
+            "source.",
         },
       ],
     },
