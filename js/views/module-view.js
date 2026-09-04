@@ -15,6 +15,8 @@ import { getProgress, setModuleStatus, onSaved } from "../lib/progress.js";
 // WP08/T042: real module content now exists for all 12 modules -- import
 // the aggregated, order-sorted list from js/data/modules/index.js instead
 // of the WP03-era local placeholder stubs this file used to define here.
+// Also used by the prev/next pager below: MODULES is already sorted by
+// `order`, so adjacency here is just array-index adjacency.
 import MODULES from "../data/modules/index.js";
 
 /* ------------------------------------------------------------------ */
@@ -203,6 +205,66 @@ function renderContentSection(section) {
 }
 
 /* ------------------------------------------------------------------ */
+/* Previous/next module pager                                          */
+/* ------------------------------------------------------------------ */
+//
+// Added after user feedback that reaching the next lesson always required
+// going back through the landing view. MODULES is already order-sorted
+// (WP08/T042), so the adjacent module is just the adjacent array index --
+// no separate "order" lookup needed. First module has no previous, last
+// (the graduation module) has no next.
+
+function renderPager(currentModuleId) {
+  const currentIndex = MODULES.findIndex((m) => m.id === currentModuleId);
+  if (currentIndex === -1) return null;
+
+  const prevModule = currentIndex > 0 ? MODULES[currentIndex - 1] : null;
+  const nextModule =
+    currentIndex < MODULES.length - 1 ? MODULES[currentIndex + 1] : null;
+  if (!prevModule && !nextModule) return null;
+
+  const pager = document.createElement("nav");
+  pager.className = "module-pager";
+  pager.setAttribute("aria-label", "Module navigation");
+
+  function pagerLink(targetModule, direction) {
+    const link = document.createElement("a");
+    link.href = `#/module/${targetModule.id}`;
+    link.className = `module-pager-link module-pager-link--${direction}`;
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      navigateTo(`/module/${targetModule.id}`);
+    });
+
+    const label = document.createElement("span");
+    label.className = "module-pager-label";
+    label.textContent =
+      direction === "prev" ? "← Previous" : "Next →";
+    link.appendChild(label);
+
+    const title = document.createElement("span");
+    title.className = "module-pager-title";
+    title.textContent = targetModule.title;
+    link.appendChild(title);
+
+    return link;
+  }
+
+  if (prevModule) {
+    pager.appendChild(pagerLink(prevModule, "prev"));
+  } else {
+    // Keep the next link on the right via flexbox even with no prev link.
+    pager.appendChild(document.createElement("span"));
+  }
+
+  if (nextModule) {
+    pager.appendChild(pagerLink(nextModule, "next"));
+  }
+
+  return pager;
+}
+
+/* ------------------------------------------------------------------ */
 /* Lab mounting + cleanup (T012, T013)                                 */
 /* ------------------------------------------------------------------ */
 
@@ -319,6 +381,9 @@ export function render(container, params) {
       labHandles.push({ unmount });
     }
   }
+
+  const pager = renderPager(moduleId);
+  if (pager) container.appendChild(pager);
 
   // First mount from "not_started" -> "in_progress" (T012), or straight to
   // "done" for a zero-lab module -- see the T016 rule documented above.
