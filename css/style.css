@@ -294,6 +294,86 @@ button:focus-visible,
   min-height: 60vh;
 }
 
+/* --- access gate --- */
+/* Soft deterrent, not real auth (see app.js's GATE_PASSWORD comment) --
+   styled to match the app's own design system so it doesn't look like a
+   bolted-on afterthought. */
+.gate {
+  max-width: 420px;
+  margin: var(--space-7) auto 0;
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.gate-title {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-3);
+}
+
+.gate-intro {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+}
+
+.gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: left;
+}
+
+.gate-label {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary-2);
+}
+
+.gate-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--space-3);
+  background: var(--color-surface-2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gate-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-primary-soft);
+}
+
+.gate-submit {
+  background: var(--gradient-accent-strong);
+  color: var(--color-primary-contrast);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+  font-weight: 700;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.gate-submit:hover {
+  box-shadow: var(--glow-primary);
+  transform: translateY(-1px);
+}
+
+.gate-error {
+  margin: 0;
+  color: var(--color-danger);
+  font-size: 0.9rem;
+}
+
 /* --- scroll-to-top --- */
 .scroll-to-top {
   position: fixed;

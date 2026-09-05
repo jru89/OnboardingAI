@@ -213,25 +213,88 @@ function handleRouteChange() {
   initScrollToTop(mainEl);
 }
 
-window.addEventListener("hashchange", handleRouteChange);
-window.addEventListener("DOMContentLoaded", handleRouteChange);
+function bootApp() {
+  window.addEventListener("hashchange", handleRouteChange);
+  window.addEventListener("DOMContentLoaded", handleRouteChange);
 
-// Module scripts are deferred, so DOMContentLoaded may already have fired
-// by the time this executes -- render immediately in that case too.
-if (document.readyState !== "loading") {
-  handleRouteChange();
+  // Module scripts are deferred, so DOMContentLoaded may already have fired
+  // by the time this executes -- render immediately in that case too.
+  if (document.readyState !== "loading") {
+    handleRouteChange();
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Service worker registration (WP11, T054)                            */
+  /* ------------------------------------------------------------------ */
+  //
+  // Out-of-map edit on this WP01-owned file: WP11 (PWA & Offline Support,
+  // FR-027/FR-028) is authorized by its task file to make this small,
+  // additive registration call here rather than duplicating app bootstrap
+  // logic in a new file.
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js");
+    });
+  }
 }
 
 /* ------------------------------------------------------------------ */
-/* Service worker registration (WP11, T054)                            */
+/* Access gate                                                         */
 /* ------------------------------------------------------------------ */
 //
-// Out-of-map edit on this WP01-owned file: WP11 (PWA & Offline Support,
-// FR-027/FR-028) is authorized by its task file to make this small,
-// additive registration call here rather than duplicating app bootstrap
-// logic in a new file.
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("service-worker.js");
+// A soft deterrent only, not real authentication -- this is a static
+// site with no backend, so GATE_PASSWORD is readable by anyone who views
+// source or the public repo. It exists purely to stop a casually-shared
+// link from being wandered into by people it wasn't meant for; no
+// sensitive data lives behind it, and it isn't a security boundary.
+const GATE_STORAGE_KEY = "ccol:gate-passed";
+const GATE_PASSWORD = "onboarding";
+
+function isGatePassed() {
+  try {
+    return window.localStorage.getItem(GATE_STORAGE_KEY) === "true";
+  } catch (err) {
+    return false; // localStorage unavailable -- fail open, don't hard-lock.
+  }
+}
+
+function renderGate(onUnlock) {
+  headerEl.innerHTML = "";
+  mainEl.innerHTML = `
+    <div class="gate">
+      <h1 class="gate-title">Claude Code Onboarding Lab</h1>
+      <p class="gate-intro">This link was shared with you directly -- enter the passphrase you were given to continue.</p>
+      <form id="gate-form" class="gate-form" novalidate>
+        <label for="gate-input" class="gate-label">Passphrase</label>
+        <input id="gate-input" class="gate-input" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" />
+        <button type="submit" class="gate-submit">Continue</button>
+        <p id="gate-error" class="gate-error" role="alert" hidden>That's not it -- try again.</p>
+      </form>
+    </div>
+  `;
+  const form = document.getElementById("gate-form");
+  const input = document.getElementById("gate-input");
+  const errorEl = document.getElementById("gate-error");
+  input.focus();
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const entered = input.value.trim().toLowerCase();
+    if (entered === GATE_PASSWORD) {
+      try {
+        window.localStorage.setItem(GATE_STORAGE_KEY, "true");
+      } catch (err) {
+        // Ignore -- worst case she's asked again on the next visit.
+      }
+      onUnlock();
+    } else {
+      errorEl.hidden = false;
+      input.select();
+    }
   });
+}
+
+if (isGatePassed()) {
+  bootApp();
+} else {
+  renderGate(bootApp);
 }
