@@ -85,7 +85,7 @@ claude-code-onboarding-lab/
 └── docs/
     └── reference/
         ├── gemini-agent-repo-blueprint.md       # Already in repo -- served as-is for Module 12
-        └── example-agent-minutes-milo.md       # Already in repo -- served as-is for Module 12
+        └── example-agent-minutes-milo.md        # Already in repo -- served as-is for Module 12
 ```
 
 **Structure Decision**: Single static-site project (no frontend/backend

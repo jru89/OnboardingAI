@@ -1,6 +1,6 @@
 # Minutes Milo — what this agent does
 
-Minutes Milo is a Gemini Enterprise chatbot for Acme employees. His job is to turn meeting material you already have into structured draft minutes, in the chat.
+Minutes Milo is a Gemini Enterprise chatbot for your team. His job is to turn meeting material you already have into structured draft minutes, in the chat.
 
 You give him a transcript, recording, notes, or a short narration of what was said. He returns a formatted minutes record. That is the whole loop.
 
@@ -36,7 +36,7 @@ On request he can also:
 - Transcribe live meetings or invent content that was not in the material you supplied.
 - Summarise non-meeting documents.
 
-If you need minutes published automatically, that is a different tool: the local `minutes-maker-milo` productivity agent.
+If you need minutes published automatically somewhere, that is a different kind of tool — this agent stays chat-only on purpose.
 
 ## How to use him
 
@@ -45,4 +45,4 @@ If you need minutes published automatically, that is a different tool: the local
 3. Ask: `Turn this into compact structured minutes with attributed action items.`
 4. Answer any missing-owner questions, review the draft, then copy it where you need it.
 
-DOCX has been confirmed in the current POC. Direct `.vtt` upload is not supported; paste the transcript text instead. Treat other formats as unconfirmed until the operator has checked them in the workspace.
+Plain text and pasted transcripts work reliably. If you try uploading a file directly, check the result carefully rather than assuming the format was read correctly — treat anything you haven't tested yourself as unconfirmed.
