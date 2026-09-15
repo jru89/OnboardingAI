@@ -22,11 +22,12 @@ export default {
     {
       heading: "Where you are, and what you're looking at",
       body:
-        "<p>Claude Code lives in a <strong>terminal</strong> -- a plain, " +
-        "text-based window where you type commands and see responses, " +
-        "instead of clicking buttons in a typical app. It might look " +
-        "intimidating at first, but you'll only ever need to do one thing " +
-        "in it: type in plain English and read what comes back.</p>" +
+        "<p>Claude Code lives right inside your code editor (your " +
+        "<strong>IDE</strong>) as a panel next to your files -- instead " +
+        "of a separate program you have to switch to, it sits alongside " +
+        "the project you're already working in. It might look like a lot " +
+        "at first, but you'll only ever need to do one thing in it: type " +
+        "in plain English and read what comes back.</p>" +
         "<p>The diagram below labels the three things you'll look for " +
         "every time you open Claude Code:</p>" +
         "<ol>" +
@@ -47,18 +48,19 @@ export default {
         {
           term: "Claude Code",
           definition:
-            "Anthropic's official command-line assistant. It's an AI " +
-            "assistant you talk to in plain English, and unlike a typical " +
-            "chatbot, it can read, edit, and run things on your own " +
-            "computer -- always asking permission first for anything " +
-            "that changes something.",
+            "Anthropic's official AI coding assistant, built right into " +
+            "your code editor. It's an AI assistant you talk to in plain " +
+            "English, and unlike a typical chatbot, it can read, edit, " +
+            "and run things in your project -- always asking permission " +
+            "first for anything that changes something.",
         },
         {
-          term: "terminal",
+          term: "IDE (integrated development environment)",
           definition:
-            "A plain, text-only window for typing commands and reading " +
-            "responses, instead of clicking through menus and buttons. It " +
-            "looks old-fashioned, but you only ever need to type and read.",
+            "The application you write and edit code in -- for example, " +
+            "Visual Studio Code. Claude Code runs inside it as a panel, " +
+            "so your project and your conversation with Claude Code sit " +
+            "side by side.",
         },
         {
           term: "prompt",
