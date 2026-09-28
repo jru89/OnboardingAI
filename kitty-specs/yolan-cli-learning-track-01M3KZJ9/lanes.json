@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "mission_slug": "yolan-cli-learning-track-01M3KZJ9",
+  "mission_id": "01M3KZJ92VZXRGCT8BSVD9R79W",
+  "mission_branch": "kitty/mission-yolan-cli-learning-track-01M3KZJ9",
+  "target_branch": "feat/claude-code-onboarding-lab",
+  "lanes": [
+    {
+      "lane_id": "lane-a",
+      "wp_ids": [
+        "WP01"
+      ],
+      "write_scope": [
+        "js/data/modules/claude-code-cli-orientation.js",
+        "js/data/modules/make-your-terminal-yours.js",
+        "js/data/modules/terminal-basics.js"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    },
+    {
+      "lane_id": "lane-b",
+      "wp_ids": [
+        "WP02"
+      ],
+      "write_scope": [
+        "js/data/modules/git-properly.js",
+        "js/data/modules/github-hosting.js",
+        "js/data/modules/mcp-servers-hands-on.js"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    },
+    {
+      "lane_id": "lane-c",
+      "wp_ids": [
+        "WP03"
+      ],
+      "write_scope": [
+        "js/data/modules/building-your-own-tools.js",
+        "js/data/modules/capstone-ship-a-real-tool.js",
+        "js/data/modules/claude-api-taste.js",
+        "js/data/modules/spec-driven-development.js"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    },
+    {
+      "lane_id": "lane-d",
+      "wp_ids": [
+        "WP04"
+      ],
+      "write_scope": [
+        "js/data/modules/03-data-safety.js",
+        "js/data/modules/index.js",
+        "js/views/landing-view.js",
+        "js/views/module-view.js",
+        "service-worker.js"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering",
+        "dashboard",
+        "legacy-cleanup"
+      ],
+      "depends_on_lanes": [
+        "lane-a",
+        "lane-b",
+        "lane-c"
+      ],
+      "parallel_group": 1
+    }
+  ],
+  "computed_at": "2026-09-28T16:21:33.077584+00:00",
+  "computed_from": "dependency_graph+ownership",
+  "planning_artifact_wps": []
+}
