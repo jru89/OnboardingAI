@@ -404,3 +404,4 @@ export default {
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP01 --to <status>` to change WP status.
 - 2026-09-28T17:39:29Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=25540 – Assigned agent via action command
+- 2026-09-28T17:50:15Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=25540 – Ready for review

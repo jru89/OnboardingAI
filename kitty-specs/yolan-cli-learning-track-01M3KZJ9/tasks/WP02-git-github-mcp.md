@@ -20,8 +20,8 @@ subtasks:
 - T008
 phase: Phase 1 - Content (Wave 1)
 assignee: ''
-shell_pid: "26404"
-agent: "claude:sonnet-5:frontend-freddy:implementer"
+shell_pid: "22972"
+agent: "claude:sonnet-5:reviewer-renata:reviewer"
 history:
 - at: '2026-09-28T00:00:00Z'
   actor: system
@@ -382,3 +382,4 @@ Order values for this WP's three modules within Yolan's 15-module track:
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP02 --to <status>` to change WP status.
 - 2026-09-28T17:41:07Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=26404 – Assigned agent via action command
 - 2026-09-28T17:48:27Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=26404 – Ready for review: git-properly.js, github-hosting.js, mcp-servers-hands-on.js authored and verified via temporary local preview (reverted)
+- 2026-09-28T17:49:20Z – claude:sonnet-5:reviewer-renata:reviewer – shell_pid=22972 – Started review via action command
