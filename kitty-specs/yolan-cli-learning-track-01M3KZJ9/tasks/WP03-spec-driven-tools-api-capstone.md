@@ -11,6 +11,9 @@ tracker_refs: []
 planning_base_branch: feat/claude-code-onboarding-lab
 merge_target_branch: feat/claude-code-onboarding-lab
 branch_strategy: Planning artifacts for this mission were generated on feat/claude-code-onboarding-lab. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feat/claude-code-onboarding-lab unless the human explicitly redirects the landing branch.
+base_branch: kitty/mission-yolan-cli-learning-track-01M3KZJ9
+base_commit: 3b4db51cb383b4c390afe3107e4bc5c7f6e47231
+created_at: '2026-09-28T17:40:17.361380+00:00'
 subtasks:
 - T009
 - T010
@@ -19,6 +22,7 @@ subtasks:
 - T013
 phase: Phase 1 - Content (Wave 1)
 assignee: ''
+shell_pid: '26932'
 history:
 - at: '2026-09-28T00:00:00Z'
   actor: system
