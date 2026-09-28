@@ -67,8 +67,16 @@ export default {
         "<p>With authentication set up, connecting a project to GitHub " +
         "for the first time follows a short, repeatable sequence: create " +
         "an empty repo on GitHub, then connect your local repo to it with " +
-        "<code>git remote add origin &lt;url&gt;</code>, then push with " +
-        "<code>git push</code>. That <code>origin</code> is just a name " +
+        "<code>git remote add origin &lt;url&gt;</code>, then push with:</p>" +
+        "<pre>git push -u origin main</pre>" +
+        "<p>That <code>-u</code> is only needed this one time -- it tells " +
+        "Git \"this local branch and that remote branch go together from " +
+        "now on,\" so every push and pull after this first one can go " +
+        "back to the plain <code>git push</code> / <code>git pull</code> " +
+        "from \"Git, Properly.\" Leaving off <code>-u</code> on this very " +
+        "first push is a common beginner snag -- Git will refuse with an " +
+        "error about no upstream branch, which this avoids entirely.</p>" +
+        "<p>That <code>origin</code> is just a name " +
         "for the remote you set up -- the same \"remote\" idea from " +
         "\"Git, Properly.\" This is where that module's push and pull " +
         "commands actually go somewhere: up to this point they had " +

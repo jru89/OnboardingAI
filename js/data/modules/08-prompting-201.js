@@ -39,9 +39,9 @@ export default {
         "beats starting with the task and patching in details as Claude " +
         "Code asks for them -- it gets the full picture on the first " +
         "reply instead of guessing at what you left out.</p>" +
-        "<p>This is the same <strong>context</strong> field from Module " +
-        "6's role-context-task-format structure -- this module is about " +
-        "using it more deliberately, not a new idea.</p>",
+        "<p>This is the same <strong>context</strong> field from " +
+        "Prompting 101's role-context-task-format structure -- this " +
+        "module is about using it more deliberately, not a new idea.</p>",
     },
     {
       heading: "Ask for the output format you actually want",
@@ -92,8 +92,9 @@ export default {
         "sessions -- a preference, a standing instruction, a fact about " +
         "your project -- that's what a <strong>memory</strong> or context " +
         "file is for: a short note Claude Code reads automatically so you " +
-        "don't have to re-explain it every time. Module 11 covers writing " +
-        "these files in more depth.</p>",
+        "don't have to re-explain it every time. \".md Files & Habits\", " +
+        "later in this course, covers writing these files in more " +
+        "depth.</p>",
       glossaryTerms: [
         {
           term: "thread",
@@ -114,8 +115,8 @@ export default {
     {
       heading: "Verification checklist",
       body:
-        "<p>Module 6's golden rules are about writing a good prompt. This " +
-        "is a second set of course-wide rules -- for checking a good " +
+        "<p>Prompting 101's golden rules are about writing a good prompt. " +
+        "This is a second set of course-wide rules -- for checking a good " +
         "<em>reply</em> once you have one. Before treating any AI answer " +
         "as final, run through these six questions:</p>" +
         "<ul>" +

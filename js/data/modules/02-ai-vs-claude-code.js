@@ -65,8 +65,9 @@ export default {
         "execution</strong>), it can actually get things done, not just " +
         "describe how you might do them.</p>" +
         "<p>Every one of those actions that changes something is still " +
-        "gated behind the permission prompt you saw in Module 1 -- Claude " +
-        "Code never edits a file or runs a command without asking first.</p>" +
+        "gated behind the permission prompt you saw earlier in this " +
+        "course -- Claude Code never edits a file or runs a command " +
+        "without asking first.</p>" +
         "<table class=\"content-table\">" +
         "<thead><tr><th scope=\"col\"></th><th scope=\"col\">Any chatbot</th>" +
         "<th scope=\"col\">Claude Code</th></tr></thead>" +

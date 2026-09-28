@@ -62,7 +62,10 @@ export default {
         "one from " +
         "<a href=\"https://console.anthropic.com\" target=\"_blank\" " +
         "rel=\"noopener noreferrer\">console.anthropic.com &#8599;</a>, " +
-        "under API Keys -- and the Python package that talks to it:</p>" +
+        "under API Keys -- and the Python package that talks to it. Note " +
+        "that this is a separate account/key from Claude Code itself: " +
+        "Claude Code handles its own login, but a program you write " +
+        "talking to the API directly needs its own key.</p>" +
         "<pre>pip install anthropic</pre>" +
         "<p>Treat that API key exactly like the passwords and tokens " +
         "covered in Data Safety -- never paste it into a chat or commit it " +

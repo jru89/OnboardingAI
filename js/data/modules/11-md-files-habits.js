@@ -1,9 +1,21 @@
 // Module 11: .md Files & Habits (FR-018).
 //
 // What Markdown is and why AI tooling favors it (plain text, structure,
-// diffability); ties back to Module 4's repo literacy (README already
-// defined there -- not redefined here per NFR-003) and Module 8's memory
-// note. This module is the synthesis point before graduation.
+// diffability); ties back to the shared Repos module's repo literacy and
+// Prompting 201's memory note. This module is the synthesis point before
+// graduation.
+//
+// UPDATE (post-ship review, Yolan's CLI track): this module is reused in
+// Yolan's 15-module track, where the shared "Repos" module is excluded
+// (replaced by "Git, Properly," which doesn't cover README) -- so the
+// original NFR-003 "README already defined there, not redefined here"
+// design no longer holds for every track this file is reused in. README
+// is now defined inline here too (a short glossaryTerms entry), which is
+// mildly redundant for the shared track but was a real content gap for
+// Yolan's. All "Module N" cross-references below were also changed to
+// track-agnostic title/relative-position language, since this module's
+// numeric position differs across the shared track (order: 11) and
+// Yolan's track (order: 14).
 //
 // Lab type "prompt-builder" -- purposeKey: "readme-exercise", seeded via
 // placeholders with a concrete scenario (a small personal budgeting
@@ -26,8 +38,10 @@ export default {
         "<strong>bold</strong> -- stand in for formatting, instead of " +
         "clicking buttons in a word processor. A file written this way " +
         "and saved with a <code>.md</code> ending is a " +
-        "<strong>Markdown file</strong>. You've already seen several: " +
-        "every file you downloaded in Module 7 was one.</p>" +
+        "<strong>Markdown file</strong>. You'll recognize the format the " +
+        "moment you see it -- any file ending in <code>.md</code> is " +
+        "one, and you'll run into them constantly once you start working " +
+        "in real code repositories.</p>" +
         "<p>Markdown reads perfectly well even completely unformatted -- " +
         "open a <code>.md</code> file in the plainest text editor " +
         "imaginable and it's still legible, just without the visual " +
@@ -61,9 +75,9 @@ export default {
         "diff for a Markdown file is as clear as a diff for code; a diff " +
         "of a formatted document usually isn't possible at all.</li>" +
         "</ul>" +
-        "<p>Put together, that's why READMEs (Module 4), context notes, " +
-        "and memory files (Module 8) are almost always written in " +
-        "Markdown: they're easy for a person to read, easy for an AI " +
+        "<p>Put together, that's why READMEs, context notes, and memory " +
+        "files are almost always written in Markdown: they're easy for " +
+        "a person to read, easy for an AI " +
         "assistant to parse and edit precisely, and easy for either one " +
         "to show a clean history of what changed and why.</p>",
       glossaryTerms: [
@@ -80,17 +94,29 @@ export default {
     {
       heading: "The habit worth building",
       body:
-        "<p>Module 4 covered what a README is and where it lives. The " +
-        "habit worth carrying forward is writing one early, not as an " +
-        "afterthought -- a short README that says what a project is and " +
-        "how to use it saves you (and anyone else, including an AI " +
-        "assistant helping you later) from having to reconstruct that " +
-        "context from scratch every time. The same logic applies to any " +
-        "small note capturing something worth remembering about a " +
-        "project.</p>" +
+        "<p>A <strong>README</strong> is a Markdown file -- almost always " +
+        "named exactly <code>README.md</code> -- that sits at the top " +
+        "level of a project and explains what it is and how to use it. " +
+        "It's usually the first file anyone opens, including an AI " +
+        "assistant seeing the project for the first time.</p>" +
+        "<p>The habit worth building is writing one early, not as an " +
+        "afterthought -- a short README saves you (and anyone else, " +
+        "including an AI assistant helping you later) from having to " +
+        "reconstruct that context from scratch every time. The same " +
+        "logic applies to any small note capturing something worth " +
+        "remembering about a project.</p>" +
         "<p>The lab below gives you a concrete scenario to practice on: " +
         "writing a README for a small project, using the same prompt " +
-        "builder from Module 6.</p>",
+        "builder from Prompting 101.</p>",
+      glossaryTerms: [
+        {
+          term: "README",
+          definition:
+            "A Markdown file, almost always named README.md, that sits " +
+            "at the top of a project and explains what it is and how to " +
+            "use it -- usually the first file anyone opens.",
+        },
+      ],
     },
     {
       heading: "What to do when Claude gets it wrong",
@@ -113,7 +139,8 @@ export default {
         "<li><strong>Ask for a plan.</strong> Have it describe the fix " +
         "before making it.</li>" +
         "<li><strong>Review the plan.</strong> Read it before agreeing -- " +
-        "this is the same habit from Module 8's process commands.</li>" +
+        "this is the same habit from Prompting 201's process " +
+        "commands.</li>" +
         "<li><strong>Confirm the fix actually worked.</strong> Check the " +
         "result yourself rather than assuming a confident-sounding reply " +
         "means it's fixed.</li>" +

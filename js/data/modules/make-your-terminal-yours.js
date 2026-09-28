@@ -70,7 +70,11 @@ export default {
         "(13+) -- iTerm2 works great on Monterey and is the standard " +
         "choice for exactly this kind of setup.</p>" +
         "<p><em>Aside:</em> once you're on a newer Mac, Ghostty is worth " +
-        "trying -- nothing here locks you out of switching later.</p>",
+        "trying -- nothing here locks you out of switching later.</p>" +
+        "<p>From here on, open <strong>iTerm2</strong> (not the built-in " +
+        "Terminal app) whenever a module says \"open a terminal\" -- it's " +
+        "an extra app on your Mac now, not a replacement, so look for it " +
+        "in Applications or Spotlight by name.</p>",
     },
     {
       heading: "Oh My Zsh: a theme and a couple of plugins",

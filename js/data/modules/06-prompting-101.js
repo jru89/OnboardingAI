@@ -81,10 +81,10 @@ export default {
         "great prompt makes that draft better, but checking it is still " +
         "on you, especially for anything that matters -- a fact, a " +
         "number, a name, a decision someone else will rely on.</p>" +
-        "<p>You'll practice this directly in Module 8, which builds on " +
-        "the \"treat the first reply as a draft\" idea from the golden " +
-        "rules above and gives you a concrete way to check an answer " +
-        "before you trust it.</p>",
+        "<p>You'll practice this directly a bit later in the course, in " +
+        "Prompting 201, which builds on the \"treat the first reply as a " +
+        "draft\" idea from the golden rules above and gives you a " +
+        "concrete way to check an answer before you trust it.</p>",
     },
     {
       heading: "A worked example",

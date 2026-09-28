@@ -30,6 +30,31 @@ export default {
     "moment something doesn't work.",
   content: [
     {
+      heading: "Getting Claude Code installed",
+      body:
+        "<p>Before any of this works, Claude Code has to actually be " +
+        "installed on your machine -- a one-time step. Rather than a " +
+        "fixed command here that could go stale, head to the same " +
+        "official documentation linked in \"See it in action\" below and " +
+        "follow its current installation instructions for macOS. This is " +
+        "the exact same reasoning as copying the Homebrew install command " +
+        "fresh from brew.sh in \"Make Your Terminal Yours\" -- the " +
+        "official source is always more current than any command written " +
+        "into a lesson.</p>" +
+        "<p>Most install paths expect Node.js to already be available -- " +
+        "if the instructions ask for it and you don't have it yet, " +
+        "<code>brew install node</code> (using the Homebrew you set up " +
+        "earlier) is the standard way to get it on a Mac.</p>" +
+        "<p>Once installed, you can confirm it worked with:</p>" +
+        "<pre>claude --version</pre>" +
+        "<p>If installation doesn't go smoothly, that's genuinely normal " +
+        "and not a sign you did something wrong -- search the exact error " +
+        "message, or ask someone (a friend, a plain AI chatbot, an online " +
+        "forum) to help troubleshoot it. You won't have Claude Code itself " +
+        "to ask yet at this exact step, but you will for everything after " +
+        "it works once.</p>",
+    },
+    {
       heading: "Launching Claude Code",
       body:
         "<p><strong>Claude Code</strong> is Anthropic's official AI " +
