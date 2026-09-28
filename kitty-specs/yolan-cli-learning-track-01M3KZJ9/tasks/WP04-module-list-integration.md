@@ -378,3 +378,4 @@ breaking the shared 12-module track Wim and Princess still use.
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP04 --to <status>` to change WP status.
 - 2026-09-28T18:02:37Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=17368 – Assigned agent via action command
+- 2026-09-28T18:14:51Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=17368 – Ready for review: getModulesForProfile() wired, Yolan's 15-module track verified live in-browser (order/numbering/exclusions/persistence/edge-case fallback/360px all confirmed); shared 12-module track and Wim/Princess unaffected. Had to cherry-pick commit a19183d (profile.js plumbing) from feat/claude-code-onboarding-lab into this lane first, since this lane branched before that commit landed and the WP's contract depends on it.
