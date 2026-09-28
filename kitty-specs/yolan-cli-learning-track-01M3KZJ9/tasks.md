@@ -29,12 +29,12 @@ assembles Yolan's 15-module track array from the files they produce.
 | T011 | Author "A Taste of the Claude API" module | WP03 | [D] |
 | T012 | Author "Capstone: Ship a Real Tool" module | WP03 | [D] |
 | T013 | Manual browser verification of WP03's four modules | WP03 | | [D] |
-| T014 | Add `getModulesForProfile()` to `index.js`, assemble Yolan's 15-module track | WP04 | |
-| T015 | Update `landing-view.js`: profile-aware module source + position-based card numbering | WP04 | [P] |
-| T016 | Update `module-view.js`: profile-aware module source for lookup + pager | WP04 | [P] |
-| T017 | Add the Data Safety "never commit secrets/API keys" bullet | WP04 | [P] |
-| T018 | Add the ~10 new module file paths to `service-worker.js`'s precache list | WP04 | [P] |
-| T019 | Full end-to-end manual verification per `quickstart.md` | WP04 | |
+| T014 | Add `getModulesForProfile()` to `index.js`, assemble Yolan's 15-module track | WP04 | | [D] |
+| T015 | Update `landing-view.js`: profile-aware module source + position-based card numbering | WP04 | [D] |
+| T016 | Update `module-view.js`: profile-aware module source for lookup + pager | WP04 | [D] |
+| T017 | Add the Data Safety "never commit secrets/API keys" bullet | WP04 | [D] |
+| T018 | Add the ~10 new module file paths to `service-worker.js`'s precache list | WP04 | [D] |
+| T019 | Full end-to-end manual verification per `quickstart.md` | WP04 | | [D] |
 
 ## Work Packages
 
