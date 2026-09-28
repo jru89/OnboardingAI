@@ -28,8 +28,8 @@ subtasks:
 - T019
 phase: Phase 2 - Integration (Wave 2)
 assignee: ''
-shell_pid: "17368"
-agent: "claude:sonnet-5:frontend-freddy:implementer"
+shell_pid: "5928"
+agent: "claude:sonnet-5:reviewer-renata:reviewer"
 history:
 - at: '2026-09-28T00:00:00Z'
   actor: system
@@ -379,3 +379,5 @@ breaking the shared 12-module track Wim and Princess still use.
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP04 --to <status>` to change WP status.
 - 2026-09-28T18:02:37Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=17368 – Assigned agent via action command
 - 2026-09-28T18:14:51Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=17368 – Ready for review: getModulesForProfile() wired, Yolan's 15-module track verified live in-browser (order/numbering/exclusions/persistence/edge-case fallback/360px all confirmed); shared 12-module track and Wim/Princess unaffected. Had to cherry-pick commit a19183d (profile.js plumbing) from feat/claude-code-onboarding-lab into this lane first, since this lane branched before that commit landed and the WP's contract depends on it.
+- 2026-09-28T18:16:00Z – claude:sonnet-5:reviewer-renata:reviewer – shell_pid=5928 – Started review via action command
+- 2026-09-28T18:23:05Z – user – shell_pid=5928 – Verified WP04's own commit 2f57af4 (separate from prerequisite cherry-pick 98b3e8d) touches exactly the 5 owned files. index.js: original 12-import block/modules array/.sort()/export default modules byte-for-byte unchanged (C-001); yolanTrack has exactly the 15 modules in data-model.md order, no .sort() applied; getModulesForProfile() matches contract exactly. landing-view.js: resolves getModulesForProfile(getSelectedProfileId()) fresh per render, redundant .order re-sort removed, displayNumber now derived from list index+1 (bug fix confirmed by reading buildModuleCard). module-view.js: getModule() and renderPager() both resolve via the same profile-aware call. 03-data-safety.js: exactly one new bullet added, consistent tone, no other changes. service-worker.js: all 10 new module paths added to PRECACHE_URLS in correct ./js/data/modules/... format, CACHE_NAME untouched. Live-verified in browser (local static server, gate passphrase, full profile picker flow): Yolan shows exactly 15 modules numbered 1-15 in the exact data-model.md order with none of the 3 excluded modules; Wim and Princess both show the original 12 modules correctly numbered 1-12; Data Safety's new bullet appears identically for Wim; progress (module in-progress status) survived Yolan->Wim->Princess->Yolan profile switches (SC-005); direct navigation to a Yolan-only module id while Wim was active fell back gracefully to 'This module could not be found' with zero console errors; spot-checked 360px rendering on the capstone module with no overflow. All spec.md SC-001/SC-002/SC-005 and relevant quickstart.md sections (1, 2, 5, 6) verified live; SC-003 (terminal instructions) and SC-004 (full 15-module/all-lab-types pass) verified via static trace only, per implementer's WP01/prior in-browser verification log, not independently re-walked lab-by-lab in this review.
