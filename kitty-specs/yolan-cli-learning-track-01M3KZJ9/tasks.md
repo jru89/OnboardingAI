@@ -20,10 +20,10 @@ assembles Yolan's 15-module track array from the files they produce.
 | T002 | Author "Make Your Terminal Yours" module | WP01 | [P] |
 | T003 | Author "Claude Code, from the Command Line" module | WP01 | [P] |
 | T004 | Manual browser verification of WP01's three modules | WP01 | |
-| T005 | Author "Git, Properly" module | WP02 | [P] |
-| T006 | Author "GitHub & Hosting" module | WP02 | [P] |
-| T007 | Author "MCP Servers, Hands-On" module | WP02 | [P] |
-| T008 | Manual browser verification of WP02's three modules | WP02 | |
+| T005 | Author "Git, Properly" module | WP02 | [D] |
+| T006 | Author "GitHub & Hosting" module | WP02 | [D] |
+| T007 | Author "MCP Servers, Hands-On" module | WP02 | [D] |
+| T008 | Manual browser verification of WP02's three modules | WP02 | | [D] |
 | T009 | Author "Spec-Driven Development" module | WP03 | [P] |
 | T010 | Author "Building Your Own Tools with Claude Code" module | WP03 | [P] |
 | T011 | Author "A Taste of the Claude API" module | WP03 | [P] |
