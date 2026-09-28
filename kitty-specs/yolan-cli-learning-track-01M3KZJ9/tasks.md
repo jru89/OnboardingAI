@@ -24,11 +24,11 @@ assembles Yolan's 15-module track array from the files they produce.
 | T006 | Author "GitHub & Hosting" module | WP02 | [D] |
 | T007 | Author "MCP Servers, Hands-On" module | WP02 | [D] |
 | T008 | Manual browser verification of WP02's three modules | WP02 | | [D] |
-| T009 | Author "Spec-Driven Development" module | WP03 | [P] |
-| T010 | Author "Building Your Own Tools with Claude Code" module | WP03 | [P] |
-| T011 | Author "A Taste of the Claude API" module | WP03 | [P] |
-| T012 | Author "Capstone: Ship a Real Tool" module | WP03 | [P] |
-| T013 | Manual browser verification of WP03's four modules | WP03 | |
+| T009 | Author "Spec-Driven Development" module | WP03 | [D] |
+| T010 | Author "Building Your Own Tools with Claude Code" module | WP03 | [D] |
+| T011 | Author "A Taste of the Claude API" module | WP03 | [D] |
+| T012 | Author "Capstone: Ship a Real Tool" module | WP03 | [D] |
+| T013 | Manual browser verification of WP03's four modules | WP03 | | [D] |
 | T014 | Add `getModulesForProfile()` to `index.js`, assemble Yolan's 15-module track | WP04 | |
 | T015 | Update `landing-view.js`: profile-aware module source + position-based card numbering | WP04 | [P] |
 | T016 | Update `module-view.js`: profile-aware module source for lookup + pager | WP04 | [P] |
