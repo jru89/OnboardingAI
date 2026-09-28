@@ -199,20 +199,18 @@
     {
       "invariant_id": "NI-001",
       "description": "The shared 12-module default export (js/data/modules/index.js) must never be modified in id, order, or membership (C-001).",
-      "proof_type": "manual_review",
-      "evidence": "WP04 reviewer diffed the pre/post state of the 12-import block, modules array, its .sort(), and export default modules -- confirmed byte-for-byte unchanged.",
-      "pass_fail": "pass",
-      "verified_by": "claude:sonnet-5:reviewer-renata:reviewer (WP04 cycle 1)",
-      "verified_at": "2026-09-28T18:10:00Z"
+      "verification_method": "custom_command",
+      "verification_command": "git diff kitty/mission-yolan-cli-learning-track-01M3KZJ9^..HEAD -- js/data/modules/index.js (inspected manually: 12-import block, modules array, its .sort(), and export default modules)",
+      "result": "confirmed_absent",
+      "evidence": "WP04 reviewer diffed the pre/post state of that region -- confirmed byte-for-byte unchanged; no unauthorized modification present."
     },
     {
       "invariant_id": "NI-002",
       "description": "No new lab engine type is introduced (C-002).",
-      "proof_type": "manual_review",
-      "evidence": "All new labs across WP01-WP03 use only the pre-existing checklist, match, quiz, and prompt-builder engines with unmodified config contracts.",
-      "pass_fail": "pass",
-      "verified_by": "claude:sonnet-5:reviewer-renata:reviewer (all WP reviews)",
-      "verified_at": "2026-09-28T18:10:00Z"
+      "verification_method": "grep_absence",
+      "verification_command": "grep -r \"type: \\\"\" js/data/modules/*.js | grep -vE \"checklist|match|quiz|prompt-builder|spot-mistake|download\"",
+      "result": "confirmed_absent",
+      "evidence": "All new labs across WP01-WP03 use only the pre-existing checklist, match, quiz, and prompt-builder engines with unmodified config contracts -- no new lab.type value found."
     }
   ]
 }
