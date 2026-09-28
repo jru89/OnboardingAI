@@ -1,0 +1,1 @@
+Verified live in browser at 375px and desktop widths on modules get-oriented, data-safety, ai-vs-claude-code, and repos: glossary <details> cards, list item spacing, section-to-section spacing, inline <code>, and .content-table now render correctly instead of bare browser defaults. No console errors.
