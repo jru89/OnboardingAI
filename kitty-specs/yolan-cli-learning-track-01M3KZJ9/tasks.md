@@ -16,10 +16,10 @@ assembles Yolan's 15-module track array from the files they produce.
 
 | ID | Description | WP | Parallel |
 |---|---|---|---|
-| T001 | Author "Terminal Basics" module | WP01 | [P] |
-| T002 | Author "Make Your Terminal Yours" module | WP01 | [P] |
-| T003 | Author "Claude Code, from the Command Line" module | WP01 | [P] |
-| T004 | Manual browser verification of WP01's three modules | WP01 | |
+| T001 | Author "Terminal Basics" module | WP01 | [P] | [D] |
+| T002 | Author "Make Your Terminal Yours" module | WP01 | [D] |
+| T003 | Author "Claude Code, from the Command Line" module | WP01 | [D] |
+| T004 | Manual browser verification of WP01's three modules | WP01 | | [D] |
 | T005 | Author "Git, Properly" module | WP02 | [D] |
 | T006 | Author "GitHub & Hosting" module | WP02 | [D] |
 | T007 | Author "MCP Servers, Hands-On" module | WP02 | [D] |
