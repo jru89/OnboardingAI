@@ -41,8 +41,10 @@ export default {
         "Basics.\"</p>" +
         "<p>To start a session: open a terminal, use <code>cd</code> to " +
         "navigate into the folder for the work you're doing -- your " +
-        "<strong>project</strong> -- and then run the command that starts " +
-        "Claude Code there. Whichever folder you were in when you started " +
+        "<strong>project</strong> -- and then type <code>claude</code> " +
+        "and press Enter. That's the whole command -- just the one word.</p>" +
+        "<pre>claude</pre>" +
+        "<p>Whichever folder you were in when you started " +
         "it becomes the project Claude Code is working in: it can only " +
         "see and change files inside that folder, the same rule as the " +
         "editor version of Claude Code -- just that here, " +

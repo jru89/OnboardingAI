@@ -227,6 +227,12 @@ function handleRouteChange() {
   const { route, params } = matchRoute(path);
   renderHeader(route.titleFor(params));
   route.render(mainEl, params);
+  // Every navigation (module list -> module, prev/next pager, "All modules")
+  // starts a fresh page at the top -- without this, a learner who scrolled
+  // down on one module lands on the next one already scrolled down, since
+  // the browser otherwise preserves scroll position across a same-document
+  // hash-route change.
+  window.scrollTo(0, 0);
   initScrollToTop(mainEl);
 }
 

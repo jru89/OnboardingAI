@@ -45,11 +45,21 @@ export default {
         "a way to confirm it's really you. The most common way is an SSH " +
         "key (see the Data Safety module for what a key pair is and why " +
         "the private half must never be shared). Setting it up is a " +
-        "one-time job: you generate a key pair with " +
-        "<code>ssh-keygen</code>, then copy the public half into your " +
-        "GitHub account's SSH key settings. After that, GitHub recognizes " +
-        "your machine automatically every time you push or pull -- no " +
-        "password typing required.</p>",
+        "one-time job:</p>" +
+        "<pre>ssh-keygen -t ed25519 -C \"your-email@example.com\"</pre>" +
+        "<p>Press Enter through the prompts to accept the defaults (a " +
+        "passphrase is optional -- fine to leave blank for now). That " +
+        "creates a key pair; copy the public half with:</p>" +
+        "<pre>cat ~/.ssh/id_ed25519.pub</pre>" +
+        "<p>Then paste that output into GitHub, under Settings -> SSH and " +
+        "GPG keys -> New SSH key. After that, GitHub recognizes your " +
+        "machine automatically every time you push or pull -- no password " +
+        "typing required.</p>" +
+        "<p>If any of this goes sideways -- a confusing error, or GitHub's " +
+        "menus have moved since this was written -- this is another good " +
+        "moment to just ask Claude Code to walk you through it, or even do " +
+        "it for you. It can run the commands above and explain each " +
+        "prompt as it goes.</p>",
     },
     {
       heading: "Your first push",

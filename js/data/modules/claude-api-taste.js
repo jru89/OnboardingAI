@@ -58,6 +58,17 @@ export default {
         "common starting point for exactly this kind of first script -- " +
         "the same idea works in other languages too, including " +
         "JavaScript.</p>" +
+        "<p>Two things you'll need before running it: an API key -- get " +
+        "one from " +
+        "<a href=\"https://console.anthropic.com\" target=\"_blank\" " +
+        "rel=\"noopener noreferrer\">console.anthropic.com &#8599;</a>, " +
+        "under API Keys -- and the Python package that talks to it:</p>" +
+        "<pre>pip install anthropic</pre>" +
+        "<p>Treat that API key exactly like the passwords and tokens " +
+        "covered in Data Safety -- never paste it into a chat or commit it " +
+        "to a repo. The example below reads it from an environment " +
+        "variable instead, which is the standard, safe way to keep it out " +
+        "of your actual code.</p>" +
         "<pre>import anthropic\n\n" +
         "client = anthropic.Anthropic()  # reads your API key from the " +
         "environment\n\n" +

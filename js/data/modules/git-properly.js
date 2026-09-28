@@ -42,14 +42,23 @@ export default {
       ],
     },
     {
-      heading: "Cloning a repo",
+      heading: "Starting or getting a repo",
       body:
-        "<p><code>git clone &lt;url&gt;</code> downloads a full copy of a " +
+        "<p>Two different starting points, depending on whether the " +
+        "project already exists somewhere else:</p>" +
+        "<ul>" +
+        "<li><strong>Starting a brand-new one:</strong> inside an empty " +
+        "project folder, run <code>git init</code> once. That turns the " +
+        "current folder into a repo -- Git starts tracking it from this " +
+        "point on, with no history yet.</li>" +
+        "<li><strong>Getting an existing one:</strong> " +
+        "<code>git clone &lt;url&gt;</code> downloads a full copy of a " +
         "project onto your own machine -- not just the current files, " +
-        "but its entire recorded history. Once it finishes, you have a " +
-        "normal folder you can open, edit, and run like any other " +
-        "project; Git is just quietly keeping track of it in the " +
-        "background.</p>",
+        "but its entire recorded history.</li>" +
+        "</ul>" +
+        "<p>Either way, you end up with a normal folder you can open, " +
+        "edit, and run like any other project; Git is just quietly " +
+        "keeping track of it in the background.</p>",
     },
     {
       heading: "Branches",

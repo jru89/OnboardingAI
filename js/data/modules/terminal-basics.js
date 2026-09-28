@@ -20,16 +20,24 @@ export default {
     {
       heading: "What is a terminal, and why do you need one",
       body:
+        "<p><strong>Before anything else: this module has nothing to do " +
+        "with AI yet.</strong> No Claude Code, no chatbot, nothing " +
+        "\"smart\" -- just you and your own computer. Think of it as " +
+        "learning to drive before anyone hands you the keys to a " +
+        "particular car. Take it slowly; there's no rush and nothing here " +
+        "assumes you've touched a terminal before.</p>" +
         "<p>A <strong>terminal</strong> is a plain, text-only window where " +
         "you talk to your computer by typing <strong>commands</strong> " +
         "instead of clicking icons. You type a line, press Enter, and the " +
-        "computer does exactly what you asked and prints the result.</p>" +
-        "<p>Your Mac can't run the version of Claude Code that lives " +
-        "inside a code editor as a panel, so the terminal is how you'll " +
-        "talk to Claude Code directly -- it's simply the tool for the job " +
-        "on your machine, not a harder or lesser way of doing things. " +
-        "Everything in this module is a skill you'll use constantly once " +
-        "you start working with Claude Code from the command line.</p>",
+        "computer does exactly what you asked and prints the result. " +
+        "That's the entire idea -- everything else in this module is just " +
+        "specific commands built on that one pattern.</p>" +
+        "<p>Why learn it at all? Your Mac can't run the version of Claude " +
+        "Code that lives inside a code editor, so a few modules from now " +
+        "you'll be talking to Claude Code through this same terminal " +
+        "window. That's the only reason this course covers it -- it's " +
+        "simply the tool for the job on your machine, not a harder or " +
+        "lesser way of doing things.</p>",
       glossaryTerms: [
         {
           term: "terminal",
@@ -96,7 +104,10 @@ export default {
       heading: "Making and moving things",
       body:
         "<p>Four commands cover creating, renaming, copying, and removing " +
-        "files and folders:</p>" +
+        "files and folders. You'll use these constantly once you start " +
+        "working on real projects -- including setting up Git repos later " +
+        "in this course, which are really just folders like any other, " +
+        "with Git quietly keeping track of them.</p>" +
         "<ul>" +
         "<li><code>mkdir</code> (\"make directory\") creates a new " +
         "folder -- <code>mkdir notes</code> creates a folder named " +
@@ -148,18 +159,17 @@ export default {
       body:
         "<p>A <strong>script</strong> is just a text file full of " +
         "commands, saved so you can run them all at once instead of " +
-        "typing them one by one. If you have a script file named " +
-        "<code>setup.sh</code>, you can run it one of two ways:</p>" +
-        "<ul>" +
-        "<li><code>bash setup.sh</code> -- tells the `bash` program to " +
-        "read and run the commands in that file directly.</li>" +
-        "<li><code>chmod +x setup.sh</code> once, to mark the file as " +
-        "\"executable\" (allowed to run on its own), and then " +
-        "<code>./setup.sh</code> from then on to run it directly.</li>" +
-        "</ul>" +
-        "<p>That's all you need for now -- writing your own scripts is a " +
-        "topic for later. The goal here is just recognizing what a " +
-        "script is and knowing how to run one someone else wrote.</p>",
+        "typing them one by one -- like a little recipe. You won't write " +
+        "one in this module, and you don't need to yet. The only goal " +
+        "here is recognizing what a script is, so it's not a surprise the " +
+        "first time you're told to run one (which happens in the very " +
+        "next module).</p>" +
+        "<p>If you have a script file named <code>setup.sh</code>, the " +
+        "simplest way to run it is:</p>" +
+        "<pre>bash setup.sh</pre>" +
+        "<p>That tells the <code>bash</code> program to read and run the " +
+        "commands in that file, one after another, exactly as if you'd " +
+        "typed each one yourself. That's genuinely all you need for now.</p>",
 
       glossaryTerms: [
         {
@@ -192,7 +202,7 @@ export default {
         },
         {
           id: "ran-a-script",
-          label: "Ran a script with `bash somefile.sh` or `./somefile.sh`",
+          label: "Ran a script with `bash somefile.sh`",
         },
       ],
     },
