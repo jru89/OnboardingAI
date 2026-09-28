@@ -10,9 +10,6 @@ tracker_refs: []
 planning_base_branch: feat/claude-code-onboarding-lab
 merge_target_branch: feat/claude-code-onboarding-lab
 branch_strategy: Planning artifacts for this mission were generated on feat/claude-code-onboarding-lab. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feat/claude-code-onboarding-lab unless the human explicitly redirects the landing branch.
-base_branch: kitty/mission-yolan-cli-learning-track-01M3KZJ9
-base_commit: 3bc5da30a26295e2e207fd313a2e4be8aa069084
-created_at: '2026-09-28T17:39:24.192369+00:00'
 subtasks:
 - T001
 - T002
@@ -20,7 +17,8 @@ subtasks:
 - T004
 phase: Phase 1 - Content (Wave 1)
 assignee: ''
-shell_pid: '25540'
+agent: "claude:sonnet-5:frontend-freddy:implementer"
+shell_pid: "25540"
 history:
 - at: '2026-09-28T00:00:00Z'
   actor: system
@@ -405,3 +403,4 @@ export default {
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP01 --to <status>` to change WP status.
+- 2026-09-28T17:39:29Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=25540 – Assigned agent via action command
