@@ -86,19 +86,15 @@ export default {
       body:
         "<p>Saving your work in Git is a repeatable loop, not a one-time " +
         "sequence -- you'll run these three commands over and over, many " +
-        "times a day:</p>" +
-        "<pre>git status\ngit add &lt;file&gt;\ngit commit -m " +
-        "\"&lt;message&gt;\"</pre>" +
-        "<p>What each one does:</p>" +
-        "<ul>" +
-        "<li><code>git status</code> -- what has changed since your last " +
-        "commit?</li>" +
-        "<li><code>git add &lt;file&gt;</code> -- stage the changes you " +
-        "want to include in the next commit.</li>" +
-        "<li><code>git commit -m \"&lt;message&gt;\"</code> -- save a " +
-        "snapshot of the staged changes, with a short note describing " +
-        "what changed.</li>" +
-        "</ul>" +
+        "times a day, starting with: what has changed since your last " +
+        "commit?</p>" +
+        "<pre>git status</pre>" +
+        "<p>Then stage the changes you want to include in the next " +
+        "commit:</p>" +
+        "<pre>git add &lt;file&gt;</pre>" +
+        "<p>And save a snapshot of the staged changes, with a short note " +
+        "describing what changed:</p>" +
+        "<pre>git commit -m \"&lt;message&gt;\"</pre>" +
         "<p>Check status, stage, commit -- then keep working and do it " +
         "again.</p>",
       glossaryTerms: [

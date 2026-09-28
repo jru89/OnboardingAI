@@ -57,26 +57,27 @@ export default {
       heading: "Finding your way around",
       body:
         "<p>Three commands answer \"where am I, and what's here?\" Try " +
-        "them now, in order:</p>" +
-        "<pre>pwd\ncd Documents\nls</pre>" +
-        "<ul>" +
-        "<li><code>pwd</code> (\"print working directory\") shows the " +
+        "each one now, in order.</p>" +
+        "<p><code>pwd</code> (\"print working directory\") shows the " +
         "full path of the <strong>directory</strong> (folder) you're " +
-        "currently in.</li>" +
-        "<li><code>cd</code> (\"change directory\") moves you into a " +
-        "different folder -- <code>cd Documents</code> above moves into " +
-        "a folder named Documents inside the one you're in now. " +
-        "<code>cd ..</code> moves up one level (to the parent folder), " +
-        "and <code>cd ~</code> jumps straight back to your home folder " +
-        "from anywhere.</li>" +
-        "<li><code>ls</code> (\"list\") shows what's inside the current " +
-        "folder. Adding an <strong>argument</strong> -- extra text after " +
-        "the command that changes what it does -- like " +
-        "<code>ls -la</code> also shows hidden files (ones whose name " +
-        "starts with a dot) and more detail about each one. Here, " +
-        "<code>-la</code> is a <strong>flag</strong>: an argument that " +
-        "turns on an option rather than naming a file.</li>" +
-        "</ul>" +
+        "currently in:</p>" +
+        "<pre>pwd</pre>" +
+        "<p><code>cd</code> (\"change directory\") moves you into a " +
+        "different folder:</p>" +
+        "<pre>cd Documents</pre>" +
+        "<p>That moves into a folder named Documents inside the one " +
+        "you're in now. <code>cd ..</code> moves up one level (to the " +
+        "parent folder), and <code>cd ~</code> jumps straight back to " +
+        "your home folder from anywhere.</p>" +
+        "<p><code>ls</code> (\"list\") shows what's inside the current " +
+        "folder:</p>" +
+        "<pre>ls</pre>" +
+        "<p>Adding an <strong>argument</strong> -- extra text after the " +
+        "command that changes what it does -- like <code>ls -la</code> " +
+        "also shows hidden files (ones whose name starts with a dot) and " +
+        "more detail about each one. Here, <code>-la</code> is a " +
+        "<strong>flag</strong>: an argument that turns on an option " +
+        "rather than naming a file.</p>" +
         "<p>A <strong>directory</strong> and a <strong>folder</strong> " +
         "are the same thing -- \"directory\" is just the term the " +
         "terminal world tends to use.</p>",
@@ -110,24 +111,21 @@ export default {
         "working on real projects -- including setting up Git repos later " +
         "in this course, which are really just folders like any other, " +
         "with Git quietly keeping track of them.</p>" +
-        "<p>Try them now on a throwaway test file:</p>" +
-        "<pre>mkdir notes\ntouch notes/somefile.txt\nmv " +
-        "notes/somefile.txt notes/renamed.txt\ncp notes/renamed.txt " +
-        "notes/backup.txt\nrm notes/backup.txt</pre>" +
-        "<ul>" +
-        "<li><code>mkdir</code> (\"make directory\") creates a new " +
-        "folder -- the first line above creates one named notes.</li>" +
-        "<li><code>touch</code> creates a new, empty file if it doesn't " +
-        "already exist -- used above just to have something to practice " +
-        "on.</li>" +
-        "<li><code>mv</code> (\"move\") both moves and renames -- it's " +
-        "the same operation either way; above, it renames somefile.txt " +
-        "to renamed.txt.</li>" +
-        "<li><code>cp</code> (\"copy\") makes a copy, leaving the " +
-        "original alone -- above, backup.txt is a new second file.</li>" +
-        "<li><code>rm</code> (\"remove\") deletes a file -- above, " +
-        "backup.txt is deleted permanently, but renamed.txt stays.</li>" +
-        "</ul>" +
+        "<p>Try them now on a throwaway test file. First, " +
+        "<code>mkdir</code> (\"make directory\") creates a new folder:</p>" +
+        "<pre>mkdir notes</pre>" +
+        "<p>Then <code>touch</code> creates a new, empty file if it " +
+        "doesn't already exist -- just something to practice on:</p>" +
+        "<pre>touch notes/somefile.txt</pre>" +
+        "<p><code>mv</code> (\"move\") both moves and renames -- it's " +
+        "the same operation either way; this renames the file:</p>" +
+        "<pre>mv notes/somefile.txt notes/renamed.txt</pre>" +
+        "<p><code>cp</code> (\"copy\") makes a copy, leaving the " +
+        "original alone:</p>" +
+        "<pre>cp notes/renamed.txt notes/backup.txt</pre>" +
+        "<p>And <code>rm</code> (\"remove\") deletes a file -- this " +
+        "deletes the copy permanently, but renamed.txt stays:</p>" +
+        "<pre>rm notes/backup.txt</pre>" +
         "<p><strong>Be careful with <code>rm</code>:</strong> unlike " +
         "dragging a file to the Trash in Finder, there is no undo and no " +
         "trash can to recover from. Once a file is removed this way, " +

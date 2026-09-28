@@ -66,10 +66,10 @@ export default {
       body:
         "<p>With authentication set up, connecting a project to GitHub " +
         "for the first time follows a short, repeatable sequence: create " +
-        "an empty repo on GitHub, then connect your local repo to it and " +
-        "push:</p>" +
-        "<pre>git remote add origin &lt;url&gt;\ngit push -u origin " +
-        "main</pre>" +
+        "an empty repo on GitHub, then connect your local repo to it:</p>" +
+        "<pre>git remote add origin &lt;url&gt;</pre>" +
+        "<p>Then push:</p>" +
+        "<pre>git push -u origin main</pre>" +
         "<p>That <code>-u</code> is only needed this one time -- it tells " +
         "Git \"this local branch and that remote branch go together from " +
         "now on,\" so every push and pull after this first one can go " +
