@@ -136,8 +136,9 @@ export default {
         "terminal. macOS ships with a simple, beginner-friendly editor " +
         "called <code>nano</code> -- no surprise modes or unfamiliar " +
         "keyboard languages to learn first.</p>" +
-        "<p>Run <code>nano somefile.txt</code> to open (or create) that " +
-        "file in the editor. Type normally to add or change text. The " +
+        "<p>To open (or create) a file in the editor, run:</p>" +
+        "<pre>nano somefile.txt</pre>" +
+        "<p>Type normally to add or change text. The " +
         "bottom of the screen lists the available shortcuts, using " +
         "<code>^</code> to mean the Control key -- the two you'll use " +
         "most are <strong><code>Control+O</code></strong> (\"Write " +

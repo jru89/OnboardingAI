@@ -588,8 +588,51 @@ button:focus-visible,
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: var(--space-3);
+  padding-right: calc(var(--space-3) + 28px);
   font-family: "Quicksand", monospace;
   font-size: 0.9rem;
+}
+
+/* --- copy-to-clipboard button on every <pre> command/prompt block --- */
+/* Command-heavy modules (Yolan's CLI track especially) are full of <pre>
+   blocks meant to be copied verbatim into a terminal or a Claude Code
+   session -- a small icon button beats manual select-and-copy. */
+.code-block-wrapper {
+  position: relative;
+}
+
+.code-copy-button {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.code-copy-button:hover {
+  color: var(--color-primary-2);
+  border-color: var(--color-primary);
+}
+
+.code-copy-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.code-copy-button--copied,
+.code-copy-button--copied:hover {
+  color: var(--color-success);
+  border-color: var(--color-success);
 }
 
 /* --- module content: sections, lists, glossary, tables (flow/spacing pass) --- */

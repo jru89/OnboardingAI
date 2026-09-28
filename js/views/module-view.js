@@ -12,6 +12,7 @@
 
 import { navigateTo } from "../app.js";
 import { getProgress, setModuleStatus, onSaved } from "../lib/progress.js";
+import { copyText } from "../lib/clipboard.js";
 // WP04/T016: resolve the module list per active profile instead of the
 // shared default export -- see
 // kitty-specs/yolan-cli-learning-track-01M3KZJ9/contracts/module-list-resolution.md.
@@ -171,6 +172,84 @@ function renderGlossaryTerms(glossaryTerms) {
   return wrap;
 }
 
+/* ------------------------------------------------------------------ */
+/* Copy buttons on <pre> command/prompt blocks                         */
+/* ------------------------------------------------------------------ */
+//
+// Post-ship feedback: many modules (especially Yolan's CLI track) are
+// command-heavy, and every <pre> block is something the learner is meant
+// to actually copy into a terminal or a Claude Code session. Rather than
+// manual select-and-copy, each <pre> gets a small copy icon button --
+// reuses the same lib/clipboard.js helper the prompt-builder lab already
+// uses, so the "clipboard unavailable" fallback behaves identically
+// everywhere in the app.
+
+const COPY_ICON_SVG =
+  '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" ' +
+  'stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+  'stroke-linejoin="round" aria-hidden="true">' +
+  '<rect x="9" y="9" width="13" height="13" rx="2"></rect>' +
+  '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">' +
+  "</path></svg>";
+
+const CHECK_ICON_SVG =
+  '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" ' +
+  'stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+  'stroke-linejoin="round" aria-hidden="true">' +
+  '<polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+const COPY_RESET_MS = 1500;
+
+/**
+ * Wraps every <pre> inside `container` with a small copy button. Called
+ * once per content-section render, right after that section's body HTML
+ * is set -- safe to call even when there are zero <pre> elements.
+ */
+function enhanceCodeBlocks(container) {
+  const blocks = container.querySelectorAll("pre");
+  for (const pre of blocks) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "code-block-wrapper";
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "code-copy-button";
+    button.setAttribute("aria-label", "Copy to clipboard");
+    button.innerHTML = COPY_ICON_SVG;
+    wrapper.appendChild(button);
+
+    let resetTimer = null;
+    button.addEventListener("click", () => {
+      copyText(pre.textContent).then((result) => {
+        if (resetTimer !== null) clearTimeout(resetTimer);
+        if (result.copied) {
+          button.innerHTML = CHECK_ICON_SVG;
+          button.classList.add("code-copy-button--copied");
+          button.setAttribute("aria-label", "Copied");
+        } else {
+          // Clipboard API unavailable (non-secure context, old browser) --
+          // the button itself can't select text for the learner the way
+          // prompt-builder-lab.js's dedicated preview pane can, so the
+          // label is the whole fallback here: it's still a normal <pre>,
+          // selectable by hand.
+          button.setAttribute(
+            "aria-label",
+            "Copy unavailable -- select the text above manually",
+          );
+        }
+        resetTimer = setTimeout(() => {
+          button.innerHTML = COPY_ICON_SVG;
+          button.classList.remove("code-copy-button--copied");
+          button.setAttribute("aria-label", "Copy to clipboard");
+          resetTimer = null;
+        }, COPY_RESET_MS);
+      });
+    });
+  }
+}
+
 function renderDiagram(diagramPath, sectionHeading) {
   // A plain <img> is simpler than inlining the SVG and sufficient unless
   // a later WP finds a concrete reason the diagram needs to inherit page
@@ -199,6 +278,7 @@ function renderContentSection(section) {
     // Content is authored directly (not user input) per data-model.md's
     // "no markdown parser" decision -- innerHTML is intentional here.
     body.innerHTML = section.body;
+    enhanceCodeBlocks(body);
     sectionEl.appendChild(body);
   }
 

@@ -73,12 +73,12 @@ export default {
         "Git \"this local branch and that remote branch go together from " +
         "now on,\" so every push and pull after this first one can go " +
         "back to the plain <code>git push</code> / <code>git pull</code> " +
-        "from \"Git, Properly.\" Leaving off <code>-u</code> on this very " +
+        "from \"Git, Hands-On.\" Leaving off <code>-u</code> on this very " +
         "first push is a common beginner snag -- Git will refuse with an " +
         "error about no upstream branch, which this avoids entirely.</p>" +
         "<p>That <code>origin</code> is just a name " +
         "for the remote you set up -- the same \"remote\" idea from " +
-        "\"Git, Properly.\" This is where that module's push and pull " +
+        "\"Git, Hands-On.\" This is where that module's push and pull " +
         "commands actually go somewhere: up to this point they had " +
         "nothing to talk to.</p>",
       glossaryTerms: [

@@ -1,4 +1,4 @@
-// Module: Git, Properly (FR-008, Yolan track only -- order 6).
+// Module: Git, Hands-On (FR-008, Yolan track only -- order 6).
 //
 // Replaces "Repos" in the Yolan profile's module list. Per
 // /spec-kitty.analyze finding I2, the shared conceptual "Repos" module is
@@ -14,7 +14,7 @@
 export default {
   id: "git-properly",
   order: 6,
-  title: "Git, Properly",
+  title: "Git, Hands-On",
   summary:
     "Hands-on Git: cloning, branching, the commit loop, push/pull, and " +
     "reading a diff before you trust it.",
@@ -45,17 +45,16 @@ export default {
       heading: "Starting or getting a repo",
       body:
         "<p>Two different starting points, depending on whether the " +
-        "project already exists somewhere else:</p>" +
-        "<ul>" +
-        "<li><strong>Starting a brand-new one:</strong> inside an empty " +
-        "project folder, run <code>git init</code> once. That turns the " +
-        "current folder into a repo -- Git starts tracking it from this " +
-        "point on, with no history yet.</li>" +
-        "<li><strong>Getting an existing one:</strong> " +
-        "<code>git clone &lt;url&gt;</code> downloads a full copy of a " +
-        "project onto your own machine -- not just the current files, " +
-        "but its entire recorded history.</li>" +
-        "</ul>" +
+        "project already exists somewhere else.</p>" +
+        "<p><strong>Starting a brand-new one:</strong> inside an empty " +
+        "project folder, run this once:</p>" +
+        "<pre>git init</pre>" +
+        "<p>That turns the current folder into a repo -- Git starts " +
+        "tracking it from this point on, with no history yet.</p>" +
+        "<p><strong>Getting an existing one:</strong> download a full " +
+        "copy of a project onto your own machine -- not just the current " +
+        "files, but its entire recorded history:</p>" +
+        "<pre>git clone &lt;url&gt;</pre>" +
         "<p>Either way, you end up with a normal folder you can open, " +
         "edit, and run like any other project; Git is just quietly " +
         "keeping track of it in the background.</p>",
@@ -65,11 +64,11 @@ export default {
       body:
         "<p>A <strong>branch</strong> is a separate line of work that " +
         "doesn't touch the main version of the project until you're " +
-        "ready. This module teaches <code>git switch -c " +
-        "&lt;branch-name&gt;</code> to create and switch to a new branch " +
-        "in one step -- it's the more modern, clearer form (you may also " +
-        "see the older <code>git checkout -b &lt;branch-name&gt;</code>, " +
-        "which does the same thing).</p>" +
+        "ready. Create and switch to a new branch in one step with:</p>" +
+        "<pre>git switch -c &lt;branch-name&gt;</pre>" +
+        "<p>That's the more modern, clearer form of this command -- you " +
+        "may also see the older <code>git checkout -b " +
+        "&lt;branch-name&gt;</code>, which does the same thing.</p>" +
         "<p>Working on a branch means you can try something, make a " +
         "mess, or take your time, without affecting the main copy of the " +
         "project until you decide the work is ready.</p>",
@@ -88,6 +87,9 @@ export default {
         "<p>Saving your work in Git is a repeatable loop, not a one-time " +
         "sequence -- you'll run these three commands over and over, many " +
         "times a day:</p>" +
+        "<pre>git status\ngit add &lt;file&gt;\ngit commit -m " +
+        "\"&lt;message&gt;\"</pre>" +
+        "<p>What each one does:</p>" +
         "<ul>" +
         "<li><code>git status</code> -- what has changed since your last " +
         "commit?</li>" +

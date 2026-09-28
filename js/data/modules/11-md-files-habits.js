@@ -7,7 +7,7 @@
 //
 // UPDATE (post-ship review, Yolan's CLI track): this module is reused in
 // Yolan's 15-module track, where the shared "Repos" module is excluded
-// (replaced by "Git, Properly," which doesn't cover README) -- so the
+// (replaced by "Git, Hands-On," which doesn't cover README) -- so the
 // original NFR-003 "README already defined there, not redefined here"
 // design no longer holds for every track this file is reused in. README
 // is now defined inline here too (a short glossaryTerms entry), which is

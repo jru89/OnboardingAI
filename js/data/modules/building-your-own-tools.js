@@ -26,7 +26,7 @@
 export default {
   id: "building-your-own-tools",
   order: 12,
-  title: "Building Your Own Tools with Claude Code",
+  title: "Building Your Own Tools",
   summary:
     "Teach Claude Code your own repeatable commands, skills, and helpers " +
     "-- so you stop re-explaining the same thing every session.",
