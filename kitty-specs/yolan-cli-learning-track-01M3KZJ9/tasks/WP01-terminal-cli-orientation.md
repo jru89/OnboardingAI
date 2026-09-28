@@ -17,8 +17,8 @@ subtasks:
 - T004
 phase: Phase 1 - Content (Wave 1)
 assignee: ''
-agent: "claude:sonnet-5:frontend-freddy:implementer"
-shell_pid: "25540"
+agent: "claude:sonnet-5:reviewer-renata:reviewer"
+shell_pid: "5020"
 history:
 - at: '2026-09-28T00:00:00Z'
   actor: system
@@ -405,3 +405,4 @@ export default {
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP01 --to <status>` to change WP status.
 - 2026-09-28T17:39:29Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=25540 – Assigned agent via action command
 - 2026-09-28T17:50:15Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=25540 – Ready for review
+- 2026-09-28T17:51:02Z – claude:sonnet-5:reviewer-renata:reviewer – shell_pid=5020 – Started review via action command
