@@ -28,6 +28,8 @@ subtasks:
 - T019
 phase: Phase 2 - Integration (Wave 2)
 assignee: ''
+shell_pid: "17368"
+agent: "claude:sonnet-5:frontend-freddy:implementer"
 history:
 - at: '2026-09-28T00:00:00Z'
   actor: system
@@ -375,3 +377,4 @@ breaking the shared 12-module track Wim and Princess still use.
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP04 --to <status>` to change WP status.
+- 2026-09-28T18:02:37Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=17368 – Assigned agent via action command
