@@ -56,17 +56,19 @@ export default {
     {
       heading: "Finding your way around",
       body:
-        "<p>Three commands answer \"where am I, and what's here?\"</p>" +
+        "<p>Three commands answer \"where am I, and what's here?\" Try " +
+        "them now, in order:</p>" +
+        "<pre>pwd\ncd Documents\nls</pre>" +
         "<ul>" +
         "<li><code>pwd</code> (\"print working directory\") shows the " +
         "full path of the <strong>directory</strong> (folder) you're " +
         "currently in.</li>" +
         "<li><code>cd</code> (\"change directory\") moves you into a " +
-        "different folder -- for example, <code>cd Documents</code> " +
-        "moves into a folder named Documents inside the one you're in " +
-        "now. <code>cd ..</code> moves up one level (to the parent " +
-        "folder), and <code>cd ~</code> jumps straight back to your home " +
-        "folder from anywhere.</li>" +
+        "different folder -- <code>cd Documents</code> above moves into " +
+        "a folder named Documents inside the one you're in now. " +
+        "<code>cd ..</code> moves up one level (to the parent folder), " +
+        "and <code>cd ~</code> jumps straight back to your home folder " +
+        "from anywhere.</li>" +
         "<li><code>ls</code> (\"list\") shows what's inside the current " +
         "folder. Adding an <strong>argument</strong> -- extra text after " +
         "the command that changes what it does -- like " +
@@ -108,21 +110,23 @@ export default {
         "working on real projects -- including setting up Git repos later " +
         "in this course, which are really just folders like any other, " +
         "with Git quietly keeping track of them.</p>" +
+        "<p>Try them now on a throwaway test file:</p>" +
+        "<pre>mkdir notes\ntouch notes/somefile.txt\nmv " +
+        "notes/somefile.txt notes/renamed.txt\ncp notes/renamed.txt " +
+        "notes/backup.txt\nrm notes/backup.txt</pre>" +
         "<ul>" +
         "<li><code>mkdir</code> (\"make directory\") creates a new " +
-        "folder -- <code>mkdir notes</code> creates a folder named " +
-        "notes.</li>" +
-        "<li><code>touch somefile.txt</code> creates a new, empty file " +
-        "named <code>somefile.txt</code> if it doesn't already exist.</li>" +
+        "folder -- the first line above creates one named notes.</li>" +
+        "<li><code>touch</code> creates a new, empty file if it doesn't " +
+        "already exist -- used above just to have something to practice " +
+        "on.</li>" +
         "<li><code>mv</code> (\"move\") both moves and renames -- it's " +
-        "the same operation either way. <code>mv old.txt new.txt</code> " +
-        "renames a file in place; <code>mv notes.txt notes/</code> moves " +
-        "it into the notes folder.</li>" +
-        "<li><code>cp</code> (\"copy\") makes a copy -- " +
-        "<code>cp notes.txt backup.txt</code> leaves the original alone " +
-        "and creates a second file.</li>" +
-        "<li><code>rm</code> (\"remove\") deletes a file -- " +
-        "<code>rm old.txt</code> deletes it permanently.</li>" +
+        "the same operation either way; above, it renames somefile.txt " +
+        "to renamed.txt.</li>" +
+        "<li><code>cp</code> (\"copy\") makes a copy, leaving the " +
+        "original alone -- above, backup.txt is a new second file.</li>" +
+        "<li><code>rm</code> (\"remove\") deletes a file -- above, " +
+        "backup.txt is deleted permanently, but renamed.txt stays.</li>" +
         "</ul>" +
         "<p><strong>Be careful with <code>rm</code>:</strong> unlike " +
         "dragging a file to the Trash in Finder, there is no undo and no " +
@@ -160,17 +164,19 @@ export default {
       body:
         "<p>A <strong>script</strong> is just a text file full of " +
         "commands, saved so you can run them all at once instead of " +
-        "typing them one by one -- like a little recipe. You won't write " +
-        "one in this module, and you don't need to yet. The only goal " +
-        "here is recognizing what a script is, so it's not a surprise the " +
-        "first time you're told to run one (which happens in the very " +
-        "next module).</p>" +
-        "<p>If you have a script file named <code>setup.sh</code>, the " +
-        "simplest way to run it is:</p>" +
+        "typing them one by one -- like a little recipe. Try making a " +
+        "tiny one now, using the same <code>nano</code> skill from a " +
+        "moment ago:</p>" +
+        "<pre>nano setup.sh</pre>" +
+        "<p>Type one line -- <code>echo \"Hello from my script\"</code> " +
+        "-- then save and exit the same way as before. Run it with:</p>" +
         "<pre>bash setup.sh</pre>" +
         "<p>That tells the <code>bash</code> program to read and run the " +
         "commands in that file, one after another, exactly as if you'd " +
-        "typed each one yourself. That's genuinely all you need for now.</p>",
+        "typed each one yourself -- here, just that one " +
+        "<code>echo</code> line, but the exact same idea scales to a " +
+        "script with a hundred lines. That's genuinely all you need for " +
+        "now.</p>",
 
       glossaryTerms: [
         {
@@ -203,7 +209,7 @@ export default {
         },
         {
           id: "ran-a-script",
-          label: "Ran a script with `bash somefile.sh`",
+          label: "Ran a script with `bash setup.sh`",
         },
       ],
     },

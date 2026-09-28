@@ -69,9 +69,11 @@ export default {
         "<pre>pip install anthropic</pre>" +
         "<p>Treat that API key exactly like the passwords and tokens " +
         "covered in Data Safety -- never paste it into a chat or commit it " +
-        "to a repo. The example below reads it from an environment " +
-        "variable instead, which is the standard, safe way to keep it out " +
-        "of your actual code.</p>" +
+        "to a repo. Instead, set it as an environment variable in your " +
+        "terminal:</p>" +
+        "<pre>export ANTHROPIC_API_KEY=&lt;your-key-here&gt;</pre>" +
+        "<p>The example below reads it from there automatically, which is " +
+        "the standard, safe way to keep it out of your actual code.</p>" +
         "<pre>import anthropic\n\n" +
         "client = anthropic.Anthropic()  # reads your API key from the " +
         "environment\n\n" +
@@ -81,10 +83,13 @@ export default {
         '    messages=[{"role": "user", "content": "Say hello in one sentence."}],\n' +
         ")\n\n" +
         "print(response.content[0].text)</pre>" +
-        "<p>Run it, and instead of a chat window, you get one printed " +
-        "reply -- the whole exchange is just: send one message, get one " +
-        "answer back. This is intentionally the smallest possible example " +
-        "-- it doesn't cover streaming replies, giving Claude tools to " +
+        "<p>Save that as a file named <code>hello.py</code> and run it " +
+        "with:</p>" +
+        "<pre>python3 hello.py</pre>" +
+        "<p>Instead of a chat window, you get one printed reply -- the " +
+        "whole exchange is just: send one message, get one answer back. " +
+        "This is intentionally the smallest possible example -- " +
+        "it doesn't cover streaming replies, giving Claude tools to " +
         "call, or back-and-forth multi-turn conversations. Those are real " +
         "capabilities of the API, just outside the scope of this taste.</p>",
     },
