@@ -11,5 +11,7 @@
   "purpose_tldr": "Give Yolan his own CLI-focused module track in the onboarding app, replacing the shared IDE-based curriculum he can't use.",
   "slug": "yolan-cli-learning-track-01M3KZJ9",
   "target_branch": "feat/claude-code-onboarding-lab",
-  "topology": "coord"
+  "topology": "coord",
+  "vcs": "git",
+  "vcs_locked_at": "2026-09-28T17:39:23.868726+00:00"
 }
