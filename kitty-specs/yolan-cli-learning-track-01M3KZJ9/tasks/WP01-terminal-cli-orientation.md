@@ -408,3 +408,4 @@ Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-ta
 - 2026-09-28T17:51:02Z – claude:sonnet-5:reviewer-renata:reviewer – shell_pid=5020 – Started review via action command
 - 2026-09-28T17:55:41Z – user – shell_pid=5020 – Moved to planned
 - 2026-09-28T17:57:11Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=29856 – Started implementation via action command
+- 2026-09-28T17:59:28Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=29856 – Fixed cycle-2 feedback: removed 'panel' wording from claude-code-cli-orientation.js, confirmed no other IDE-framing language present
