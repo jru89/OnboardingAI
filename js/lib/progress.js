@@ -4,12 +4,28 @@
 // module (views, lab engines) reads/writes progress exclusively through
 // the functions exported here -- see contracts/progress-store.md.
 //
-// Storage key: "ccol:progress:v1". Writes are debounced (~400ms); reads
+// Storage key: "ccol:progress:v1", namespaced per learner profile (see
+// profile.js) as "ccol:progress:v1:<profileId>" -- except "princess", who
+// keeps the original un-namespaced key so progress recorded before
+// profiles existed isn't orphaned. Writes are debounced (~400ms); reads
 // come from an in-memory cache seeded lazily on first access so repeated
 // calls don't re-parse localStorage every time.
+//
+// The cache is a single module-level variable, so it reflects whichever
+// profile was active when it was first seeded. Switching profiles (see
+// app.js) always does a full page reload, which resets this module and
+// avoids needing any runtime cache-invalidation logic here.
 
-const STORAGE_KEY = "ccol:progress:v1";
+import { getSelectedProfileId } from "./profile.js";
+
+const BASE_STORAGE_KEY = "ccol:progress:v1";
 const WRITE_DEBOUNCE_MS = 400;
+
+function getStorageKey() {
+  const profileId = getSelectedProfileId();
+  if (!profileId || profileId === "princess") return BASE_STORAGE_KEY;
+  return `${BASE_STORAGE_KEY}:${profileId}`;
+}
 
 function freshDefaultRecord() {
   return {
@@ -40,7 +56,7 @@ function isPlainRecordShape(value) {
 function ensureLoaded() {
   if (cache !== null) return;
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.localStorage.getItem(getStorageKey());
     if (!raw) {
       cache = freshDefaultRecord();
       return;
@@ -70,7 +86,7 @@ function writeNow() {
   writeTimer = null;
   cache.updatedAt = new Date().toISOString();
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(cache));
+    window.localStorage.setItem(getStorageKey(), JSON.stringify(cache));
   } catch (err) {
     // Storage full / unavailable -- nothing more we can do for v1; avoid
     // throwing out of the debounce timer.
@@ -136,7 +152,7 @@ export function resetProgress() {
     writeTimer = null;
   }
   try {
-    window.localStorage.removeItem(STORAGE_KEY);
+    window.localStorage.removeItem(getStorageKey());
   } catch (err) {
     console.error("progress.js failed to clear progress:", err);
   }

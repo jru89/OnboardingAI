@@ -27,6 +27,7 @@ const PRECACHE_URLS = [
   // js/app.js + libs
   "./js/app.js",
   "./js/lib/clipboard.js",
+  "./js/lib/profile.js",
   "./js/lib/progress.js",
   "./js/lib/prompt-builder.js",
 

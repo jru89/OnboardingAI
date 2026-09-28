@@ -13,6 +13,12 @@
 import { render as renderLanding } from "./views/landing-view.js";
 import { render as renderModule } from "./views/module-view.js";
 import { onSaved, confirmAndResetProgress } from "./lib/progress.js";
+import {
+  PROFILES,
+  getSelectedProfile,
+  setSelectedProfileId,
+  clearSelectedProfile,
+} from "./lib/profile.js";
 
 const headerEl = document.getElementById("app-header");
 const mainEl = document.getElementById("app-main");
@@ -99,6 +105,7 @@ let savedIndicatorEl = null;
 let savedIndicatorTimer = null;
 
 function buildHeader() {
+  const activeProfile = getSelectedProfile();
   headerEl.innerHTML = `
     <div class="header-inner">
       <span class="course-title">Claude Code Onboarding Lab</span>
@@ -109,6 +116,7 @@ function buildHeader() {
       </nav>
       <span id="overall-progress" class="overall-progress" aria-live="polite"></span>
       <span id="saved-indicator" class="saved-indicator" aria-live="polite" hidden>Saved</span>
+      <button type="button" id="header-profile-btn" class="header-profile-btn" aria-label="${activeProfile ? `${activeProfile.name} -- switch profile` : "Switch profile"}">${activeProfile ? activeProfile.name : "Switch profile"}</button>
       <button type="button" id="header-reset-btn" class="header-reset-btn">Reset progress</button>
     </div>
   `;
@@ -131,6 +139,15 @@ function buildHeader() {
     // stale-looking mismatch and doubles as a clear "you're starting over"
     // confirmation.
     if (confirmAndResetProgress()) navigateTo("/");
+  });
+  const profileBtn = headerEl.querySelector("#header-profile-btn");
+  profileBtn.addEventListener("click", () => {
+    // Switching is always allowed, from anywhere -- no profile's modules
+    // or progress are shielded from any other, so this just re-shows the
+    // picker. A full reload keeps progress.js's storage-key lookup and
+    // in-memory cache trivially correct for the new profile.
+    clearSelectedProfile();
+    window.location.reload();
   });
   headerBuilt = true;
 }
@@ -293,8 +310,46 @@ function renderGate(onUnlock) {
   });
 }
 
+/* ------------------------------------------------------------------ */
+/* Profile picker                                                      */
+/* ------------------------------------------------------------------ */
+//
+// Not an access boundary (see profile.js) -- just "whose name is this
+// device set to" so progress.js can keep separate progress per person and
+// the header can show a name. Every profile's module list and progress is
+// equally reachable by switching (header button), by design.
+
+function renderProfilePicker(onChosen) {
+  headerEl.innerHTML = "";
+  const choiceButtons = PROFILES.map(
+    (profile) =>
+      `<button type="button" class="profile-choice" data-profile-id="${profile.id}">${profile.name}</button>`,
+  ).join("");
+  mainEl.innerHTML = `
+    <div class="gate">
+      <h1 class="gate-title">Who's this?</h1>
+      <p class="gate-intro">Pick your name to see your own modules and progress -- everyone's is visible to everyone, so switch anytime from the header.</p>
+      <div class="profile-choices">${choiceButtons}</div>
+    </div>
+  `;
+  for (const button of mainEl.querySelectorAll(".profile-choice")) {
+    button.addEventListener("click", () => {
+      setSelectedProfileId(button.dataset.profileId);
+      onChosen();
+    });
+  }
+}
+
+function bootAppForProfile() {
+  if (getSelectedProfile()) {
+    bootApp();
+  } else {
+    renderProfilePicker(bootApp);
+  }
+}
+
 if (isGatePassed()) {
-  bootApp();
+  bootAppForProfile();
 } else {
-  renderGate(bootApp);
+  renderGate(bootAppForProfile);
 }
