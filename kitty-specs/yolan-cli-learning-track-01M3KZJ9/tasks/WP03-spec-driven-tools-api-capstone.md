@@ -22,7 +22,8 @@ subtasks:
 - T013
 phase: Phase 1 - Content (Wave 1)
 assignee: ''
-shell_pid: '26932'
+shell_pid: "19540"
+agent: "claude:sonnet-5:frontend-freddy:implementer"
 history:
 - at: '2026-09-28T00:00:00Z'
   actor: system
@@ -406,3 +407,4 @@ Order values for this WP's four modules within Yolan's 15-module track:
 ### Updating Status
 
 Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-task WP03 --to <status>` to change WP status.
+- 2026-09-28T17:41:19Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=19540 – Assigned agent via action command
