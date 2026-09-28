@@ -17,8 +17,8 @@ subtasks:
 - T004
 phase: Phase 1 - Content (Wave 1)
 assignee: ''
-agent: "claude:sonnet-5:frontend-freddy:implementer"
-shell_pid: "29856"
+agent: "claude:sonnet-5:reviewer-renata:reviewer"
+shell_pid: "33736"
 history:
 - at: '2026-09-28T00:00:00Z'
   actor: system
@@ -409,3 +409,5 @@ Status is managed via `status.events.jsonl`. Use `spec-kitty agent tasks move-ta
 - 2026-09-28T17:55:41Z – user – shell_pid=5020 – Moved to planned
 - 2026-09-28T17:57:11Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=29856 – Started implementation via action command
 - 2026-09-28T17:59:28Z – claude:sonnet-5:frontend-freddy:implementer – shell_pid=29856 – Fixed cycle-2 feedback: removed 'panel' wording from claude-code-cli-orientation.js, confirmed no other IDE-framing language present
+- 2026-09-28T18:00:01Z – claude:sonnet-5:reviewer-renata:reviewer – shell_pid=33736 – Started review via action command
+- 2026-09-28T18:01:45Z – user – shell_pid=33736 – Cycle 2 fix verified: claude-code-cli-orientation.js no longer says 'editor-panel version' (now 'editor version'); full-file grep confirms the only remaining 'panel' is in the header comment describing design intent, not shipped content. Judgment call: terminal-basics.js line 28's 'lives inside a code editor as a panel' is a legitimate one-line factual contrast in a DIFFERENT module (general terminal literacy, not the CLI-orientation module the constraint targets), explaining a device-compatibility fact (Yolan's Mac can't run the editor-panel version) rather than importing IDE framing into a description of the CLI experience -- it matches T001's own spec guidance to frame this around 'the reason (his device), not a value judgment about CLI vs. IDE,' and cycle-1's rejection + the fix-mode prompt scoped the required fix to claude-code-cli-orientation.js only, so leaving it untouched here was correct, not evasive. Spot-checked ids/order/shape on all three files (terminal-basics order:1, make-your-terminal-yours order:2, claude-code-cli-orientation order:3; all have id/title/summary/content/labs), confirmed index.js has zero diff vs mission base (still the pre-existing 12-module aggregator, untouched by this WP as expected), confirmed terminal-basics.js and make-your-terminal-yours.js have had no changes since their original authoring commit (insertion-only diff), verified Ghostty is mentioned only as a future option and never prescribed, and verified glossaryTerms cover Claude Code/project/permission prompt in the orientation module. Anti-pattern checklist: 1 N/A (data-only modules, WP04 owns wiring per spec), 2 N/A (no tests), 3 N/A (no logic/returns), 4 PASS (FR-003/004/005 content present), 5 PASS (index.js untouched), 6 PASS (no Apple-Silicon-only paths, Ghostty not prescribed), 7 PASS (no shared files touched), 8 N/A (no raise statements).
