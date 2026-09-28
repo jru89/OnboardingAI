@@ -3,10 +3,14 @@
 
 import { navigateTo } from "../app.js";
 import { getProgress, confirmAndResetProgress, onSaved } from "../lib/progress.js";
-// WP08/T042: real module content now exists -- import the aggregated,
-// order-sorted module list from js/data/modules/index.js instead of the
-// WP02-era placeholder stub list it used to define locally here.
-import MODULE_STUBS from "../data/modules/index.js";
+// WP04/T015: resolve the module list per active profile instead of the
+// shared default export -- see
+// kitty-specs/yolan-cli-learning-track-01M3KZJ9/contracts/module-list-resolution.md.
+// Yolan gets her own 15-module track; every other profile (and no profile
+// selected yet) still gets exactly the shared 12-module list this file used
+// to import directly.
+import { getModulesForProfile } from "../data/modules/index.js";
+import { getSelectedProfileId } from "../lib/profile.js";
 
 const STATUS_LABELS = {
   not_started: "Not started",
@@ -31,10 +35,11 @@ function renderOverallProgress() {
   if (!overallEl) return;
   const { moduleStatus } = getProgress();
   const done = countDone(moduleStatus);
-  overallEl.textContent = `${done} of ${MODULE_STUBS.length} modules complete`;
+  const list = getModulesForProfile(getSelectedProfileId());
+  overallEl.textContent = `${done} of ${list.length} modules complete`;
 }
 
-function buildModuleCard(module, status) {
+function buildModuleCard(module, status, displayNumber) {
   const card = document.createElement("a");
   card.className = "module-card";
   card.href = `#/module/${encodeURIComponent(module.id)}`;
@@ -48,7 +53,13 @@ function buildModuleCard(module, status) {
 
   const title = document.createElement("span");
   title.className = "module-card-title";
-  title.textContent = `${module.order}. ${module.title}`;
+  // WP04/T015: display numbering derives from the module's position in the
+  // resolved list (index + 1), not from module.order -- see data-model.md's
+  // "Display-numbering derivation" section. This is the only way to get
+  // correct numbering for the 5 reused modules inside Yolan's differently
+  // ordered track, whose stored `.order` values don't match their position
+  // there.
+  title.textContent = `${displayNumber}. ${module.title}`;
   titleRow.appendChild(title);
 
   const badge = document.createElement("span");
@@ -89,10 +100,18 @@ function renderLanding(container) {
 
   const list = document.createElement("div");
   list.className = "module-list";
-  const sorted = [...MODULE_STUBS].sort((a, b) => a.order - b.order);
-  for (const module of sorted) {
-    list.appendChild(buildModuleCard(module, statusFor(moduleStatus, module.id)));
-  }
+  // WP04/T015: resolved fresh per render (never cached across renders/profile
+  // switches -- see the contract's "Consumer obligations"). No `.sort()`
+  // here: the shared list is already sorted at its definition site, and
+  // Yolan's track is already in its intended display order -- re-sorting by
+  // `.order` would scramble the 5 reused modules back to their original
+  // positions.
+  const resolvedModules = getModulesForProfile(getSelectedProfileId());
+  resolvedModules.forEach((module, index) => {
+    list.appendChild(
+      buildModuleCard(module, statusFor(moduleStatus, module.id), index + 1),
+    );
+  });
   container.appendChild(list);
 
   const resetSection = document.createElement("div");

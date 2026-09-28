@@ -57,6 +57,16 @@ const PRECACHE_URLS = [
   "./js/data/modules/10-automate-a-task.js",
   "./js/data/modules/11-md-files-habits.js",
   "./js/data/modules/12-graduation.js",
+  "./js/data/modules/terminal-basics.js",
+  "./js/data/modules/make-your-terminal-yours.js",
+  "./js/data/modules/claude-code-cli-orientation.js",
+  "./js/data/modules/git-properly.js",
+  "./js/data/modules/github-hosting.js",
+  "./js/data/modules/mcp-servers-hands-on.js",
+  "./js/data/modules/spec-driven-development.js",
+  "./js/data/modules/building-your-own-tools.js",
+  "./js/data/modules/claude-api-taste.js",
+  "./js/data/modules/capstone-ship-a-real-tool.js",
 
   // icons
   "./icons/icon-192.png",

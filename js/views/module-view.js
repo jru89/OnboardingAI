@@ -12,12 +12,16 @@
 
 import { navigateTo } from "../app.js";
 import { getProgress, setModuleStatus, onSaved } from "../lib/progress.js";
-// WP08/T042: real module content now exists for all 12 modules -- import
-// the aggregated, order-sorted list from js/data/modules/index.js instead
-// of the WP03-era local placeholder stubs this file used to define here.
-// Also used by the prev/next pager below: MODULES is already sorted by
-// `order`, so adjacency here is just array-index adjacency.
-import MODULES from "../data/modules/index.js";
+// WP04/T016: resolve the module list per active profile instead of the
+// shared default export -- see
+// kitty-specs/yolan-cli-learning-track-01M3KZJ9/contracts/module-list-resolution.md.
+// Used both for the getModule(id) lookup below and the prev/next pager's
+// adjacency logic: the resolved list is already in its intended display
+// order (shared list sorted by `order` at its definition site; Yolan's
+// track authored in its own intended order), so adjacency is just
+// array-index adjacency within whichever list is currently active.
+import { getModulesForProfile } from "../data/modules/index.js";
+import { getSelectedProfileId } from "../lib/profile.js";
 
 /* ------------------------------------------------------------------ */
 /* Module lookup (T042)                                                */
@@ -37,7 +41,8 @@ const GENERIC_STUB_CONTENT = [
 ];
 
 function getModule(id) {
-  const known = MODULES.find((module) => module.id === id);
+  const modules = getModulesForProfile(getSelectedProfileId());
+  const known = modules.find((module) => module.id === id);
   if (known) return known;
   return { id, title: id, content: GENERIC_STUB_CONTENT, labs: [] };
 }
@@ -213,18 +218,20 @@ function renderContentSection(section) {
 /* ------------------------------------------------------------------ */
 //
 // Added after user feedback that reaching the next lesson always required
-// going back through the landing view. MODULES is already order-sorted
-// (WP08/T042), so the adjacent module is just the adjacent array index --
-// no separate "order" lookup needed. First module has no previous, last
-// (the graduation module) has no next.
+// going back through the landing view. The resolved list (WP08/T042, now
+// profile-aware per WP04/T016) is already in its intended display order,
+// so the adjacent module is just the adjacent array index -- no separate
+// "order" lookup needed. First module has no previous, last module in the
+// active track has no next.
 
 function renderPager(currentModuleId) {
-  const currentIndex = MODULES.findIndex((m) => m.id === currentModuleId);
+  const modules = getModulesForProfile(getSelectedProfileId());
+  const currentIndex = modules.findIndex((m) => m.id === currentModuleId);
   if (currentIndex === -1) return null;
 
-  const prevModule = currentIndex > 0 ? MODULES[currentIndex - 1] : null;
+  const prevModule = currentIndex > 0 ? modules[currentIndex - 1] : null;
   const nextModule =
-    currentIndex < MODULES.length - 1 ? MODULES[currentIndex + 1] : null;
+    currentIndex < modules.length - 1 ? modules[currentIndex + 1] : null;
   if (!prevModule && !nextModule) return null;
 
   const pager = document.createElement("nav");

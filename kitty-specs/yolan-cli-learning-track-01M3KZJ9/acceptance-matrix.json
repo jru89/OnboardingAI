@@ -202,7 +202,7 @@
       "verification_method": "custom_command",
       "verification_command": "git diff kitty/mission-yolan-cli-learning-track-01M3KZJ9^..HEAD -- js/data/modules/index.js (inspected manually: 12-import block, modules array, its .sort(), and export default modules)",
       "result": "confirmed_absent",
-      "evidence": "WP04 reviewer diffed the pre/post state of that region -- confirmed byte-for-byte unchanged; no unauthorized modification present."
+      "evidence": "Command exited 0: "
     },
     {
       "invariant_id": "NI-002",
@@ -210,7 +210,7 @@
       "verification_method": "grep_absence",
       "verification_command": "grep -r \"type: \\\"\" js/data/modules/*.js | grep -vE \"checklist|match|quiz|prompt-builder|spot-mistake|download\"",
       "result": "confirmed_absent",
-      "evidence": "All new labs across WP01-WP03 use only the pre-existing checklist, match, quiz, and prompt-builder engines with unmodified config contracts -- no new lab.type value found."
+      "evidence": "grep found zero matches"
     }
   ]
 }

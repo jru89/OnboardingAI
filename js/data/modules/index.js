@@ -37,3 +37,50 @@ const modules = [
 ].sort((a, b) => a.order - b.order);
 
 export default modules;
+
+// WP04/T014: Yolan's dedicated 15-module track (FR-001/FR-002). Built from
+// the 10 new module files authored in WP01/WP02/WP03 plus 5 modules reused
+// by reference (same imported binding used by `modules` above -- not a
+// second import, not a copy) from the shared track. See
+// kitty-specs/yolan-cli-learning-track-01M3KZJ9/contracts/module-list-resolution.md
+// for the full contract this function implements.
+
+import terminalBasics from "./terminal-basics.js";
+import makeYourTerminalYours from "./make-your-terminal-yours.js";
+import claudeCodeCliOrientation from "./claude-code-cli-orientation.js";
+import gitProperly from "./git-properly.js";
+import githubHosting from "./github-hosting.js";
+import mcpServersHandsOn from "./mcp-servers-hands-on.js";
+import specDrivenDevelopment from "./spec-driven-development.js";
+import buildingYourOwnTools from "./building-your-own-tools.js";
+import claudeApiTaste from "./claude-api-taste.js";
+import capstoneShipARealTool from "./capstone-ship-a-real-tool.js";
+
+const yolanTrack = [
+  terminalBasics,
+  makeYourTerminalYours,
+  claudeCodeCliOrientation,
+  aiVsClaudeCode, // reused -- same import already used by `modules` above
+  dataSafety, // reused -- same import already used by `modules` above
+  gitProperly,
+  githubHosting,
+  mcpServersHandsOn,
+  prompting101, // reused
+  prompting201, // reused
+  specDrivenDevelopment,
+  buildingYourOwnTools,
+  claudeApiTaste,
+  mdFilesHabits, // reused
+  capstoneShipARealTool,
+]; // array order IS the display/navigation order -- no `.sort()` applied
+
+/**
+ * Resolves the active learner profile to its module track. Yolan gets her
+ * own dedicated 15-module list; every other profile (including no profile
+ * selected yet) falls back to the existing shared 12-module list. Pure,
+ * never throws -- see contracts/module-list-resolution.md.
+ */
+export function getModulesForProfile(profileId) {
+  if (profileId === "yolan") return yolanTrack;
+  return modules;
+}

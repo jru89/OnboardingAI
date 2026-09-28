@@ -4,7 +4,7 @@
   "flattened": false,
   "friendly_name": "Yolan's CLI Learning Track",
   "mission_id": "01M3KZJ92VZXRGCT8BSVD9R79W",
-  "mission_number": null,
+  "mission_number": 3,
   "mission_slug": "yolan-cli-learning-track-01M3KZJ9",
   "mission_type": "software-dev",
   "purpose_context": "Yolan uses an older Intel Mac (macOS Monterey 12.7.6) that cannot run the Claude Code IDE extension, so he needs a distinct, more advanced learning path built around the command line: terminal setup and styling, Git/GitHub, hands-on MCP, spec-driven development, building tools with Claude Code, and a real capstone project -- while dropping the Gemini-specific content that doesn't apply to him. This requires both new module content and a profile-aware module-list mechanism so his profile loads a different curriculum than the shared one.",

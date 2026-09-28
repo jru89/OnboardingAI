@@ -78,6 +78,22 @@ export default {
       ],
     },
     {
+      heading: "Never commit secrets to a git repository",
+      body:
+        "<p>The same logic applies once your work lives in a git " +
+        "repository, even a private one: never commit a secret or API " +
+        "key into it. \"Private\" doesn't mean \"safe\" here -- a private " +
+        "repo can still be shared, made public later, or seen by a " +
+        "collaborator, a service you connect it to, or a backup. And " +
+        "unlike a chat message, a commit doesn't go away when you " +
+        "regret it: once something is committed, it's in the project's " +
+        "history, and simply deleting it in a later commit doesn't erase " +
+        "it -- anyone with access to the repository's history can still " +
+        "find it. If a real secret ever ends up committed, the safe fix " +
+        "is to treat it as compromised and replace it at the source, not " +
+        "just remove it from the latest version of the file.</p>",
+    },
+    {
       heading: "SSH private keys",
       body:
         "<p>An <strong>SSH key</strong> pair is a security credential used " +
