@@ -93,15 +93,21 @@ mission touches them.
   module instruct the learner to inspect Spec Kitty, the service worker,
   or any of this repo's own internals -- those are incidental to this
   project, not part of the lesson.
-- The shared app already has a conceptual "Repos" module (what a repo is,
-  common files/folders) and a conceptual "MCP Servers" module (what MCP
-  is, what belongs in a config) -- both are reused unchanged elsewhere in
-  the app. "Git, Properly" and "MCP Servers, Hands-On" assume that
-  conceptual grounding already happened earlier in Yolan's track (they sit
-  right after it) and go straight to hands-on commands/setup -- do not
-  re-explain "what is a repo" or "what is MCP" from scratch; a one-line
-  callback ("you already know what a repo is -- now let's actually use
-  one") is enough.
+- The shared app has a conceptual "Repos" module (what a repo is, common
+  files/folders) and a conceptual "MCP Servers" module (what MCP is, what
+  belongs in a config), both reused unchanged in the Wim/Princess shared
+  track. **Correction from `/spec-kitty.analyze` finding I2**: an earlier
+  draft of this WP wrongly assumed those two conceptual modules "sit right
+  earlier in Yolan's track" and that "Git, Properly"/"MCP Servers,
+  Hands-On" could skip re-explaining the basics as a result. They cannot --
+  per `spec.md`'s Key Entities table, both conceptual modules are
+  **excluded** from Yolan's 15-module list entirely (these two new modules
+  *replace* them, not follow them). Nothing else in Yolan's track explains
+  "what is a repo" or "what is MCP." Each of "Git, Properly" and "MCP
+  Servers, Hands-On" MUST therefore include its own brief grounding (a few
+  sentences, not a full re-teaching, and not a copy of the shared
+  conceptual module's exact wording) before going hands-on -- see each
+  subtask's guidance below for exactly where.
 
 ### Module authoring reference (read this before writing any file)
 
@@ -154,12 +160,23 @@ Order values for this WP's three modules within Yolan's 15-module track:
 
 ### Subtask T005 – Author "Git, Properly"
 
-- **Purpose**: Hands-on Git commands, assuming the conceptual "what's a
-  repo" grounding already happened.
+- **Purpose**: Hands-on Git commands. **Correction from
+  `/spec-kitty.analyze` finding I2**: this module can NOT assume prior
+  "what's a repo" grounding -- the shared conceptual Repos module is
+  excluded from Yolan's track (replaced by this one), so this module is
+  the only place that idea will ever appear for him.
 - **Steps**:
   1. Create `js/data/modules/git-properly.js`, `id: "git-properly"`,
      `order: 6`.
   2. Content sections, in order:
+     - **What's a repo, briefly** -- a short (2-3 sentence) grounding
+       section: a repo is a folder of project files tracked over time by
+       Git, so every change is recorded and can be undone. This is
+       intentionally brief -- not a full re-teaching of the shared Repos
+       module's "what's usually inside a repo" file-listing content, just
+       enough that "repo," "commit," and "clone" below aren't landing on
+       someone with zero context. Define "repository (repo)" via
+       `glossaryTerms` here.
      - **Cloning a repo** -- `git clone <url>`, what it actually does
        (downloads the full project + its history onto his machine).
      - **Branches** -- `git branch`, `git switch` or `git checkout -b`
@@ -234,22 +251,37 @@ Order values for this WP's three modules within Yolan's 15-module track:
 ### Subtask T007 – Author "MCP Servers, Hands-On"
 
 - **Purpose**: Actually connect and use one real MCP server -- written
-  generically for future reuse by Wim's track (C-005).
+  generically for future reuse by Wim's track (C-005). **Correction from
+  `/spec-kitty.analyze` finding I2**: this module can NOT assume prior
+  "what's MCP" grounding -- the shared conceptual MCP Servers module is
+  excluded from Yolan's track (replaced by this one), so this module is
+  the only place that idea will ever appear for him. (Wim's future track
+  may or may not include the conceptual module either, since this file is
+  written for his reuse too -- self-contained grounding is the safe
+  choice either way.)
 - **Steps**:
   1. Create `js/data/modules/mcp-servers-hands-on.js`,
      `id: "mcp-servers-hands-on"`, `order: 8`.
-  2. Open with one line acknowledging the conceptual grounding already
-     happened (the reused MCP Servers module) -- "You already know what
-     MCP is and what belongs in a config. Let's actually connect one."
-  3. Content sections, in order:
+  2. Content sections, in order:
+     - **What's MCP, briefly** -- a short (2-3 sentence) grounding
+       section: MCP (Model Context Protocol) is a shared, open way for an
+       AI assistant to connect to outside tools and data -- like a
+       calendar, a database, or in this case a folder on your machine --
+       instead of being limited to only what's already in front of it. An
+       MCP server is one such connection point; an MCP configuration is
+       the settings file that tells Claude Code which servers to use.
+       Define "MCP (Model Context Protocol)," "MCP server," and "MCP
+       configuration" via `glossaryTerms` here -- this is intentionally
+       brief, not the shared conceptual module's full treatment (which
+       also covers config-file judgment calls this hands-on module
+       doesn't need).
      - **The server you'll use** -- introduce the official reference
        **filesystem** MCP server (`@modelcontextprotocol/server-filesystem`)
        by name, and why it's a good first one: no signup, no API key, no
        external service -- it just exposes a folder on your own machine to
        Claude Code.
      - **Connecting it** -- describe adding it to Claude Code's MCP
-       configuration (referencing the reused module's existing
-       explanation of what an MCP config file is/does), pointed at a
+       configuration (the concept just defined above), pointed at a
        folder of his choosing.
      - **Using it** -- a concrete example prompt that would only work
        *because* the server is connected (e.g. asking Claude Code to list
@@ -312,16 +344,21 @@ Order values for this WP's three modules within Yolan's 15-module track:
   Pages pattern, confusing a reader who isn't inside this project.
   **Mitigation**: T006's explicit instruction to describe the pattern
   generically.
-- **Risk**: Git terminology overlaps confusingly with the reused
-  conceptual Repos module's existing glossary (e.g. "repo" itself).
-  **Mitigation**: check that module's existing glossary before adding a
-  duplicate entry.
+- **Risk** (`/spec-kitty.analyze` finding I2): "Git, Properly" or "MCP
+  Servers, Hands-On" ships without its own "what's a repo"/"what's MCP"
+  grounding, leaving those terms undefined for Yolan since the shared
+  conceptual modules aren't part of his track. **Mitigation**: both
+  subtasks' corrected first content section (T005's "What's a repo,
+  briefly," T007's "What's MCP, briefly") plus the corrected Review
+  Guidance check below.
 
 ## Review Guidance
 
-- Confirm "Git, Properly" and "MCP Servers, Hands-On" do not re-explain
-  "what is a repo" / "what is MCP" from scratch (should assume and briefly
-  reference the conceptual grounding instead).
+- Confirm "Git, Properly" and "MCP Servers, Hands-On" each include their
+  own brief "what's a repo" / "what's MCP" grounding (a few sentences,
+  with a `glossaryTerms` entry) rather than assuming it happened elsewhere
+  in Yolan's track -- per the I2 correction above, nothing else in his
+  track covers it.
 - Confirm "MCP Servers, Hands-On" names the official filesystem reference
   server specifically and reads generically (no Yolan-specific framing).
 - Confirm "GitHub & Hosting" describes the GitHub Pages pattern generically

@@ -153,7 +153,7 @@ over-engineering for a currently-single second track.
 - **Relevant requirements**: FR-008
 - **Affected surfaces**: `js/data/modules/git-properly.js` (new)
 - **Sequencing/depends-on**: IC-01
-- **Risks**: Must not duplicate the existing shared Repos module's conceptual "what's a repo" framing verbatim -- this module assumes that context and goes straight to hands-on commands.
+- **Risks**: **Correction from `/spec-kitty.analyze` finding I2**: the shared "Repos" module is *excluded* from Yolan's track entirely (replaced by this module), not merely preceded by it -- so nothing else in his track explains "what's a repo." This module must include its own brief (a few sentences, not a full re-teaching) "what's a repo" grounding before going hands-on, distinct in wording from the shared Repos module's own framing (not a duplicate, just not silently assumed either).
 
 ### IC-07 — GitHub & Hosting (new module)
 
@@ -169,7 +169,7 @@ over-engineering for a currently-single second track.
 - **Relevant requirements**: FR-010, C-005
 - **Affected surfaces**: `js/data/modules/mcp-servers-hands-on.js` (new)
 - **Sequencing/depends-on**: IC-01
-- **Risks**: Must pick a genuinely low-friction real MCP server (no paid signup, no complex auth) so the exercise is actually completable by a beginner -- see research.md for the specific server chosen. Must be written generically (no Yolan-specific framing) per C-005, since Wim's future track is expected to reuse this exact file.
+- **Risks**: Must pick a genuinely low-friction real MCP server (no paid signup, no complex auth) so the exercise is actually completable by a beginner -- see research.md for the specific server chosen. Must be written generically (no Yolan-specific framing) per C-005, since Wim's future track is expected to reuse this exact file. **Correction from `/spec-kitty.analyze` finding I2**: the shared "MCP Servers" module is *excluded* from Yolan's track entirely (replaced by this module), not merely preceded by it -- so nothing else in his track explains "what's MCP." This module must include its own brief "what's MCP" grounding before going hands-on (this also serves Wim's future reuse of this file, since his track may or may not include the conceptual module either).
 
 ### IC-09 — Spec-Driven Development (new module, written for future reuse)
 

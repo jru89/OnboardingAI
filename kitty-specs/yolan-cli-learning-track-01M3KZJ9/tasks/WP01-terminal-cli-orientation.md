@@ -273,12 +273,15 @@ export default {
        into a project folder, and starting a Claude Code session there.
        Reinforce that Claude Code only sees/changes files inside that
        folder (same rule as the IDE version, different mechanism for
-       "being there").
+       "being there"). This section's `glossaryTerms` should include
+       "Claude Code" and "project" -- this is their first (and, per the
+       fix above, only) definition anywhere in Yolan's track.
      - **What you'll see** -- the input prompt where he types in plain
        English, and how a terminal-based permission prompt looks/behaves
        (a clear yes/no choice printed in the terminal, nothing happens
        until he answers) -- mirror the shared module's "stop and
-       understand before approving" guidance.
+       understand before approving" guidance. This section's
+       `glossaryTerms` should include "permission prompt."
      - **When you're stuck, ask** -- directly addresses the plan's "the
        habit of asking Claude Code when he's stuck rather than guessing"
        goal: if a command fails, an install step doesn't work, or he
@@ -287,12 +290,27 @@ export default {
        thing to do -- that's what it's there for.
      - **See it in action** -- reuse the same official-docs link pattern
        as the shared Module 1 (`https://docs.claude.com/en/docs/claude-code/overview`).
-  4. Define new terms via `glossaryTerms` as needed (many, like "Claude
-     Code," "project," "permission prompt," are already defined in the
-     shared Module 2/reused modules elsewhere in Yolan's track -- do not
-     re-define a term that's already covered by a module earlier in his
-     track; only define what's genuinely new here, e.g. anything specific
-     to a terminal session vs. an IDE panel).
+  4. **Define "Claude Code," "project," and "permission prompt" via
+     `glossaryTerms` in this module** (CLI-adapted wording, mirroring the
+     shared "Get Oriented" module's own definitions but reframed for a
+     terminal session rather than an IDE panel). **Correction from
+     `/spec-kitty.analyze` finding I1**: an earlier draft of this WP
+     wrongly assumed these terms were "already defined elsewhere in
+     Yolan's track" (e.g. by the reused "AI vs. Claude Code" module) --
+     they are not. The only module that ever defines them is the shared
+     "Get Oriented" module, which Yolan's track does **not** include (this
+     module *replaces* it, at position 3 -- it is not preceded by it).
+     Confirmed by inspection: `02-ai-vs-claude-code.js` (position 4, right
+     after this module) uses "Claude Code" throughout with no glossary
+     entry of its own, and only defines `LLM`, `chatbot`, `tool use`,
+     `file access`, `multi-step execution` -- it depends on this module
+     having defined "Claude Code" first. Skipping these definitions here
+     would leave them undefined for the rest of Yolan's track, violating
+     NFR-001. Only skip a definition if it's genuinely redundant with a
+     term already covered by a module that actually precedes this one in
+     Yolan's *own* 15-module order (Terminal Basics, Make Your Terminal
+     Yours -- neither defines these three terms, so no such redundancy
+     exists here).
   5. Lab: a `quiz` lab mirroring the shared Module 1's "Would you allow
      this?" permission-judgment exercise (5 items, `options: ["Allow",
      "Don't allow", "Not sure -- inspect first"]`, each with a short
@@ -349,11 +367,15 @@ export default {
   framing (a "panel," an "activity bar") by copying too closely from the
   shared Module 1. **Mitigation**: read the shared module first for shape
   only, then write CLI content from scratch, not by find-and-replace.
-- **Risk**: Terms already covered by earlier modules in Yolan's track
-  (e.g. "Claude Code," "permission prompt" from the reused Module 2) get
-  redundantly redefined here, cluttering the glossary. **Mitigation**:
-  T003's explicit instruction to only define what's genuinely new to this
-  module.
+- **Risk** (`/spec-kitty.analyze` finding I1): this module skips defining
+  "Claude Code," "project," or "permission prompt" on the mistaken belief
+  they're covered elsewhere in Yolan's track, leaving them undefined for
+  the rest of his 15 modules (starting with the very next one, the reused
+  "AI vs. Claude Code," which uses "Claude Code" throughout with no
+  glossary entry of its own) -- an NFR-001 violation. **Mitigation**:
+  T003's corrected step 4, which explicitly requires defining all three
+  terms in this module and explains why no earlier module in Yolan's
+  track covers them.
 
 ## Review Guidance
 
@@ -362,6 +384,8 @@ export default {
   prescribed (only mentioned as a future option).
 - Confirm "Claude Code, from the Command Line" contains no IDE-panel
   framing (no "panel," "activity bar," "docked," or similar).
+- Confirm "Claude Code, from the Command Line" defines "Claude Code,"
+  "project," and "permission prompt" via `glossaryTerms` (I1 fix).
 - Confirm the T003 quiz lab has 5 items with explanations, matching the
   judgment lesson (not necessarily the exact wording) of the shared
   Module 1's permission-judgment exercise.
